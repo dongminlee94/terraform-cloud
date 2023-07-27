@@ -1,3 +1,3 @@
-# Terraform with GCP
+# Terraform with Cloud
 
-Hands on Terraform with GCP
+Hands on Terraform with Cloud (e.g., AWS, GCP)
