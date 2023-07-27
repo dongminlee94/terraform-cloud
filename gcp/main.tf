@@ -58,6 +58,10 @@ resource "google_compute_instance" "tf_gcp_prod" {
     }
 
     tags = ["allow-http", "allow-ssh"]
+
+    metadata = {
+        "ssh-keys" = "default:$(file('${local.home_path}/.ssh/id_rsa.pub'))"
+    }
 }
 
 resource "google_compute_address" "tf_gcp_prod" {
