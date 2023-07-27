@@ -1,5 +1,5 @@
 variable "project" {
-    description = "project name"
+    description = "Set up a project name"
     type        = string
     default     = "nth-infusion-392203"
 }

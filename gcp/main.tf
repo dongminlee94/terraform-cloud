@@ -56,9 +56,39 @@ resource "google_compute_instance" "tf_gcp_prod" {
         email  = google_service_account.gce.email
         scopes = ["cloud-platform"]
     }
+
+    tags = ["allow-http", "allow-ssh"]
 }
 
 resource "google_compute_address" "tf_gcp_prod" {
     name   = "tf-gcp-prod"
     region = "asia-northeast1"
+}
+
+resource "google_compute_firewall" "allow_ssh" {
+    name = "allow-ssh"
+    network = google_compute_network.tf_gcp.name
+    description = "Allow ssh from anywhere"
+
+    allow {
+        protocol = "tcp"
+        ports = ["22"]
+    }
+
+    source_ranges = ["0.0.0.0/0"]
+    target_tags = ["allow-ssh"]
+}
+
+resource "google_compute_firewall" "allow_http" {
+    name = "allow-http"
+    network = google_compute_network.tf_gcp.name
+    description = "Allow http from anywhere"
+
+    allow {
+        protocol = "tcp"
+        ports = ["80"]
+    }
+
+    source_ranges = ["0.0.0.0/0"]
+    target_tags = ["allow-http"]
 }
