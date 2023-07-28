@@ -5,6 +5,10 @@ terraform {
             version = "4.33.0"
         }
     }
+
+    backend "gcs" {
+        bucket = "tf-gcp-prod"
+    }
 }
 
 locals {
@@ -30,4 +34,8 @@ module "iam" {
 
 module "network" {
     source = "./modules/network"
+}
+
+module "storage" {
+    source = "./modules/storage"
 }
