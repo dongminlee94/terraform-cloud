@@ -1,10 +1,10 @@
-name: "[Repo CI] Terraform with GCP"
+name: "[Repo CI] Terraform PR with GCP"
 
 on:
   pull_request:
 
 jobs:
-  terraform-gcp:
+  gcp:
     runs-on: ubuntu-latest
 
     defaults:
@@ -63,7 +63,6 @@ jobs:
         PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const output = `#### Terraform Format and Style 🖌\`${{ steps.format.outcome }}\`
           #### Terraform Lint 🔨\`${{ steps.lint.outcome }}\`
