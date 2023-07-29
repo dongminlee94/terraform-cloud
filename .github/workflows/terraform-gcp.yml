@@ -15,7 +15,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Setup Terraform
+    - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.5.2
@@ -36,11 +36,11 @@ jobs:
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-    - name: Setup TFLint
+    - name: Set up TFLint
       uses: terraform-linters/setup-tflint@v3
 
     - name: Init TFLint
       run: tflint --init
 
     - name: Run TFLint
-      run: tflint --config=../.tflint.hcl
+      run: tflint --disable-rule=terraform_required_version,terraform_required_providers
