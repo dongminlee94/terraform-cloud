@@ -43,4 +43,4 @@ jobs:
       run: tflint --init
 
     - name: Run TFLint
-      run: tflint --disable-rule terraform_required_version terraform_required_providers
+      run: tflint --disable-rule terraform_required_version
