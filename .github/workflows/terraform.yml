@@ -10,9 +10,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Backup .terraform.lock.hcl files
-      run: find . -name .terraform.lock.hcl -exec cp {} {}.backup \;
-
     - name: Save secrets to files
       run: |
         mkdir -p /home/runner/.gcp
@@ -35,7 +32,3 @@ jobs:
       uses: pre-commit/action@v3.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Restore .terraform.lock.hcl files if changed
-      run: |
-        find . -name .terraform.lock.hcl.backup -exec bash -c 'diff -q "$1" "${1%.backup}" || cp "$1" "${1%.backup}"' -- {} \;
