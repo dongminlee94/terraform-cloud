@@ -22,15 +22,15 @@ jobs:
       with:
         terraform_version: 1.5.2
 
-    - name: Initialize Terraform
-      id: init
-      run: terraform init
-
     - name: Install TFLint
       run: curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
     - name: Install Terraform Docs
       run: sudo snap install terraform-docs
+
+    - name: Initialize Terraform
+      id: init
+      run: terraform init -backend=false
 
     - name: Apply pre-commit
       uses: pre-commit/action@v3.0.0
