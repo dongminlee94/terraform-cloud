@@ -14,6 +14,7 @@ jobs:
       run: |
         mkdir -p /home/runner/.gcp
         echo ${{ secrets.GOOGLE_CREDENTIALS }} > /home/runner/.gcp/sa.json
+        cat /home/runner/.gcp/sa.json
         mkdir -p /home/runner/.ssh
         echo ${{ secrets.SSH_ID_RSA_PUB }} > /home/runner/.ssh/id_rsa.pub
 
