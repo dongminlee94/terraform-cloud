@@ -1,7 +1,3 @@
-locals {
-  home_path = pathexpand("~")
-}
-
 resource "google_compute_instance" "tf_gcp_prod" {
   name         = "tf-gcp-prod"
   machine_type = "e2-medium"
@@ -29,6 +25,6 @@ resource "google_compute_instance" "tf_gcp_prod" {
   tags = ["allow-http", "allow-ssh"]
 
   metadata = {
-    ssh-keys = "tf-gcp-prod:${file("${local.home_path}/.ssh/id_rsa.pub")}"
+    ssh-keys = "tf-gcp-prod:${base64decode(var.ssh_pub_key)}"
   }
 }
