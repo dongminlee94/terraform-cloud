@@ -39,10 +39,8 @@ jobs:
     - name: Set up TFLint
       uses: terraform-linters/setup-tflint@v3
 
-    - name: Init TFLint
-      run: tflint --init
-
     - name: Run TFLint
       run: |
+        tflint --init
         tflint --disable-rule=terraform_required_version \
                --disable-rule=terraform_required_providers
