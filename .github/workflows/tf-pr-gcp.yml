@@ -1,0 +1,95 @@
+name: "[Repo CI] Terraform PR with GCP"
+
+on:
+  pull_request:
+
+jobs:
+  gcp:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./gcp
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Terraform Setup
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.5.2
+
+    - name: Terraform Init
+      id: init
+      run: terraform init
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+    - name: Terraform Format
+      id: format
+      run: terraform fmt -check -recursive
+      continue-on-error: true
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+    - name: TFLint Setup
+      uses: terraform-linters/setup-tflint@v3
+
+    - name: Terraform Lint
+      id: lint
+      run: |
+        tflint --init
+        tflint --disable-rule=terraform_required_version \
+               --disable-rule=terraform_required_providers
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      continue-on-error: true
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+    - name: Terraform Output
+      uses: actions/github-script@v6
+      if: github.event_name == 'pull_request'
+      env:
+        PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+      with:
+        script: |
+          const output = `#### Terraform Format and Style 🖌\`${{ steps.format.outcome }}\`
+          #### Terraform Lint 🔨\`${{ steps.lint.outcome }}\`
+          #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+          <details><summary>Validation Output</summary>
+
+          \`\`\`\n
+          ${{ steps.validate.outputs.stdout }}
+          \`\`\`
+
+          </details>
+
+          #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+
+          <details><summary>Show Plan</summary>
+
+          \`\`\`tf\n
+          ${process.env.PLAN}
+          \`\`\`
+
+          </details>
+
+          *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: output
+          })
