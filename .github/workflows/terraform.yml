@@ -14,14 +14,17 @@ jobs:
       run: |
         mkdir -p /home/runner/.gcp
         echo '${{ secrets.GOOGLE_CREDENTIALS }}' | base64 --decode > /home/runner/.gcp/sa.json
-        cat /home/runner/.gcp/sa.json
         mkdir -p /home/runner/.ssh
         echo '${{ secrets.SSH_ID_RSA_PUB }}' | base64 --decode > /home/runner/.ssh/id_rsa.pub
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: 1.5.1
+        terraform_version: 1.5.2
+
+    - name: Initialize Terraform
+      id: init
+      run: terraform init
 
     - name: Install TFLint
       run: curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
