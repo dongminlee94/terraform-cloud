@@ -10,13 +10,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Save secrets to files
-      run: |
-        mkdir -p /home/runner/.gcp
-        echo '${{ secrets.GOOGLE_CREDENTIALS }}' | base64 --decode > /home/runner/.gcp/sa.json
-        mkdir -p /home/runner/.ssh
-        echo '${{ secrets.SSH_ID_RSA_PUB }}' | base64 --decode > /home/runner/.ssh/id_rsa.pub
-
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
@@ -30,5 +23,3 @@ jobs:
 
     - name: Apply pre-commit
       uses: pre-commit/action@v3.0.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
