@@ -63,6 +63,7 @@ jobs:
         PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const output = `#### Terraform Format and Style 🖌\`${{ steps.format.outcome }}\`
           #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
