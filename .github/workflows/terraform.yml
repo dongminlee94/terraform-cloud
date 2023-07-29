@@ -13,7 +13,7 @@ jobs:
     - name: Save secrets to files
       run: |
         mkdir -p /home/runner/.gcp
-        echo "${{ secrets.GOOGLE_CREDENTIALS }}" > /home/runner/.gcp/sa.json
+        echo "${{ secrets.GOOGLE_CREDENTIALS }}" | jq '.' > /home/runner/.gcp/sa.json
         mkdir -p /home/runner/.ssh
         echo "${{ secrets.SSH_ID_RSA_PUB }}" > /home/runner/.ssh/id_rsa.pub
 
