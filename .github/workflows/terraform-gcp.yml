@@ -40,4 +40,5 @@ jobs:
     - name: Lint Terraform
       run: |
         curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+        tflint --init
         tflint --config=../.tflint.hcl
