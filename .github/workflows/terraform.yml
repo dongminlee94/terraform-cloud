@@ -10,13 +10,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Save secrets to files
+      run: |
+        mkdir -p /home/runner/.gcp
+        echo "${{ secrets.GOOGLE_CREDENTIALS }}" > /home/runner/.gcp/sa.json
+        mkdir -p /home/runner/.ssh
+        echo "${{ secrets.SSH_ID_RSA_PUB }}" > /home/runner/.ssh/id_rsa.pub
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.5.1
-
-    - name: Initialize Terraform
-      run: terraform init
 
     - name: Install TFLint
       run: curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
