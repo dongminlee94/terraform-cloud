@@ -4,8 +4,13 @@ on:
   pull_request:
 
 jobs:
-  terraform-code:
+  terraform-gcp:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./gcp
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -24,3 +29,15 @@ jobs:
       run: terraform validate
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+    - name: Format Terraform
+      id: fmt
+      run: terraform fmt -check -recursive
+      continue-on-error: true
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+    - name: Lint Terraform
+      run: |
+        curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+        tflint --config=__GIT_WORKING_DIR__/.tflint.hcl
