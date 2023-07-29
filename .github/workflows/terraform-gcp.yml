@@ -15,28 +15,28 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Set up Terraform
+    - name: Terraform Setup
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.5.2
 
-    - name: Initialize Terraform
+    - name: Terraform Init
       run: terraform init
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-    - name: Validate Terraform
+    - name: Terraform Validate
       run: terraform validate
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-    - name: Format Terraform
+    - name: Terraform Format
       run: terraform fmt -check -recursive
       continue-on-error: true
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-    - name: Set up TFLint
+    - name: TFLint Setup
       uses: terraform-linters/setup-tflint@v3
 
     - name: Run TFLint
@@ -44,3 +44,9 @@ jobs:
         tflint --init
         tflint --disable-rule=terraform_required_version \
                --disable-rule=terraform_required_providers
+
+    - name: Terraform Plan
+      run: terraform plan -no-color
+      continue-on-error: true
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
