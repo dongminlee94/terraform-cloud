@@ -15,20 +15,11 @@ jobs:
       with:
         terraform_version: 1.5.2
 
-    - name: Initialize Terraform
-      run: terraform init
-
     - name: Install TFLint
       run: curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
     - name: Install Terraform Docs
-      run: |
-        curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz
-        tar -xzf terraform-docs.tar.gz
-        chmod +x terraform-docs
-        mv terraform-docs /usr/local/terraform-docs
+      run: sudo snap install terraform-docs
 
     - name: Apply pre-commit
       uses: pre-commit/action@v3.0.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
