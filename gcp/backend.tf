@@ -11,11 +11,6 @@ terraform {
   }
 }
 
-locals {
-  home_path = pathexpand("~")
-}
-
 provider "google" {
-  credentials = file("${local.home_path}/.gcp/sa.json")
-  project     = var.project
+  project = var.project
 }

@@ -1,5 +1,5 @@
 variable "project" {
-  description = "gcp project id"
   type        = string
+  description = "gcp project id"
   default     = "nth-infusion-392203"
 }
