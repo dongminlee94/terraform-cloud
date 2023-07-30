@@ -12,6 +12,7 @@
 | Name | Type |
 |------|------|
 | [google_compute_instance.tf_gcp_prod](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance) | resource |
+| [google_compute_instance.tf_gcp_prod_2](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance) | resource |
 
 ## Inputs
 
