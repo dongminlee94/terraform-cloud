@@ -1,5 +1,5 @@
-resource "google_compute_instance" "tf_gcp_prod" {
-  name         = "tf-gcp-prod"
+resource "google_compute_instance" "tf_gcp_prod_1" {
+  name         = "tf-gcp-prod-1"
   machine_type = "e2-medium"
   zone         = "asia-northeast1-a"
 
