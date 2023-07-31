@@ -216,7 +216,6 @@ jobs:
         uses: Pluralith/actions/run@v1.4.0
         with:
           title: \#${{ github.event.number }}
-          terraform-command: "plan"
           terraform-path: ${{ env.working-directory }}
           show-changes: true
           show-drift: true
