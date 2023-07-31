@@ -13,7 +13,7 @@ resource "google_compute_instance" "tf_gcp_prod_1" {
     subnetwork = var.subnetwork.id
 
     access_config {
-      nat_ip = var.nat_ip.address
+      nat_ip = var.nat_ip_1.address
     }
   }
 
@@ -44,7 +44,7 @@ resource "google_compute_instance" "tf_gcp_prod_2" {
     subnetwork = var.subnetwork.id
 
     access_config {
-      nat_ip = var.nat_ip.address
+      nat_ip = var.nat_ip_2.address
     }
   }
 
@@ -75,7 +75,7 @@ resource "google_compute_instance" "tf_gcp_prod_3" {
     subnetwork = var.subnetwork.id
 
     access_config {
-      nat_ip = var.nat_ip.address
+      nat_ip = var.nat_ip_3.address
     }
   }
 

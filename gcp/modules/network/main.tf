@@ -10,8 +10,18 @@ resource "google_compute_subnetwork" "tf_gcp_prod" {
   network       = google_compute_network.tf_gcp.id
 }
 
-resource "google_compute_address" "tf_gcp_prod" {
-  name   = "tf-gcp-prod"
+resource "google_compute_address" "tf_gcp_prod_1" {
+  name   = "tf-gcp-prod-1"
+  region = "asia-northeast1"
+}
+
+resource "google_compute_address" "tf_gcp_prod_2" {
+  name   = "tf-gcp-prod-2"
+  region = "asia-northeast1"
+}
+
+resource "google_compute_address" "tf_gcp_prod_3" {
+  name   = "tf-gcp-prod-3"
   region = "asia-northeast1"
 }
 
