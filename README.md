@@ -28,7 +28,7 @@ $ brew install terraform-docs
 $ brew install pre-commit
 ```
 
-Finally, install [pluralith](https://docs.pluralith.com/docs/get-started/run-locally).
+Finally, install [Pluralith CLI](https://docs.pluralith.com/docs/get-started/run-locally).
 
 ## Contents
 
