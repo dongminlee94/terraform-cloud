@@ -34,7 +34,7 @@ Finally, install [Pluralith CLI](https://docs.pluralith.com/docs/get-started/run
 
 ### Docker
 
-<p align="center"><img src="asset/infra_diagram_docker.png" width="600"></p>
+<p align="center"><img src="asset/infra_diagram_docker.png" width="500"></p>
 
 ### AWS
 
