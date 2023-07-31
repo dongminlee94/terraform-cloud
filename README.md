@@ -7,6 +7,18 @@
 [![Documentation: terraform-docs](https://img.shields.io/badge/documentation-terraform--docs-blue)](https://github.com/terraform-docs/terraform-docs)
 [![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/cacc5d8c-a275-4970-b003-6a59246bd219/repos/27b1ae83-14e2-48a5-a51a-73538a1ac041/branch/fa194d47-2623-4f96-9764-955d0bf4e70d)](https://dashboard.infracost.io/org/kid33629/repos/27b1ae83-14e2-48a5-a51a-73538a1ac041?tab=settings)
 
-Hands on Terraform with Cloud (e.g., Docker, AWS, GCP)
+This is a repository that hands-on Terraform with Cloud (e.g., Docker, AWS, GCP).
+
+## Preparation
+
+TBD
+
+## Contents
+
+### Docker
+
+### AWS
+
+### GCP
 
 <p align="center"><img src="asset/tf_with_gcp.png" width="1400"></p>
