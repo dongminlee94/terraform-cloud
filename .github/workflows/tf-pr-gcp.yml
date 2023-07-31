@@ -12,51 +12,51 @@ jobs:
         working-directory: ./gcp
 
     steps:
-      - name: Checkout
+      - name: Checkout base branch
         uses: actions/checkout@v3
 
-      - name: Terraform Setup
+      - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.2
 
-      - name: Terraform Init
+      - name: Initialize Terraform
         id: init
         run: terraform init
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-      - name: Terraform Validate
+      - name: Validate Terraform
         id: validate
         run: terraform validate
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-      - name: Terraform Format
+      - name: Format Terraform
         id: format
         run: terraform fmt -check -recursive
         continue-on-error: true
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-      - name: TFLint Setup
+      - name: Set up TFLint
         uses: terraform-linters/setup-tflint@v3
 
-      - name: Terraform Lint
+      - name: Lint Terraform
         id: lint
         run: |
           tflint --init
           tflint --disable-rule=terraform_required_version \
                  --disable-rule=terraform_required_providers
 
-      - name: Terraform Plan
+      - name: Plan Terraform
         id: plan
         run: terraform plan -no-color
         continue-on-error: true
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
-      - name: Terraform Output
+      - name: Output Terraform
         uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
         env:
@@ -124,7 +124,7 @@ jobs:
       #     echo "${{ secrets.GIT_SSH_KEY }}" | tr -d '\r' | ssh-add -
       #     ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-      - name: Setup Infracost
+      - name: Set up Infracost
         uses: infracost/actions/setup@v2
         # See https://github.com/infracost/actions/tree/master/setup for other inputs
         # If you can't use this action, see Docker images in https://infracost.io/cicd
@@ -134,8 +134,6 @@ jobs:
       # Checkout the base branch of the pull request (e.g. main/master).
       - name: Checkout base branch
         uses: actions/checkout@v2
-        with:
-          ref: '${{ github.event.pull_request.base.ref }}'
 
       # Generate Infracost JSON file as the baseline.
       - name: Generate Infracost cost estimate baseline
@@ -143,6 +141,7 @@ jobs:
           infracost breakdown --path=${TF_ROOT} \
                               --format=json \
                               --out-file=/tmp/infracost-base.json
+
       # Checkout the current PR branch so we can create a diff.
       - name: Checkout PR branch
         uses: actions/checkout@v2
@@ -154,6 +153,7 @@ jobs:
                           --format=json \
                           --compare-to=/tmp/infracost-base.json \
                           --out-file=/tmp/infracost.json
+
       # Posts a comment to the PR using the 'update' behavior.
       # This creates a single comment and updates it. The "quietest" option.
       # The other valid behaviors are:
@@ -168,3 +168,66 @@ jobs:
                                     --github-token=${{github.token}} \
                                     --pull-request=${{github.event.pull_request.number}} \
                                     --behavior=hide-and-new
+
+  pluralith:
+    runs-on: ubuntu-latest
+
+    env:
+      working-directory: ./gcp
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # Set up Terraform
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_wrapper: false # This is recommended so the `terraform show` command outputs valid JSON
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+      # Initializes Terraform project
+      - name: Initialize Terraform
+        run: terraform init
+        working-directory: ${{ env.working-directory }}
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+      - name: Set up Infracost
+        uses: infracost/actions/setup@v2
+        # See https://github.com/infracost/actions/tree/master/setup for other inputs
+        # If you can't use this action, see Docker images in https://infracost.io/cicd
+        with:
+          api-key: ${{ secrets.INFRACOST_API_KEY }}
+
+      # Set up and authenticate Pluralith
+      - name: Initialize Pluralith
+        uses: Pluralith/actions/init@v1.1.0
+        with:
+          terraform-path: ${{ env.working-directory }}
+          api-key: ${{ secrets.PLURALITH_API_KEY }}
+          project-id: ${{ secrets.PLURALITH_PROJECT_ID }}
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+      # Run Pluralith to generate an infrastructure diagram and comment body
+      - name: Run Pluralith
+        uses: Pluralith/actions/run@v1.1.0
+        with:
+          title: \#${{ github.event.number }}
+          terraform-path: ${{ env.working-directory }}
+          show-changes: true
+          show-drift: true
+          show-costs: true # Requires Infracost to be set up in your pipeline
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+      # Post the generated diagram as a GitHub comment
+      - name: Comment Pluralith
+        uses: Pluralith/actions/comment@v1.1.0
+        with:
+          terraform-path: ${{ env.working-directory }}
+          behavior: hide-and-new
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
