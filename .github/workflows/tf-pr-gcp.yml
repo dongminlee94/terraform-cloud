@@ -225,6 +225,7 @@ jobs:
 
       - name: Test Pluralith
         run: |
+          cd gcp
           ls -a
 
       # Post the generated diagram as a GitHub comment
