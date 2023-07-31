@@ -178,6 +178,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       # Set up Terraform
       - name: Set up Terraform
