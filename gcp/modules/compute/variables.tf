@@ -18,9 +18,23 @@ variable "subnetwork" {
   description = "terraform google_compute_subnetwortk resource"
 }
 
-variable "nat_ip" {
+variable "nat_ip_1" {
   type = object({
     address = string
   })
-  description = "terraform google_compute_address resource"
+  description = "terraform google_compute_address resource 1"
+}
+
+variable "nat_ip_2" {
+  type = object({
+    address = string
+  })
+  description = "terraform google_compute_address resource 2"
+}
+
+variable "nat_ip_3" {
+  type = object({
+    address = string
+  })
+  description = "terraform google_compute_address resource 3"
 }
