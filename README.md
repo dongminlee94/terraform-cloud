@@ -9,4 +9,4 @@
 
 Hands on Terraform with Cloud (e.g., Docker, AWS, GCP)
 
-<p align="center"><img src="asset/infra_diagram.png" width="1400"></p>
+<p align="center"><img src="asset/tf_with_gcp.png" width="1400"></p>
