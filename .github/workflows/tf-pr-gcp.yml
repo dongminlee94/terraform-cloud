@@ -2,6 +2,8 @@ name: "[Repo CI] Terraform PR with GCP"
 
 on:
   pull_request:
+    paths:
+      - "gcp/**"
 
 jobs:
   gcp:
@@ -21,23 +23,22 @@ jobs:
           terraform_version: 1.5.2
 
       - name: Initialize Terraform
-        id: init
-        run: terraform init
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: terraform init
 
       - name: Validate Terraform
         id: validate
-        run: terraform validate
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: terraform validate
 
       - name: Format Terraform
         id: format
-        run: terraform fmt -check -recursive
-        continue-on-error: true
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        continue-on-error: true
+        run: terraform fmt -check -recursive
 
       - name: Set up TFLint
         uses: terraform-linters/setup-tflint@v3
@@ -51,10 +52,10 @@ jobs:
 
       - name: Plan Terraform
         id: plan
-        run: terraform plan -no-color
-        continue-on-error: true
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        continue-on-error: true
+        run: terraform plan -no-color
 
       - name: Output Terraform
         uses: actions/github-script@v6
