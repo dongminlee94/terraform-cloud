@@ -34,8 +34,10 @@ Finally, install [Pluralith CLI](https://docs.pluralith.com/docs/get-started/run
 
 ### Docker
 
+<p align="center"><img src="asset/infra_diagram_docker.png" width="1400"></p>
+
 ### AWS
 
 ### GCP
 
-<p align="center"><img src="asset/tf_with_gcp_2.png" width="1400"></p>
+<p align="center"><img src="asset/infra_diagram_gcp.png" width="1400"></p>
