@@ -227,6 +227,9 @@ jobs:
       - name: Test Pluralith
         run: |
           ls /tmp
+          ls gcp
+          find . -name "*comment*"
+
 
       # Post the generated diagram as a GitHub comment
       - name: Comment Pluralith
