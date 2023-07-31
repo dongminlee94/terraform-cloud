@@ -223,6 +223,10 @@ jobs:
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
+      - name: Test Pluralith
+        run: |
+          ls -a
+
       # Post the generated diagram as a GitHub comment
       - name: Comment Pluralith
         uses: Pluralith/actions/comment@v1.3.0
