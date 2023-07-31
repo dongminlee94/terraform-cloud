@@ -1,4 +1,4 @@
-name: "[Repo CI] Terraform Push with GCP"
+name: "[Repo CD] Deploy Terraform with GCP"
 
 on:
   push:
