@@ -9,5 +9,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam"></a> [iam](#module\_iam) | ../../modules/iam | n/a |
+| <a name="module_compute"></a> [compute](#module\_compute) | ../../modules/compute | n/a |
 <!-- END_TF_DOCS -->
