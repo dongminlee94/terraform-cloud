@@ -8,7 +8,7 @@ module "vpc" {
   subnetwork_ip_cidr_range = "10.1.0.0/16"
   subnetwork_region        = "asia-northeast1"
 
-  firewall_ssh_name      = "firewall_ssh"
+  firewall_ssh_name      = "firewall-ssh"
   firewall_protocol      = "tcp"
   firewall_ports         = ["22"]
   firewall_source_ranges = ["0.0.0.0/0"]
