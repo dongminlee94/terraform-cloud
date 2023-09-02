@@ -17,6 +17,6 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | service account id | `string` | n/a | yes |
-| <a name="input_display_name"></a> [display\_name](#input\_display\_name) | service account display name | `string` | n/a | yes |
+| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | Service Account id | `string` | n/a | yes |
+| <a name="input_display_name"></a> [display\_name](#input\_display\_name) | Service Account display name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

@@ -9,5 +9,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_service_account_global"></a> [service\_account\_global](#module\_service\_account\_global) | ../../modules/iam | n/a |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | ../../modules/vpc | n/a |
 <!-- END_TF_DOCS -->

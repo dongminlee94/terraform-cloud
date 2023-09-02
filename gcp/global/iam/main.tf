@@ -1,6 +1,6 @@
-module "service_account_compute" {
+module "service_account_global" {
   source = "../../modules/iam"
 
-  account_id   = "sa-compute"
-  display_name = "sa-compute"
+  account_id   = "sa-global"
+  display_name = "sa-global"
 }
