@@ -31,5 +31,6 @@
 | <a name="input_ssh_pub_key"></a> [ssh\_pub\_key](#input\_ssh\_pub\_key) | VM instance ssh public key | `string` | n/a | yes |
 | <a name="input_subnetwork_name"></a> [subnetwork\_name](#input\_subnetwork\_name) | VPC subnetwork name | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | VM instance tags | `list(string)` | n/a | yes |
+| <a name="input_user_name"></a> [user\_name](#input\_user\_name) | VM instance user name | `string` | n/a | yes |
 | <a name="input_zone"></a> [zone](#input\_zone) | VM instance zone | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

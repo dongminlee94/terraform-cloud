@@ -53,6 +53,11 @@ variable "tags" {
   description = "VM instance tags"
 }
 
+variable "user_name" {
+  type        = string
+  description = "VM instance user name"
+}
+
 variable "ssh_pub_key" {
   type        = string
   description = "VM instance ssh public key"

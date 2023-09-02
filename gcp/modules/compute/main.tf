@@ -40,6 +40,6 @@ resource "google_compute_instance" "instance" {
   tags = var.tags
 
   metadata = {
-    ssh-keys = "${var.subnetwork_name}:${base64decode(var.ssh_pub_key)}"
+    ssh-keys = "${var.user_name}:${base64decode(var.ssh_pub_key)}"
   }
 }
