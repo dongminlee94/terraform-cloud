@@ -5,17 +5,18 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.75.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.80.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_service_account.gce](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
+| [google_service_account.service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
 
-## Outputs
+## Inputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_service_account"></a> [service\_account](#output\_service\_account) | n/a |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | service account id | `string` | n/a | yes |
+| <a name="input_display_name"></a> [display\_name](#input\_display\_name) | service account display name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

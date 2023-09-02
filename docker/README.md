@@ -22,6 +22,9 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_container_name"></a> [container\_name](#input\_container\_name) | container name | `string` | `"nginx"` | no |
+| <a name="input_image_keep_locally"></a> [image\_keep\_locally](#input\_image\_keep\_locally) | docker image keep locally | `bool` | `false` | no |
+| <a name="input_image_name"></a> [image\_name](#input\_image\_name) | docker image name | `string` | `"nginx:latest"` | no |
 | <a name="input_nginx_external_port"></a> [nginx\_external\_port](#input\_nginx\_external\_port) | nginx external port | `number` | `80` | no |
 | <a name="input_nginx_internal_port"></a> [nginx\_internal\_port](#input\_nginx\_internal\_port) | nginx internal port | `number` | `80` | no |
 

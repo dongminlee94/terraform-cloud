@@ -5,12 +5,8 @@ terraform {
       version = "4.33.0"
     }
   }
-
-  backend "gcs" {
-    bucket = "tf-gcp-prod"
-  }
 }
 
 provider "google" {
-  project = var.project
+  project = "nth-infusion-392203"
 }
