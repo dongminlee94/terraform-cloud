@@ -10,7 +10,7 @@ resource "google_compute_subnetwork" "subnetwork" {
   network       = google_compute_network.network.id
 }
 
-resource "google_compute_firewall" "firewall_ssh" {
+resource "google_compute_firewall" "firewall_allow_ssh" {
   name    = var.firewall_ssh_name
   network = google_compute_network.network.name
 
