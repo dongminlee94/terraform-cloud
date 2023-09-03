@@ -5,7 +5,6 @@
 [![Code style: terraform-fmt](https://img.shields.io/badge/code%20style-terraform--fmt-black.svg)](https://developer.hashicorp.com/terraform/cli/commands/fmt)
 [![Linting: tflint](https://img.shields.io/badge/linting-tflint-red)](https://github.com/terraform-linters/tflint)
 [![Documentation: terraform-docs](https://img.shields.io/badge/documentation-terraform--docs-blue)](https://github.com/terraform-docs/terraform-docs)
-[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/cacc5d8c-a275-4970-b003-6a59246bd219/repos/27b1ae83-14e2-48a5-a51a-73538a1ac041/branch/fa194d47-2623-4f96-9764-955d0bf4e70d)](https://dashboard.infracost.io/org/kid33629/repos/27b1ae83-14e2-48a5-a51a-73538a1ac041?tab=settings)
 
 This is a repository that hands-on Terraform with Cloud (e.g., Docker, AWS, GCP).
 
@@ -27,17 +26,3 @@ $ brew install terraform-docs
 # Install pre-commit
 $ brew install pre-commit
 ```
-
-Finally, install [Pluralith CLI](https://docs.pluralith.com/docs/get-started/run-locally).
-
-## Contents
-
-### Docker
-
-<p align="center"><img src="asset/infra_diagram_docker.png" width="500"></p>
-
-### AWS
-
-### GCP
-
-<p align="center"><img src="asset/infra_diagram_gcp.png" width="1400"></p>
