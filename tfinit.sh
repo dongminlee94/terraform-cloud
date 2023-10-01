@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 병렬 작업을 수행하는 함수
+# Function to execute parallel tasks
 run_init() {
   local dir=$1
   cd "$dir" || exit 1
@@ -11,6 +11,6 @@ run_init() {
   fi
 }
 
-# 모든 서브 디렉토리를 찾고 반복
-export -f run_init  # 병렬 처리를 위해 함수를 export
-find . -type d -print0 | xargs -0 -I {} -P 4 bash -c "run_init $(pwd)/{}"
+# Find all subdirectories and iterate over them
+export -f run_init  # Export the function for parallel processing
+find . -type d ! -path './.git*' -print0 | xargs -0 -I {} -P 4 bash -c "run_init $(pwd)/{}"
