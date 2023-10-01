@@ -1,29 +1,29 @@
 variable "image_name" {
-  type        = string
   description = "docker image name"
+  type        = string
   default     = "nginx:latest"
 }
 
 variable "image_keep_locally" {
-  type        = bool
   description = "docker image keep locally"
+  type        = bool
   default     = false
 }
 
 variable "container_name" {
-  type        = string
   description = "container name"
+  type        = string
   default     = "nginx"
 }
 
 variable "nginx_internal_port" {
-  type        = number
   description = "nginx internal port"
+  type        = number
   default     = 80
 }
 
 variable "nginx_external_port" {
-  type        = number
   description = "nginx external port"
+  type        = number
   default     = 80
 }

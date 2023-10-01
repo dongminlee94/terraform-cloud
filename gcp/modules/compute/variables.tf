@@ -1,64 +1,64 @@
 variable "subnetwork_name" {
-  type        = string
   description = "VPC subnetwork name"
+  type        = string
 }
 
 variable "compute_region" {
-  type        = string
   description = "Compute engine region"
+  type        = string
 }
 
 variable "sa_account_id" {
-  type        = string
   description = "Service Account account id"
+  type        = string
 }
 
 variable "sa_project_id" {
-  type        = string
   description = "Service Account project id"
+  type        = string
 }
 
 variable "sa_scopes" {
-  type        = list(string)
   description = "Service Account scopes"
+  type        = list(string)
 }
 
 variable "address_name" {
-  type        = string
   description = "NAT IP address name"
+  type        = string
 }
 
 variable "instance_name" {
-  type        = string
   description = "VM instance name"
+  type        = string
 }
 
 variable "machine_type" {
-  type        = string
   description = "VM instance machine type"
+  type        = string
 }
 
 variable "zone" {
-  type        = string
   description = "VM instance zone"
+  type        = string
 }
 
 variable "image" {
-  type        = string
   description = "VM instance image"
+  type        = string
 }
 
 variable "tags" {
-  type        = list(string)
   description = "VM instance tags"
+  type        = list(string)
 }
 
 variable "user_name" {
-  type        = string
   description = "VM instance user name"
+  type        = string
 }
 
 variable "ssh_pub_key" {
-  type        = string
   description = "VM instance ssh public key"
+  type        = string
 }

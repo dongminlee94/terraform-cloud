@@ -1,49 +1,49 @@
 variable "network_name" {
-  type        = string
   description = "VPC network name"
+  type        = string
 }
 
 variable "network_auto_create_subnetworks" {
-  type        = bool
   description = "Whether to automatically create a subnetwork or not"
+  type        = bool
 }
 
 variable "subnetwork_name" {
-  type        = string
   description = "VPC subnetwork name"
+  type        = string
 }
 
 variable "subnetwork_ip_cidr_range" {
-  type        = string
   description = "VPC subnetwork IP CIDR range"
+  type        = string
 }
 
 variable "subnetwork_region" {
-  type        = string
   description = "VPC subnetwork region"
+  type        = string
 }
 
 variable "firewall_ssh_name" {
-  type        = string
   description = "Firewall ssh name"
+  type        = string
 }
 
 variable "firewall_protocol" {
-  type        = string
   description = "Firewall protocol"
+  type        = string
 }
 
 variable "firewall_ports" {
-  type        = list(string)
   description = "Firewall port numbers"
+  type        = list(string)
 }
 
 variable "firewall_source_ranges" {
-  type        = list(string)
   description = "Firewall source ranges"
+  type        = list(string)
 }
 
 variable "firewall_target_tags" {
-  type        = list(string)
   description = "Firewall target tags"
+  type        = list(string)
 }

@@ -1,9 +1,9 @@
 variable "account_id" {
-  type        = string
   description = "Service Account id"
+  type        = string
 }
 
 variable "display_name" {
-  type        = string
   description = "Service Account display name"
+  type        = string
 }
