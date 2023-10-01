@@ -1,6 +1,3 @@
-#################
-### IAM Group ###
-#################
 variable "iam_group_global_name" {
   description = "IAM global group name"
   type        = string
@@ -21,9 +18,6 @@ variable "ec2_full_access_policy_arn" {
   type        = string
 }
 
-################
-### IAM User ###
-################
 variable "iam_global_name" {
   description = "IAM global name"
   type        = string
