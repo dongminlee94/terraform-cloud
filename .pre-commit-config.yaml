@@ -15,6 +15,13 @@ repos:
     hooks:
     - id: add-trailing-comma
 
+  - repo: local
+    hooks:
+    - id: tfinit
+      name: tfinit
+      language: script
+      entry: ./tfinit.sh
+
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.74.1
     hooks:

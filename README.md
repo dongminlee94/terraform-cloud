@@ -10,19 +10,8 @@ This is a repository that hands-on Terraform with Cloud (e.g., Docker, AWS, GCP)
 
 ## Installation
 
-In MacOS, you can install the necessary packages from this repository through the commands below.
+In MacOS, you can install the necessary packages from this repository through the command below.
 
 ```bash
-# Install Terraform
-$ brew tap hashicorp/tap
-$ brew install hashicorp/tap/terraform
-
-# Install tflint
-$ brew install tflint
-
-# Install terraform-docs
-$ brew install terraform-docs
-
-# Install pre-commit
-$ brew install pre-commit
+$ make init
 ```
