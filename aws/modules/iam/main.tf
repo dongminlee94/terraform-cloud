@@ -1,32 +1,22 @@
-resource "aws_iam_group" "iam_group_global" {
-  name = var.iam_group_global_name
+data "aws_iam_policy_document" "ec2_trust_relationship" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
 }
 
-resource "aws_iam_group_policy_attachment" "iam_full_access" {
-  group      = aws_iam_group.iam_group_global.name
-  policy_arn = var.iam_full_access_policy_arn
+resource "aws_iam_role" "ec2_role" {
+  name               = var.ec2_role_name
+  assume_role_policy = data.aws_iam_policy_document.ec2_trust_relationship.json
 }
 
-resource "aws_iam_group_policy_attachment" "vpc_full_access" {
-  group      = aws_iam_group.iam_group_global.name
-  policy_arn = var.vpc_full_access_policy_arn
-}
-
-resource "aws_iam_group_policy_attachment" "ec2_full_access" {
-  group      = aws_iam_group.iam_group_global.name
-  policy_arn = var.ec2_full_access_policy_arn
-}
-
-resource "aws_iam_group_membership" "add_user_to_group" {
-  name = "${aws_iam_user.iam_global.name}-${aws_iam_group.iam_group_global.name}"
-
-  users = [
-    aws_iam_user.iam_global.name,
-  ]
-
-  group = aws_iam_group.iam_group_global.name
-}
-
-resource "aws_iam_user" "iam_global" {
-  name = var.iam_global_name
+resource "aws_iam_instance_profile" "ec2_instance_profile" {
+  name = var.ec2_instance_profile_name
+  role = aws_iam_role.ec2_role.name
 }

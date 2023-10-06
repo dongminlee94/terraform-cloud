@@ -9,5 +9,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam_global"></a> [iam\_global](#module\_iam\_global) | ../../modules/iam | n/a |
+| <a name="module_iam"></a> [iam](#module\_iam) | ../../modules/iam | n/a |
 <!-- END_TF_DOCS -->
