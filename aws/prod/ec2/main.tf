@@ -1,11 +1,11 @@
-module "ec2_global" {
+module "ec2" {
   source = "../../modules/ec2"
 
-  iam_role_name = "iam_global"
-  subnet_name   = "subnet_global"
-  sg_name       = "sg_global"
+  iam_role_name = "ec2_role"
+  subnet_name   = "subnet"
+  sg_name       = "sg"
 
-  ec2_name          = "ec2-global"
+  ec2_name          = "ec2"
   ec2_ami           = "ami-0ed99df77a82560e6"
   ec2_instance_type = "t2.medium"
 
