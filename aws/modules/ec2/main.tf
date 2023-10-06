@@ -41,8 +41,6 @@ resource "aws_instance" "ec2_instance" {
     volume_size = var.ec2_volume_size
   }
 
-  ebs_optimized = var.ec2_ebs_optimized
-
   iam_instance_profile = data.aws_iam_instance_profile.ec2_instance_profile.name
 
   vpc_security_group_ids = [data.aws_security_group.sg.id]

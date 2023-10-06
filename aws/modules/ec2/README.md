@@ -35,7 +35,6 @@
 | <a name="input_dlm_state"></a> [dlm\_state](#input\_dlm\_state) | Data Lifecycle Manager - state | `string` | n/a | yes |
 | <a name="input_ec2_ami"></a> [ec2\_ami](#input\_ec2\_ami) | EC2 AMI id | `string` | n/a | yes |
 | <a name="input_ec2_dat"></a> [ec2\_dat](#input\_ec2\_dat) | Protection against accidental EC2 termination via AWS API calls | `bool` | n/a | yes |
-| <a name="input_ec2_ebs_optimized"></a> [ec2\_ebs\_optimized](#input\_ec2\_ebs\_optimized) | EBS optimization activation/deactivation | `bool` | n/a | yes |
 | <a name="input_ec2_instance_isb"></a> [ec2\_instance\_isb](#input\_ec2\_instance\_isb) | Defines the behavior when an OS-level shutdown is performed within the EC2 instance | `string` | n/a | yes |
 | <a name="input_ec2_instance_name"></a> [ec2\_instance\_name](#input\_ec2\_instance\_name) | EC2 VM instance name | `string` | n/a | yes |
 | <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type) | EC2 VM instance type | `string` | n/a | yes |

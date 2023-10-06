@@ -63,11 +63,6 @@ variable "ec2_volume_size" {
   type        = number
 }
 
-variable "ec2_ebs_optimized" {
-  description = "EBS optimization activation/deactivation"
-  type        = bool
-}
-
 variable "dlm_description" {
   description = "Data Lifecycle Manager - description"
   type        = string

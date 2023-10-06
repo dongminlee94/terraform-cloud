@@ -17,8 +17,7 @@ module "ec2" {
   ec2_dat          = true   # disable_api_termination
   ec2_instance_isb = "stop" # instance_initiated_shutdown_behavior
 
-  ec2_volume_size   = 50
-  ec2_ebs_optimized = false
+  ec2_volume_size = 50
 
   dlm_description            = "EBS backup of EC2 instance"
   dlm_state                  = "ENABLED"
