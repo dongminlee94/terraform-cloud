@@ -43,6 +43,11 @@ variable "ec2_instance_type" {
   type        = string
 }
 
+variable "ec2_volume_size" {
+  description = "EC2 VM instance volume size"
+  type        = number
+}
+
 variable "ec2_monitoring" {
   description = "Monitoring details activation/deactivation"
   type        = bool
@@ -58,8 +63,13 @@ variable "ec2_instance_isb" {
   type        = string
 }
 
-variable "ec2_volume_size" {
-  description = "EC2 VM instance volume size"
+variable "private_ips" {
+  description = "Private IP address to assign to ENI"
+  type        = list(string)
+}
+
+variable "device_index" {
+  description = "Device index when connecting ENIs (0: primary network interface, 1~N: additional interfaces)"
   type        = number
 }
 

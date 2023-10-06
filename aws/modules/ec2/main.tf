@@ -33,13 +33,13 @@ resource "aws_instance" "ec2_instance" {
 
   key_name = aws_key_pair.ec2_key_pair.key_name
 
-  monitoring                           = var.ec2_monitoring
-  disable_api_termination              = var.ec2_dat
-  instance_initiated_shutdown_behavior = var.ec2_instance_isb
-
   root_block_device {
     volume_size = var.ec2_volume_size
   }
+
+  monitoring                           = var.ec2_monitoring
+  disable_api_termination              = var.ec2_dat
+  instance_initiated_shutdown_behavior = var.ec2_instance_isb
 
   iam_instance_profile = data.aws_iam_instance_profile.ec2_instance_profile.name
 
@@ -47,6 +47,18 @@ resource "aws_instance" "ec2_instance" {
 
   tags = {
     Name = var.ec2_instance_name
+  }
+}
+
+resource "aws_network_interface" "ec2_network_inferface" {
+  subnet_id   = data.aws_subnet.subnet.id
+  private_ips = var.private_ips
+
+  security_groups = [data.aws_security_group.sg.id]
+
+  attachment {
+    instance     = aws_instance.ec2_instance.id
+    device_index = var.device_index
   }
 }
 

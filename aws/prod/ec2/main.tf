@@ -12,12 +12,14 @@ module "ec2" {
   ec2_instance_name = "ec2_instance"
   ec2_ami           = "ami-0ed99df77a82560e6"
   ec2_instance_type = "t2.medium"
+  ec2_volume_size   = 50
 
   ec2_monitoring   = true
   ec2_dat          = true   # disable_api_termination
   ec2_instance_isb = "stop" # instance_initiated_shutdown_behavior
 
-  ec2_volume_size = 50
+  private_ips  = ["10.0.1.56"]
+  device_index = 1
 
   dlm_description            = "EBS backup of EC2 instance"
   dlm_state                  = "ENABLED"
