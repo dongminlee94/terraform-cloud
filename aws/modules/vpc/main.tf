@@ -1,45 +1,45 @@
-resource "aws_vpc" "vpc_global" {
+resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr_block
   tags = {
     Name = var.vpc_name
   }
 }
 
-resource "aws_subnet" "subnet_global" {
-  vpc_id     = aws_vpc.vpc_global.id
+resource "aws_subnet" "subnet" {
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = var.subnet_cidr_block
   tags = {
     Name = var.subnet_name
   }
 }
 
-resource "aws_internet_gateway" "igw_global" {
-  vpc_id = aws_vpc.vpc_global.id
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.vpc.id
   tags = {
     Name = var.igw_name
   }
 }
 
-resource "aws_route_table" "rt_global" {
-  vpc_id = aws_vpc.vpc_global.id
+resource "aws_route_table" "rt" {
+  vpc_id = aws_vpc.vpc.id
   tags = {
     Name = var.rt_name
   }
 }
 
-resource "aws_route" "rt_igw_global" {
-  route_table_id         = aws_route_table.rt_global.id
+resource "aws_route" "route" {
+  route_table_id         = aws_route_table.rt.id
   destination_cidr_block = var.common_cidr_block
-  gateway_id             = aws_internet_gateway.igw_global.id
+  gateway_id             = aws_internet_gateway.igw.id
 }
 
-resource "aws_route_table_association" "rta_global" {
-  subnet_id      = aws_subnet.subnet_global.id
-  route_table_id = aws_route_table.rt_global.id
+resource "aws_route_table_association" "rta" {
+  subnet_id      = aws_subnet.subnet.id
+  route_table_id = aws_route_table.rt.id
 }
 
-resource "aws_security_group" "sg_global" {
-  vpc_id = aws_vpc.vpc_global.id
+resource "aws_security_group" "sg" {
+  vpc_id = aws_vpc.vpc.id
 
   ingress {
     from_port   = 0

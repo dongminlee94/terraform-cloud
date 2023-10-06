@@ -9,5 +9,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_vpc_global"></a> [vpc\_global](#module\_vpc\_global) | ../../modules/vpc | n/a |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | ../../modules/vpc | n/a |
 <!-- END_TF_DOCS -->
