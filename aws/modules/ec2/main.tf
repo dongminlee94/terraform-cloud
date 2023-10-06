@@ -1,5 +1,9 @@
-data "aws_iam_role" "iam_role" {
+data "aws_iam_role" "ec2_role" {
   name = var.iam_role_name
+}
+
+data "aws_iam_instance_profile" "ec2_instance_profile" {
+  name = var.instance_profile_name
 }
 
 data "aws_subnet" "subnet" {
@@ -34,7 +38,7 @@ resource "aws_instance" "ec2_instance" {
 
   ebs_optimized = var.ec2_ebs_optimized
 
-  iam_instance_profile = data.aws_iam_role.iam_role.name
+  iam_instance_profile = data.aws_iam_instance_profile.ec2_instance_profile.name
 
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
@@ -45,7 +49,7 @@ resource "aws_instance" "ec2_instance" {
 
 resource "aws_dlm_lifecycle_policy" "ebs_snapshot_backup" {
   description        = var.dlm_description
-  execution_role_arn = data.aws_iam_role.iam_role.arn
+  execution_role_arn = data.aws_iam_role.ec2_role.arn
   state              = var.dlm_state
 
   policy_details {

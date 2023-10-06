@@ -3,6 +3,11 @@ variable "iam_role_name" {
   type        = string
 }
 
+variable "instance_profile_name" {
+  description = "IAM instance profile name"
+  type        = string
+}
+
 variable "subnet_name" {
   description = "Subnet name"
   type        = string

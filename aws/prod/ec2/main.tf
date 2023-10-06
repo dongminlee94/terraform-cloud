@@ -1,9 +1,10 @@
 module "ec2" {
   source = "../../modules/ec2"
 
-  iam_role_name = "ec2_role"
-  subnet_name   = "subnet"
-  sg_name       = "sg"
+  iam_role_name         = "ec2_role"
+  instance_profile_name = "ec2_instance_profile"
+  subnet_name           = "subnet"
+  sg_name               = "sg"
 
   ec2_name          = "ec2"
   ec2_ami           = "ami-0ed99df77a82560e6"
