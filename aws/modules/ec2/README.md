@@ -13,6 +13,7 @@
 |------|------|
 | [aws_dlm_lifecycle_policy.ebs_snapshot_backup](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dlm_lifecycle_policy) | resource |
 | [aws_instance.ec2_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
+| [aws_key_pair.ec2_key_pair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
 | [aws_iam_instance_profile.ec2_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_instance_profile) | data source |
 | [aws_iam_role.ec2_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_role) | data source |
 | [aws_security_group.sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/security_group) | data source |
@@ -36,12 +37,14 @@
 | <a name="input_ec2_dat"></a> [ec2\_dat](#input\_ec2\_dat) | Protection against accidental EC2 termination via AWS API calls | `bool` | n/a | yes |
 | <a name="input_ec2_ebs_optimized"></a> [ec2\_ebs\_optimized](#input\_ec2\_ebs\_optimized) | EBS optimization activation/deactivation | `bool` | n/a | yes |
 | <a name="input_ec2_instance_isb"></a> [ec2\_instance\_isb](#input\_ec2\_instance\_isb) | Defines the behavior when an OS-level shutdown is performed within the EC2 instance | `string` | n/a | yes |
+| <a name="input_ec2_instance_name"></a> [ec2\_instance\_name](#input\_ec2\_instance\_name) | EC2 VM instance name | `string` | n/a | yes |
 | <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type) | EC2 VM instance type | `string` | n/a | yes |
 | <a name="input_ec2_monitoring"></a> [ec2\_monitoring](#input\_ec2\_monitoring) | Monitoring details activation/deactivation | `bool` | n/a | yes |
-| <a name="input_ec2_name"></a> [ec2\_name](#input\_ec2\_name) | EC2 VM instance name | `string` | n/a | yes |
 | <a name="input_ec2_volume_size"></a> [ec2\_volume\_size](#input\_ec2\_volume\_size) | EC2 VM instance volume size | `number` | n/a | yes |
 | <a name="input_iam_role_name"></a> [iam\_role\_name](#input\_iam\_role\_name) | IAM role name | `string` | n/a | yes |
 | <a name="input_instance_profile_name"></a> [instance\_profile\_name](#input\_instance\_profile\_name) | IAM instance profile name | `string` | n/a | yes |
+| <a name="input_key_name"></a> [key\_name](#input\_key\_name) | EC2 key name | `string` | n/a | yes |
+| <a name="input_public_key"></a> [public\_key](#input\_public\_key) | EC2 public key | `string` | n/a | yes |
 | <a name="input_sg_name"></a> [sg\_name](#input\_sg\_name) | Security group name | `string` | n/a | yes |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | Subnet name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

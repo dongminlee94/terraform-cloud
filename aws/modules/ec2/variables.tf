@@ -18,7 +18,17 @@ variable "sg_name" {
   type        = string
 }
 
-variable "ec2_name" {
+variable "key_name" {
+  description = "EC2 key name"
+  type        = string
+}
+
+variable "public_key" {
+  description = "EC2 public key"
+  type        = string
+}
+
+variable "ec2_instance_name" {
   description = "EC2 VM instance name"
   type        = string
 }

@@ -20,13 +20,18 @@ data "aws_security_group" "sg" {
   }
 }
 
+resource "aws_key_pair" "ec2_key_pair" {
+  key_name   = var.key_name
+  public_key = base64decode(var.public_key)
+}
+
 resource "aws_instance" "ec2_instance" {
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
 
   subnet_id = data.aws_subnet.subnet.id
 
-  key_name = var.ec2_name
+  key_name = aws_key_pair.ec2_key_pair.key_name
 
   monitoring                           = var.ec2_monitoring
   disable_api_termination              = var.ec2_dat
@@ -43,7 +48,7 @@ resource "aws_instance" "ec2_instance" {
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
   tags = {
-    Name = var.ec2_name
+    Name = var.ec2_instance_name
   }
 }
 
@@ -76,7 +81,7 @@ resource "aws_dlm_lifecycle_policy" "ebs_snapshot_backup" {
     }
 
     target_tags = {
-      Name = var.ec2_name
+      Name = var.ec2_instance_name
     }
   }
 }
