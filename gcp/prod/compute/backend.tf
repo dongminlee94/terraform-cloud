@@ -8,5 +8,5 @@ terraform {
 }
 
 provider "google" {
-  project = "nth-infusion-392203"
+  region = "asia-northeast1"
 }
