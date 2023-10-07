@@ -45,20 +45,10 @@ resource "aws_instance" "ec2_instance" {
 
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
+  associate_public_ip_address = var.ec2_associate_pia
+
   tags = {
     Name = var.ec2_instance_name
-  }
-}
-
-resource "aws_network_interface" "ec2_network_inferface" {
-  subnet_id   = data.aws_subnet.subnet.id
-  private_ips = var.private_ips
-
-  security_groups = [data.aws_security_group.sg.id]
-
-  attachment {
-    instance     = aws_instance.ec2_instance.id
-    device_index = var.device_index
   }
 }
 

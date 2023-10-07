@@ -63,14 +63,9 @@ variable "ec2_instance_isb" {
   type        = string
 }
 
-variable "private_ips" {
-  description = "Private IP address to assign to ENI"
-  type        = list(string)
-}
-
-variable "device_index" {
-  description = "Device index when connecting ENIs (0: primary network interface, 1~N: additional interfaces)"
-  type        = number
+variable "ec2_associate_pia" {
+  description = "Flag to determine whether or not to associate a public IP address with the EC2 instance"
+  type        = bool
 }
 
 variable "dlm_description" {
