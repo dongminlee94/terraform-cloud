@@ -18,32 +18,12 @@ variable "subnetwork_ip_cidr_range" {
   type        = string
 }
 
-variable "subnetwork_region" {
-  description = "VPC subnetwork region"
-  type        = string
-}
-
-variable "firewall_ssh_name" {
+variable "firewall_name" {
   description = "Firewall ssh name"
   type        = string
 }
 
-variable "firewall_protocol" {
-  description = "Firewall protocol"
+variable "common_cidr_block" {
+  description = "Firewall common CIDR block"
   type        = string
-}
-
-variable "firewall_ports" {
-  description = "Firewall port numbers"
-  type        = list(string)
-}
-
-variable "firewall_source_ranges" {
-  description = "Firewall source ranges"
-  type        = list(string)
-}
-
-variable "firewall_target_tags" {
-  description = "Firewall target tags"
-  type        = list(string)
 }
