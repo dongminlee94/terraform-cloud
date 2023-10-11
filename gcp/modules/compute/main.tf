@@ -31,7 +31,7 @@ resource "google_compute_instance" "compute_instance" {
 
   service_account {
     email  = data.google_service_account.service_account.email
-    scopes = var.sa_scopes
+    scopes = var.compute_service_scopes
   }
 
   tags = var.compute_tags

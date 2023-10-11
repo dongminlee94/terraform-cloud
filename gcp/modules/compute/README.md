@@ -27,6 +27,7 @@
 | <a name="input_compute_key_name"></a> [compute\_key\_name](#input\_compute\_key\_name) | VM instance key name | `string` | n/a | yes |
 | <a name="input_compute_machine_type"></a> [compute\_machine\_type](#input\_compute\_machine\_type) | VM instance machine type | `string` | n/a | yes |
 | <a name="input_compute_public_key"></a> [compute\_public\_key](#input\_compute\_public\_key) | VM instance ssh public key | `string` | n/a | yes |
+| <a name="input_compute_service_scopes"></a> [compute\_service\_scopes](#input\_compute\_service\_scopes) | Service scopes | `list(string)` | n/a | yes |
 | <a name="input_compute_tags"></a> [compute\_tags](#input\_compute\_tags) | VM instance tags | `list(string)` | n/a | yes |
 | <a name="input_compute_zone"></a> [compute\_zone](#input\_compute\_zone) | VM instance zone | `string` | n/a | yes |
 | <a name="input_rp_days_in_cycle"></a> [rp\_days\_in\_cycle](#input\_rp\_days\_in\_cycle) | Resource policy - schedule interval | `number` | n/a | yes |
@@ -35,6 +36,5 @@
 | <a name="input_rp_name"></a> [rp\_name](#input\_rp\_name) | Resource policy - name | `string` | n/a | yes |
 | <a name="input_rp_start_time"></a> [rp\_start\_time](#input\_rp\_start\_time) | Resource policy - start time | `string` | n/a | yes |
 | <a name="input_sa_account_id"></a> [sa\_account\_id](#input\_sa\_account\_id) | Service Account account id | `string` | n/a | yes |
-| <a name="input_sa_scopes"></a> [sa\_scopes](#input\_sa\_scopes) | Service Account scopes | `list(string)` | n/a | yes |
 | <a name="input_subnetwork_name"></a> [subnetwork\_name](#input\_subnetwork\_name) | VPC subnetwork name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

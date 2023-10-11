@@ -8,8 +8,8 @@ variable "sa_account_id" {
   type        = string
 }
 
-variable "sa_scopes" {
-  description = "Service Account scopes"
+variable "compute_service_scopes" {
+  description = "Service scopes"
   type        = list(string)
 }
 
