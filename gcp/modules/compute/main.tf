@@ -59,7 +59,7 @@ resource "google_compute_resource_policy" "compute_resource_policy" {
 
     snapshot_properties {
       labels = {
-        Purpose = var.rp_label
+        purpose = var.rp_label
       }
     }
   }
