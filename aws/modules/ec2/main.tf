@@ -20,13 +20,17 @@ data "aws_security_group" "sg" {
   }
 }
 
+resource "aws_eip" "ec2_eip" {
+  instance = aws_instance.ec2_instance.id
+
+  tags = {
+    Name = var.eip_name
+  }
+}
+
 resource "aws_key_pair" "ec2_key_pair" {
   key_name   = var.key_name
   public_key = base64decode(var.public_key)
-}
-
-resource "aws_eip" "ec2_eip" {
-  instance = aws_instance.ec2_instance.id
 }
 
 resource "aws_instance" "ec2_instance" {

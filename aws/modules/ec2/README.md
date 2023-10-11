@@ -41,6 +41,7 @@
 | <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type) | EC2 VM instance type | `string` | n/a | yes |
 | <a name="input_ec2_monitoring"></a> [ec2\_monitoring](#input\_ec2\_monitoring) | Monitoring details activation/deactivation | `bool` | n/a | yes |
 | <a name="input_ec2_volume_size"></a> [ec2\_volume\_size](#input\_ec2\_volume\_size) | EC2 VM instance volume size | `number` | n/a | yes |
+| <a name="input_eip_name"></a> [eip\_name](#input\_eip\_name) | EC2 Elastic IP name | `string` | n/a | yes |
 | <a name="input_iam_role_name"></a> [iam\_role\_name](#input\_iam\_role\_name) | IAM role name | `string` | n/a | yes |
 | <a name="input_instance_profile_name"></a> [instance\_profile\_name](#input\_instance\_profile\_name) | IAM instance profile name | `string` | n/a | yes |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | EC2 key name | `string` | n/a | yes |

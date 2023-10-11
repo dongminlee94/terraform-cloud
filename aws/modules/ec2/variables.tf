@@ -28,6 +28,11 @@ variable "public_key" {
   type        = string
 }
 
+variable "eip_name" {
+  description = "EC2 Elastic IP name"
+  type        = string
+}
+
 variable "ec2_instance_name" {
   description = "EC2 VM instance name"
   type        = string
