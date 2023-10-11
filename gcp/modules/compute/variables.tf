@@ -38,6 +38,11 @@ variable "compute_image" {
   type        = string
 }
 
+variable "compute_size" {
+  description = "VM isntance disk volume size"
+  type        = number
+}
+
 variable "compute_tags" {
   description = "VM instance tags"
   type        = list(string)

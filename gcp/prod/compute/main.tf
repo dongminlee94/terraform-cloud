@@ -9,6 +9,7 @@ module "compute" {
   compute_machine_type   = "e2-medium"
   compute_zone           = "asia-northeast1-a"
   compute_image          = "ubuntu-os-cloud/ubuntu-2004-focal-v20230724"
+  compute_size           = 50
   compute_service_scopes = ["cloud-platform"]
   compute_tags           = ["compute-firewall"]
   compute_user_name      = "ubuntu"

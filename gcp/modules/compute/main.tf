@@ -18,6 +18,7 @@ resource "google_compute_instance" "compute_instance" {
   boot_disk {
     initialize_params {
       image = var.compute_image
+      size  = var.compute_size
     }
   }
 
