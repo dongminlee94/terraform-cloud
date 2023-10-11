@@ -3,18 +3,8 @@ variable "subnetwork_name" {
   type        = string
 }
 
-variable "compute_region" {
-  description = "Compute engine region"
-  type        = string
-}
-
 variable "sa_account_id" {
   description = "Service Account account id"
-  type        = string
-}
-
-variable "sa_project_id" {
-  description = "Service Account project id"
   type        = string
 }
 
@@ -23,42 +13,67 @@ variable "sa_scopes" {
   type        = list(string)
 }
 
-variable "address_name" {
-  description = "NAT IP address name"
+variable "compute_address_name" {
+  description = "NAT IP compute address name"
   type        = string
 }
 
-variable "instance_name" {
+variable "compute_instance_name" {
   description = "VM instance name"
   type        = string
 }
 
-variable "machine_type" {
+variable "compute_machine_type" {
   description = "VM instance machine type"
   type        = string
 }
 
-variable "zone" {
+variable "compute_zone" {
   description = "VM instance zone"
   type        = string
 }
 
-variable "image" {
+variable "compute_image" {
   description = "VM instance image"
   type        = string
 }
 
-variable "tags" {
+variable "compute_tags" {
   description = "VM instance tags"
   type        = list(string)
 }
 
-variable "user_name" {
-  description = "VM instance user name"
+variable "compute_key_name" {
+  description = "VM instance key name"
   type        = string
 }
 
-variable "ssh_pub_key" {
+variable "compute_public_key" {
   description = "VM instance ssh public key"
+  type        = string
+}
+
+variable "rp_name" {
+  description = "Resource policy - name"
+  type        = string
+}
+
+variable "rp_days_in_cycle" {
+  description = "Resource policy - schedule interval"
+  type        = number
+}
+
+variable "rp_start_time" {
+  description = "Resource policy - start time"
+  type        = string
+}
+
+variable "rp_max_retention_days" {
+  description = "Resource policy - max retention days"
+  type        = number
+}
+
+variable "rp_label" {
+  description = "Resource policy - tag"
   type        = string
 }

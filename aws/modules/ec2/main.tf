@@ -25,6 +25,10 @@ resource "aws_key_pair" "ec2_key_pair" {
   public_key = base64decode(var.public_key)
 }
 
+resource "aws_eip" "eip" {
+  instance = aws_instance.ec2_instance.id
+}
+
 resource "aws_instance" "ec2_instance" {
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
@@ -44,8 +48,6 @@ resource "aws_instance" "ec2_instance" {
   iam_instance_profile = data.aws_iam_instance_profile.ec2_instance_profile.name
 
   vpc_security_group_ids = [data.aws_security_group.sg.id]
-
-  associate_public_ip_address = var.ec2_associate_pia
 
   tags = {
     Name = var.ec2_instance_name

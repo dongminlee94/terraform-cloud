@@ -63,11 +63,6 @@ variable "ec2_instance_isb" {
   type        = string
 }
 
-variable "ec2_associate_pia" {
-  description = "Flag to determine whether or not to associate a public IP address with the EC2 instance"
-  type        = bool
-}
-
 variable "dlm_description" {
   description = "Data Lifecycle Manager - description"
   type        = string

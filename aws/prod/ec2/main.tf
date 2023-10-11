@@ -14,10 +14,9 @@ module "ec2" {
   ec2_instance_type = "t2.medium"
   ec2_volume_size   = 50
 
-  ec2_monitoring    = true
-  ec2_dat           = true   # disable_api_termination
-  ec2_instance_isb  = "stop" # instance_initiated_shutdown_behavior
-  ec2_associate_pia = true   # associate_public_ip_address
+  ec2_monitoring   = true
+  ec2_dat          = true   # disable_api_termination
+  ec2_instance_isb = "stop" # instance_initiated_shutdown_behavior
 
   dlm_description            = "EBS backup of EC2 instance"
   dlm_state                  = "ENABLED"

@@ -12,6 +12,7 @@
 | Name | Type |
 |------|------|
 | [aws_dlm_lifecycle_policy.ebs_snapshot_backup](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dlm_lifecycle_policy) | resource |
+| [aws_eip.eip](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
 | [aws_instance.ec2_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
 | [aws_key_pair.ec2_key_pair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
 | [aws_iam_instance_profile.ec2_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_instance_profile) | data source |
@@ -34,7 +35,6 @@
 | <a name="input_dlm_schedule_times"></a> [dlm\_schedule\_times](#input\_dlm\_schedule\_times) | Data Lifecycle Manager - schedule times | `list(string)` | n/a | yes |
 | <a name="input_dlm_state"></a> [dlm\_state](#input\_dlm\_state) | Data Lifecycle Manager - state | `string` | n/a | yes |
 | <a name="input_ec2_ami"></a> [ec2\_ami](#input\_ec2\_ami) | EC2 AMI id | `string` | n/a | yes |
-| <a name="input_ec2_associate_pia"></a> [ec2\_associate\_pia](#input\_ec2\_associate\_pia) | Flag to determine whether or not to associate a public IP address with the EC2 instance | `bool` | n/a | yes |
 | <a name="input_ec2_dat"></a> [ec2\_dat](#input\_ec2\_dat) | Protection against accidental EC2 termination via AWS API calls | `bool` | n/a | yes |
 | <a name="input_ec2_instance_isb"></a> [ec2\_instance\_isb](#input\_ec2\_instance\_isb) | Defines the behavior when an OS-level shutdown is performed within the EC2 instance | `string` | n/a | yes |
 | <a name="input_ec2_instance_name"></a> [ec2\_instance\_name](#input\_ec2\_instance\_name) | EC2 VM instance name | `string` | n/a | yes |
