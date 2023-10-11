@@ -25,7 +25,7 @@ resource "aws_key_pair" "ec2_key_pair" {
   public_key = base64decode(var.public_key)
 }
 
-resource "aws_eip" "eip" {
+resource "aws_eip" "ec2_eip" {
   instance = aws_instance.ec2_instance.id
 }
 
