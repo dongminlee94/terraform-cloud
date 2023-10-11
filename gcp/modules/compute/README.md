@@ -24,11 +24,11 @@
 | <a name="input_compute_address_name"></a> [compute\_address\_name](#input\_compute\_address\_name) | NAT IP compute address name | `string` | n/a | yes |
 | <a name="input_compute_image"></a> [compute\_image](#input\_compute\_image) | VM instance image | `string` | n/a | yes |
 | <a name="input_compute_instance_name"></a> [compute\_instance\_name](#input\_compute\_instance\_name) | VM instance name | `string` | n/a | yes |
-| <a name="input_compute_key_name"></a> [compute\_key\_name](#input\_compute\_key\_name) | VM instance key name | `string` | n/a | yes |
 | <a name="input_compute_machine_type"></a> [compute\_machine\_type](#input\_compute\_machine\_type) | VM instance machine type | `string` | n/a | yes |
 | <a name="input_compute_public_key"></a> [compute\_public\_key](#input\_compute\_public\_key) | VM instance ssh public key | `string` | n/a | yes |
 | <a name="input_compute_service_scopes"></a> [compute\_service\_scopes](#input\_compute\_service\_scopes) | Service scopes | `list(string)` | n/a | yes |
 | <a name="input_compute_tags"></a> [compute\_tags](#input\_compute\_tags) | VM instance tags | `list(string)` | n/a | yes |
+| <a name="input_compute_user_name"></a> [compute\_user\_name](#input\_compute\_user\_name) | VM instance user name | `string` | n/a | yes |
 | <a name="input_compute_zone"></a> [compute\_zone](#input\_compute\_zone) | VM instance zone | `string` | n/a | yes |
 | <a name="input_rp_days_in_cycle"></a> [rp\_days\_in\_cycle](#input\_rp\_days\_in\_cycle) | Resource policy - schedule interval | `number` | n/a | yes |
 | <a name="input_rp_label"></a> [rp\_label](#input\_rp\_label) | Resource policy - tag | `string` | n/a | yes |

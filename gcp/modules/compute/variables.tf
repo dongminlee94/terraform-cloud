@@ -43,8 +43,8 @@ variable "compute_tags" {
   type        = list(string)
 }
 
-variable "compute_key_name" {
-  description = "VM instance key name"
+variable "compute_user_name" {
+  description = "VM instance user name"
   type        = string
 }
 
