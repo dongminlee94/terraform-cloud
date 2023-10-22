@@ -6,7 +6,7 @@
 [![Linting: tflint](https://img.shields.io/badge/linting-tflint-red)](https://github.com/terraform-linters/tflint)
 [![Documentation: terraform-docs](https://img.shields.io/badge/documentation-terraform--docs-blue)](https://github.com/terraform-docs/terraform-docs)
 
-This is a repository that hands-on Terraform with Cloud (e.g., Docker, AWS, GCP).
+This is a repository that hands-on Terraform with Cloud (e.g., Docker, AWS, GCP, Azure).
 
 ## Installation
 
