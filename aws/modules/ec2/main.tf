@@ -43,6 +43,9 @@ resource "aws_instance" "ec2_instance" {
 
   root_block_device {
     volume_size = var.ec2_volume_size
+    tags = {
+      Name = var.ec2_instance_name
+    }
   }
 
   monitoring                           = var.ec2_monitoring
