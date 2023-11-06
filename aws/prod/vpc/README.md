@@ -3,7 +3,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.19.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.9.0 |
 
 ## Modules
 
