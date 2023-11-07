@@ -8,14 +8,24 @@ variable "vpc_cidr_block" {
   type        = string
 }
 
-variable "subnet_name" {
-  description = "Subnet name"
-  type        = string
+variable "vpc_enable_dns_support" {
+  description = "VPC DNS support true/false"
+  type        = bool
 }
 
-variable "subnet_cidr_block" {
-  description = "Subnet CIDR block"
-  type        = string
+variable "vpc_enable_dns_hostnames" {
+  description = "VPC DNS hostnames true/false"
+  type        = bool
+}
+
+variable "public_subnet_cidr_blocks" {
+  description = "Public Subnet CIDR blocks"
+  type        = list(string)
+}
+
+variable "private_subnet_cidr_blocks" {
+  description = "Private Subnet CIDR blocks"
+  type        = list(string)
 }
 
 variable "common_cidr_block" {
@@ -30,10 +40,5 @@ variable "igw_name" {
 
 variable "rt_name" {
   description = "Route table name"
-  type        = string
-}
-
-variable "sg_name" {
-  description = "Security group name"
   type        = string
 }

@@ -1,20 +1,41 @@
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr_block
+
+  enable_dns_support   = var.vpc_enable_dns_support
+  enable_dns_hostnames = var.vpc_enable_dns_hostnames
+
   tags = {
     Name = var.vpc_name
   }
 }
 
-resource "aws_subnet" "subnet" {
+resource "aws_subnet" "public_subnet" {
+  count = length(var.public_subnet_cidr_blocks)
+
   vpc_id     = aws_vpc.vpc.id
-  cidr_block = var.subnet_cidr_block
+  cidr_block = var.public_subnet_cidr_blocks[count.index]
+
   tags = {
-    Name = var.subnet_name
+    Name                     = "public-subnet-${count.index}"
+    "kubernetes.io/role/elb" = "1"
+  }
+}
+
+resource "aws_subnet" "private_subnet" {
+  count = length(var.private_subnet_cidr_blocks)
+
+  vpc_id     = aws_vpc.vpc.id
+  cidr_block = var.private_subnet_cidr_blocks[count.index]
+
+  tags = {
+    Name                              = "private-subnet-${count.index}"
+    "kubernetes.io/role/internal-elb" = "1"
   }
 }
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
+
   tags = {
     Name = var.igw_name
   }
@@ -22,6 +43,7 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_route_table" "rt" {
   vpc_id = aws_vpc.vpc.id
+
   tags = {
     Name = var.rt_name
   }
@@ -34,28 +56,8 @@ resource "aws_route" "route" {
 }
 
 resource "aws_route_table_association" "rta" {
-  subnet_id      = aws_subnet.subnet.id
+  count = length(var.public_subnet_cidr_blocks)
+
+  subnet_id      = aws_subnet.public_subnet[count.index].id
   route_table_id = aws_route_table.rt.id
-}
-
-resource "aws_security_group" "sg" {
-  vpc_id = aws_vpc.vpc.id
-
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = -1
-    cidr_blocks = [var.common_cidr_block]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = -1
-    cidr_blocks = [var.common_cidr_block]
-  }
-
-  tags = {
-    Name = var.sg_name
-  }
 }
