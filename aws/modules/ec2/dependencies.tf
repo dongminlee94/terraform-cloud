@@ -1,5 +1,5 @@
 data "aws_iam_role" "ec2_role" {
-  name = var.iam_role_name
+  name = var.dlm_ec2_role_name
 }
 
 data "aws_iam_instance_profile" "ec2_instance_profile" {

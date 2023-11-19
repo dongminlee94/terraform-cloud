@@ -28,9 +28,9 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ec2_instance_profile_name"></a> [ec2\_instance\_profile\_name](#input\_ec2\_instance\_profile\_name) | IAM EC2 instance profile name | `string` | n/a | yes |
-| <a name="input_ec2_role_name"></a> [ec2\_role\_name](#input\_ec2\_role\_name) | IAM EC2 role name | `string` | n/a | yes |
-| <a name="input_eks_instance_profile_name"></a> [eks\_instance\_profile\_name](#input\_eks\_instance\_profile\_name) | IAM EKS instance profile name | `string` | n/a | yes |
-| <a name="input_eks_nodes_role_name"></a> [eks\_nodes\_role\_name](#input\_eks\_nodes\_role\_name) | IAM EKS role name | `string` | n/a | yes |
-| <a name="input_eks_service_role_name"></a> [eks\_service\_role\_name](#input\_eks\_service\_role\_name) | IAM EKS role name | `string` | n/a | yes |
+| <a name="input_ec2_instance_profile_name"></a> [ec2\_instance\_profile\_name](#input\_ec2\_instance\_profile\_name) | IAM - EC2 instance profile name | `string` | n/a | yes |
+| <a name="input_ec2_role_name"></a> [ec2\_role\_name](#input\_ec2\_role\_name) | IAM - EC2 role name | `string` | n/a | yes |
+| <a name="input_eks_instance_profile_name"></a> [eks\_instance\_profile\_name](#input\_eks\_instance\_profile\_name) | IAM - EKS instance profile name | `string` | n/a | yes |
+| <a name="input_eks_nodes_role_name"></a> [eks\_nodes\_role\_name](#input\_eks\_nodes\_role\_name) | IAM - EKS role name | `string` | n/a | yes |
+| <a name="input_eks_service_role_name"></a> [eks\_service\_role\_name](#input\_eks\_service\_role\_name) | IAM - EKS role name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

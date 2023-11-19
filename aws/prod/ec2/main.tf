@@ -1,7 +1,6 @@
 module "ec2" {
   source = "../../modules/ec2"
 
-  iam_role_name         = "ec2_role"
   instance_profile_name = "ec2_instance_profile"
   subnet_name           = "public-subnet-0"
   sg_name               = "sg"
@@ -20,6 +19,7 @@ module "ec2" {
   ec2_instance_isb = "stop" # instance_initiated_shutdown_behavior
 
   dlm_description            = "EBS backup of EC2 instance"
+  dlm_ec2_role_name          = "ec2_role"
   dlm_state                  = "ENABLED"
   dlm_resource_types         = ["VOLUME"]
   dlm_schedule_name          = "DailyBackup"
