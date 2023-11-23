@@ -8,9 +8,14 @@ module "eks" {
   private_subnet_names = ["private-subnet-0", "private-subnet-1", "private-subnet-2"]
   sg_name              = "sg"
 
-  eks_cluster_name            = "eks_cluster"
-  eks_node_group_name         = "eks_node_group"
-  eks_node_group_desired_size = 1
-  eks_node_group_max_size     = 3
-  eks_node_group_min_size     = 1
+  eks_cluster_name               = "eks_cluster"
+  eks_node_group_name            = "eks_node_group"
+  eks_node_group_desired_size    = 1
+  eks_node_group_max_size        = 3
+  eks_node_group_min_size        = 1
+  eks_node_group_max_unavailable = 1
+
+  eks_node_group_ami            = "ami-0ed99df77a82560e6"
+  eks_node_group_instance_types = ["t2.medium"]
+  eks_node_group_disk_size      = 50
 }

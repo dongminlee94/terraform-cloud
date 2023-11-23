@@ -19,4 +19,16 @@ resource "aws_eks_node_group" "eks_node_group" {
     max_size     = var.eks_node_group_max_size
     min_size     = var.eks_node_group_min_size
   }
+
+  update_config {
+    max_unavailable = var.eks_node_group_max_unavailable
+  }
+
+  ami_type       = var.eks_node_group_ami
+  instance_types = var.eks_node_group_instance_types
+  disk_size      = var.eks_node_group_disk_size
+
+  tags = {
+    Name = var.eks_node_group_name
+  }
 }

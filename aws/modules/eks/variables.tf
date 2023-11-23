@@ -9,12 +9,12 @@ variable "eks_nodes_role_name" {
 }
 
 variable "public_subnet_names" {
-  description = "Subnet - Public Subnet names"
+  description = "Subnet - public subnet names"
   type        = list(string)
 }
 
 variable "private_subnet_names" {
-  description = "Subnet - Private Subnet names"
+  description = "Subnet - private subnet names"
   type        = list(string)
 }
 
@@ -46,4 +46,24 @@ variable "eks_node_group_max_size" {
 variable "eks_node_group_min_size" {
   description = "EKS Node Group - min size"
   type        = number
+}
+
+variable "eks_node_group_max_unavailable" {
+  description = "EKS Node Group - max unavailable"
+  type        = number
+}
+
+variable "eks_node_group_ami" {
+  description = "EKS Node Group - AMI"
+  type        = string
+}
+
+variable "eks_node_group_instance_types" {
+  description = "EKS Node Group - instance type"
+  type        = list(string)
+}
+
+variable "eks_node_group_disk_size" {
+  description = "EKS Node Group - disk size"
+  type        = string
 }
