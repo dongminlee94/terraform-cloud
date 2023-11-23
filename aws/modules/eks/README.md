@@ -11,7 +11,6 @@
 
 | Name | Type |
 |------|------|
-| [aws_dlm_lifecycle_policy.ebs_snapshot_backup](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dlm_lifecycle_policy) | resource |
 | [aws_eks_cluster.eks_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster) | resource |
 | [aws_eks_node_group.eks_node_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_node_group) | resource |
 | [aws_iam_role.eks_nodes_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_role) | data source |
@@ -24,16 +23,6 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_dlm_description"></a> [dlm\_description](#input\_dlm\_description) | Data Lifecycle Manager - description | `string` | n/a | yes |
-| <a name="input_dlm_resource_types"></a> [dlm\_resource\_types](#input\_dlm\_resource\_types) | Data Lifecycle Manager - resource types | `list(string)` | n/a | yes |
-| <a name="input_dlm_schedule_copy_tags"></a> [dlm\_schedule\_copy\_tags](#input\_dlm\_schedule\_copy\_tags) | Data Lifecycle Manager - schedule copy tags | `bool` | n/a | yes |
-| <a name="input_dlm_schedule_count"></a> [dlm\_schedule\_count](#input\_dlm\_schedule\_count) | Data Lifecycle Manager - schedule count | `number` | n/a | yes |
-| <a name="input_dlm_schedule_interval"></a> [dlm\_schedule\_interval](#input\_dlm\_schedule\_interval) | Data Lifecycle Manager - schedule interval | `number` | n/a | yes |
-| <a name="input_dlm_schedule_interval_unit"></a> [dlm\_schedule\_interval\_unit](#input\_dlm\_schedule\_interval\_unit) | Data Lifecycle Manager - schedule interval unit | `string` | n/a | yes |
-| <a name="input_dlm_schedule_name"></a> [dlm\_schedule\_name](#input\_dlm\_schedule\_name) | Data Lifecycle Manager - schedule name | `string` | n/a | yes |
-| <a name="input_dlm_schedule_tags_to_add"></a> [dlm\_schedule\_tags\_to\_add](#input\_dlm\_schedule\_tags\_to\_add) | Data Lifecycle Manager - schedule tags to add | `string` | n/a | yes |
-| <a name="input_dlm_schedule_times"></a> [dlm\_schedule\_times](#input\_dlm\_schedule\_times) | Data Lifecycle Manager - schedule times | `list(string)` | n/a | yes |
-| <a name="input_dlm_state"></a> [dlm\_state](#input\_dlm\_state) | Data Lifecycle Manager - state | `string` | n/a | yes |
 | <a name="input_eks_cluster_name"></a> [eks\_cluster\_name](#input\_eks\_cluster\_name) | EKS Cluster - name | `string` | n/a | yes |
 | <a name="input_eks_node_group_ami"></a> [eks\_node\_group\_ami](#input\_eks\_node\_group\_ami) | EKS Node Group - AMI | `string` | n/a | yes |
 | <a name="input_eks_node_group_desired_size"></a> [eks\_node\_group\_desired\_size](#input\_eks\_node\_group\_desired\_size) | EKS Node Group - desired size | `number` | n/a | yes |
