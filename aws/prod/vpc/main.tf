@@ -9,7 +9,7 @@ module "vpc" {
   public_subnet_cidr_blocks        = ["10.0.0.0/24", "10.0.2.0/24", "10.0.4.0/24"]
   private_subnet_cidr_blocks       = ["10.0.6.0/24", "10.0.8.0/24", "10.0.10.0/24"]
   common_cidr_block                = "0.0.0.0/0"
-  common_subnet_availability_zones = ["ap-northeast-1a", "ap-northeast-1b", "ap-northeast-1c"]
+  common_subnet_availability_zones = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
 
   eip_name         = "nat_eip"
   nat_gateway_name = "nat_gateway"
