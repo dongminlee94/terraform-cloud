@@ -29,6 +29,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_common_cidr_block"></a> [common\_cidr\_block](#input\_common\_cidr\_block) | Common CIDR block | `string` | n/a | yes |
+| <a name="input_common_subnet_availability_zones"></a> [common\_subnet\_availability\_zones](#input\_common\_subnet\_availability\_zones) | Subnet - Availability zones | `list(string)` | n/a | yes |
 | <a name="input_eip_name"></a> [eip\_name](#input\_eip\_name) | Elastic IP - name | `string` | n/a | yes |
 | <a name="input_igw_name"></a> [igw\_name](#input\_igw\_name) | Internet Gateway - name | `string` | n/a | yes |
 | <a name="input_nat_gateway_name"></a> [nat\_gateway\_name](#input\_nat\_gateway\_name) | NAT Gateway - name | `string` | n/a | yes |

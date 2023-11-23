@@ -1,3 +1,6 @@
+###################################################################################################
+# VPC
+###################################################################################################
 variable "vpc_name" {
   description = "VPC - name"
   type        = string
@@ -18,6 +21,9 @@ variable "vpc_enable_dns_hostnames" {
   type        = bool
 }
 
+###################################################################################################
+# Subnet
+###################################################################################################
 variable "public_subnet_cidr_blocks" {
   description = "Public Subnet - CIDR blocks"
   type        = list(string)
@@ -25,6 +31,11 @@ variable "public_subnet_cidr_blocks" {
 
 variable "private_subnet_cidr_blocks" {
   description = "Private Subnet - CIDR blocks"
+  type        = list(string)
+}
+
+variable "common_subnet_availability_zones" {
+  description = "Subnet - Availability zones"
   type        = list(string)
 }
 
