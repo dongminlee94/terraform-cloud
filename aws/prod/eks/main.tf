@@ -15,7 +15,7 @@ module "eks" {
   eks_node_group_min_size        = 1
   eks_node_group_max_unavailable = 1
 
-  eks_node_group_ami            = "ami-0ed99df77a82560e6"
+  eks_node_group_ami            = "AL2_x86_64"
   eks_node_group_instance_types = ["t2.medium"]
   eks_node_group_disk_size      = 50
 }
