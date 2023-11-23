@@ -8,9 +8,11 @@ module "vpc" {
 
   public_subnet_cidr_blocks  = ["10.0.0.0/24", "10.0.2.0/24", "10.0.4.0/24"]
   private_subnet_cidr_blocks = ["10.0.6.0/24", "10.0.8.0/24", "10.0.10.0/24"]
+  common_cidr_block          = "0.0.0.0/0"
 
-  common_cidr_block = "0.0.0.0/0"
-
-  igw_name = "igw"
-  rt_name  = "rt"
+  eip_name         = "eip_nat"
+  nat_gateway_name = "nat_gateway"
+  igw_name         = "igw"
+  public_rt_name   = "public_rt"
+  private_rt_name  = "private_rt"
 }

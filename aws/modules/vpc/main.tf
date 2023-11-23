@@ -1,3 +1,6 @@
+###################################################################################################
+# VPC
+###################################################################################################
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr_block
 
@@ -9,6 +12,9 @@ resource "aws_vpc" "vpc" {
   }
 }
 
+###################################################################################################
+# Public Network
+###################################################################################################
 resource "aws_subnet" "public_subnet" {
   count = length(var.public_subnet_cidr_blocks)
 
@@ -21,6 +27,39 @@ resource "aws_subnet" "public_subnet" {
   }
 }
 
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    Name = var.igw_name
+  }
+}
+
+resource "aws_route_table" "public_rt" {
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    Name = var.public_rt_name
+  }
+}
+
+resource "aws_route" "public_route" {
+  route_table_id = aws_route_table.public_rt.id
+
+  destination_cidr_block = var.common_cidr_block
+  gateway_id             = aws_internet_gateway.igw.id
+}
+
+resource "aws_route_table_association" "public_rta" {
+  count = length(var.public_subnet_cidr_blocks)
+
+  subnet_id      = aws_subnet.public_subnet[count.index].id
+  route_table_id = aws_route_table.public_rt.id
+}
+
+###################################################################################################
+# Private Network
+###################################################################################################
 resource "aws_subnet" "private_subnet" {
   count = length(var.private_subnet_cidr_blocks)
 
@@ -33,31 +72,41 @@ resource "aws_subnet" "private_subnet" {
   }
 }
 
-resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.vpc.id
+resource "aws_eip" "eip_nat" {
+  domain = "vpc"
 
   tags = {
-    Name = var.igw_name
+    Name = var.eip_name
   }
 }
 
-resource "aws_route_table" "rt" {
-  vpc_id = aws_vpc.vpc.id
+resource "aws_nat_gateway" "nat_gateway" {
+  allocation_id = aws_eip.eip_nat.id
+  subnet_id     = aws_subnet.public_subnet[0].id
 
   tags = {
-    Name = var.rt_name
+    Name = var.nat_gateway_name
   }
 }
 
-resource "aws_route" "route" {
-  route_table_id         = aws_route_table.rt.id
+resource "aws_route_table" "private_rt" {
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    Name = var.private_rt_name
+  }
+}
+
+resource "aws_route" "private_route" {
+  route_table_id = aws_route_table.private_rt.id
+
   destination_cidr_block = var.common_cidr_block
-  gateway_id             = aws_internet_gateway.igw.id
+  nat_gateway_id         = aws_nat_gateway.nat_gateway.id
 }
 
-resource "aws_route_table_association" "rta" {
-  count = length(var.public_subnet_cidr_blocks)
+resource "aws_route_table_association" "private_rta" {
+  count = length(aws_subnet.private_subnet)
 
-  subnet_id      = aws_subnet.public_subnet[count.index].id
-  route_table_id = aws_route_table.rt.id
+  subnet_id      = aws_subnet.private_subnet[count.index].id
+  route_table_id = aws_route_table.private_rt.id
 }

@@ -28,13 +28,28 @@ variable "private_subnet_cidr_blocks" {
   type        = list(string)
 }
 
+variable "eip_name" {
+  description = "Elastic IP - name"
+  type        = string
+}
+
+variable "nat_gateway_name" {
+  description = "NAT Gateway - name"
+  type        = string
+}
+
 variable "igw_name" {
   description = "Internet Gateway - name"
   type        = string
 }
 
-variable "rt_name" {
-  description = "Route Table - name"
+variable "public_rt_name" {
+  description = "Public Route Table - name"
+  type        = string
+}
+
+variable "private_rt_name" {
+  description = "Private Route Table - name"
   type        = string
 }
 
