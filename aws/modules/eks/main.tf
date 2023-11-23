@@ -32,3 +32,37 @@ resource "aws_eks_node_group" "eks_node_group" {
     Name = var.eks_node_group_name
   }
 }
+
+resource "aws_dlm_lifecycle_policy" "ebs_snapshot_backup" {
+  description        = var.dlm_description
+  execution_role_arn = data.aws_iam_role.eks_nodes_role.arn
+  state              = var.dlm_state
+
+  policy_details {
+    resource_types = var.dlm_resource_types
+
+    schedule {
+      name = var.dlm_schedule_name
+
+      create_rule {
+        interval      = var.dlm_schedule_interval
+        interval_unit = var.dlm_schedule_interval_unit
+        times         = var.dlm_schedule_times
+      }
+
+      retain_rule {
+        count = var.dlm_schedule_count
+      }
+
+      tags_to_add = {
+        Purpose = var.dlm_schedule_tags_to_add
+      }
+
+      copy_tags = var.dlm_schedule_copy_tags
+    }
+
+    target_tags = {
+      "kubernetes.io/cluster/${var.eks_cluster_name}" = "owned"
+    }
+  }
+}

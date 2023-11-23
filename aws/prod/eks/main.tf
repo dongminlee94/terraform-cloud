@@ -18,4 +18,15 @@ module "eks" {
   eks_node_group_ami            = "AL2_x86_64"
   eks_node_group_instance_types = ["t2.medium"]
   eks_node_group_disk_size      = 50
+
+  dlm_description            = "EBS backup of EKS Nodes Group"
+  dlm_state                  = "ENABLED"
+  dlm_resource_types         = ["VOLUME"]
+  dlm_schedule_name          = "DailyBackup"
+  dlm_schedule_interval      = 24
+  dlm_schedule_interval_unit = "HOURS"
+  dlm_schedule_times         = ["18:00"]
+  dlm_schedule_count         = 5
+  dlm_schedule_tags_to_add   = "snapshot"
+  dlm_schedule_copy_tags     = false
 }

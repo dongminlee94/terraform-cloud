@@ -14,12 +14,12 @@ variable "sg_name" {
 }
 
 variable "key_name" {
-  description = "EC2 - Key name"
+  description = "EC2 - key name"
   type        = string
 }
 
 variable "public_key" {
-  description = "EC2 - Public key"
+  description = "EC2 - public key"
   type        = string
 }
 
@@ -49,17 +49,17 @@ variable "ec2_volume_size" {
 }
 
 variable "ec2_monitoring" {
-  description = "EC2 - Monitoring details activation/deactivation"
+  description = "EC2 - monitoring details activation/deactivation"
   type        = bool
 }
 
 variable "ec2_dat" {
-  description = "EC2 - Protection against accidental EC2 termination via AWS API calls"
+  description = "EC2 - protection against accidental EC2 termination via AWS API calls"
   type        = bool
 }
 
 variable "ec2_instance_isb" {
-  description = "EC2 - Defines the behavior when an OS-level shutdown is performed within the EC2 instance"
+  description = "EC2 - defines the behavior when an OS-level shutdown is performed within the EC2 instance"
   type        = string
 }
 
