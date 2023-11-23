@@ -6,12 +6,21 @@ data "aws_iam_role" "eks_nodes_role" {
   name = var.eks_nodes_role_name
 }
 
-data "aws_subnet" "subnet" {
-  count = length(var.subnet_names)
+data "aws_subnet" "public_subnet" {
+  count = length(var.public_subnet_names)
 
   filter {
     name   = "tag:Name"
-    values = [var.subnet_names[count.index]]
+    values = [var.public_subnet_names[count.index]]
+  }
+}
+
+data "aws_subnet" "private_subnet" {
+  count = length(var.private_subnet_names)
+
+  filter {
+    name   = "tag:Name"
+    values = [var.private_subnet_names[count.index]]
   }
 }
 
