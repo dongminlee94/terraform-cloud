@@ -30,5 +30,5 @@
 | <a name="input_eks_nodes_role_name"></a> [eks\_nodes\_role\_name](#input\_eks\_nodes\_role\_name) | IAM - EKS nodes role name | `string` | n/a | yes |
 | <a name="input_eks_service_role_name"></a> [eks\_service\_role\_name](#input\_eks\_service\_role\_name) | IAM - EKS service role name | `string` | n/a | yes |
 | <a name="input_sg_name"></a> [sg\_name](#input\_sg\_name) | Security Group - name | `string` | n/a | yes |
-| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | Subnet - Public Subnet IDs | `list(string)` | n/a | yes |
+| <a name="input_subnet_names"></a> [subnet\_names](#input\_subnet\_names) | Subnet - Public Subnet names | `list(string)` | n/a | yes |
 <!-- END_TF_DOCS -->

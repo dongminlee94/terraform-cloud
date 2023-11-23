@@ -3,7 +3,7 @@ resource "aws_eks_cluster" "eks_cluster" {
   role_arn = data.aws_iam_role.eks_service_role.arn
 
   vpc_config {
-    subnet_ids         = var.subnet_ids
+    subnet_ids         = [for subnet in data.aws_subnet.subnet : subnet.id]
     security_group_ids = [data.aws_security_group.sg.id]
   }
 }

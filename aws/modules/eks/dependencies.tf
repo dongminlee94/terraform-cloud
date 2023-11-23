@@ -7,9 +7,12 @@ data "aws_iam_role" "eks_nodes_role" {
 }
 
 data "aws_subnet" "subnet" {
-  count = length(var.subnet_ids)
+  count = length(var.subnet_names)
 
-  id = var.subnet_ids[count.index]
+  filter {
+    name   = "tag:Name"
+    values = [var.subnet_names[count.index]]
+  }
 }
 
 data "aws_security_group" "sg" {

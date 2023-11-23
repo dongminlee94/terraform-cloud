@@ -8,8 +8,8 @@ variable "eks_nodes_role_name" {
   type        = string
 }
 
-variable "subnet_ids" {
-  description = "Subnet - Public Subnet IDs"
+variable "subnet_names" {
+  description = "Subnet - Public Subnet names"
   type        = list(string)
 }
 
