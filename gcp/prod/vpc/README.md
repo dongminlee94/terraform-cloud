@@ -3,7 +3,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_google"></a> [google](#requirement\_google) | 4.33.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.77.0 |
 
 ## Modules
 
