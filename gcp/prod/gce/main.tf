@@ -1,5 +1,5 @@
-module "compute" {
-  source = "../../modules/compute"
+module "gce" {
+  source = "../../modules/gce"
 
   subnetwork_name = "subnetwork"
   sa_account_id   = "compute-sa"

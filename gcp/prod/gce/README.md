@@ -9,5 +9,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_compute"></a> [compute](#module\_compute) | ../../modules/compute | n/a |
+| <a name="module_gce"></a> [gce](#module\_gce) | ../../modules/gce | n/a |
 <!-- END_TF_DOCS -->
