@@ -1,29 +1,29 @@
 variable "network_name" {
-  description = "VPC network name"
+  description = "VPC - network name"
   type        = string
 }
 
 variable "network_auto_create_subnetworks" {
-  description = "Whether to automatically create a subnetwork or not"
+  description = "VPC - Whether to automatically create a subnetwork or not"
   type        = bool
 }
 
 variable "subnetwork_name" {
-  description = "VPC subnetwork name"
+  description = "Subnet - subnetwork name"
   type        = string
 }
 
 variable "subnetwork_ip_cidr_range" {
-  description = "VPC subnetwork IP CIDR range"
+  description = "Subnet - IP CIDR range"
   type        = string
 }
 
-variable "firewall_name" {
-  description = "Firewall ssh name"
+variable "subnetwork_pods_ip_cidr_range" {
+  description = "Subnet - Pods IP CIDR range"
   type        = string
 }
 
-variable "common_cidr_block" {
-  description = "Firewall common CIDR block"
+variable "subnetwork_services_ip_cidr_range" {
+  description = "Subnet - Services IP CIDR range"
   type        = string
 }

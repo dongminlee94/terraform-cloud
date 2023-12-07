@@ -4,9 +4,8 @@ module "vpc" {
   network_name                    = "network"
   network_auto_create_subnetworks = false
 
-  subnetwork_name          = "subnetwork"
-  subnetwork_ip_cidr_range = "10.1.0.0/16"
-
-  firewall_name     = "compute-firewall"
-  common_cidr_block = "0.0.0.0/0"
+  subnetwork_name                   = "subnetwork"
+  subnetwork_ip_cidr_range          = "10.1.0.0/16"
+  subnetwork_pods_ip_cidr_range     = "10.1.64.0/18"
+  subnetwork_services_ip_cidr_range = "10.1.0.0/20"
 }
