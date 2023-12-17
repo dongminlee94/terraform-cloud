@@ -10,6 +10,7 @@ module "gke" {
   gke_services_secondary_range_name = "gke-services"
   gke_node_pool_name                = "gke-node-pool"
   gke_machine_type                  = "e2-medium"
+  gke_tags                          = ["gcp"]
   gke_node_count                    = 1
   gke_min_node_count                = 1
   gke_max_node_count                = 3

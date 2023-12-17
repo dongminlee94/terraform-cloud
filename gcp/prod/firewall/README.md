@@ -9,5 +9,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam"></a> [iam](#module\_iam) | ../../modules/firewall | n/a |
+| <a name="module_firewall"></a> [firewall](#module\_firewall) | ../../modules/firewall | n/a |
 <!-- END_TF_DOCS -->

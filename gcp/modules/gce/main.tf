@@ -27,7 +27,7 @@ resource "google_compute_instance" "gce_instance" {
     scopes = var.gce_service_scopes
   }
 
-  tags = [var.gce_instance_name]
+  tags = var.gce_tags
 
   metadata = {
     ssh-keys = "${var.gce_user_name}:${base64decode(var.gce_public_key)}"

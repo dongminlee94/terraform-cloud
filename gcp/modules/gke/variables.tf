@@ -43,6 +43,11 @@ variable "gke_machine_type" {
   type        = string
 }
 
+variable "gke_tags" {
+  description = "GKE - tags"
+  type        = list(string)
+}
+
 variable "gke_min_node_count" {
   description = "GKE - minimum node count"
   type        = number

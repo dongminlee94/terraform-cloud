@@ -30,6 +30,7 @@
 | <a name="input_gke_node_count"></a> [gke\_node\_count](#input\_gke\_node\_count) | GKE - node count | `number` | n/a | yes |
 | <a name="input_gke_node_pool_name"></a> [gke\_node\_pool\_name](#input\_gke\_node\_pool\_name) | GKE - node pool name | `string` | n/a | yes |
 | <a name="input_gke_services_secondary_range_name"></a> [gke\_services\_secondary\_range\_name](#input\_gke\_services\_secondary\_range\_name) | GKE - services secondary range name | `string` | n/a | yes |
+| <a name="input_gke_tags"></a> [gke\_tags](#input\_gke\_tags) | GKE - tags | `list(string)` | n/a | yes |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | VPC - network name | `string` | n/a | yes |
 | <a name="input_sa_account_id"></a> [sa\_account\_id](#input\_sa\_account\_id) | Service Account - account id | `string` | n/a | yes |
 | <a name="input_subnetwork_name"></a> [subnetwork\_name](#input\_subnetwork\_name) | Subnet - name | `string` | n/a | yes |

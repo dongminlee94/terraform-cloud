@@ -10,6 +10,7 @@ resource "google_container_cluster" "gke_cluster" {
     node_config {
       machine_type    = var.gke_machine_type
       service_account = data.google_service_account.sa.email
+      tags            = var.gke_tags
     }
 
     node_count = var.gke_node_count

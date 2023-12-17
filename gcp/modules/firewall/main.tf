@@ -18,7 +18,7 @@ resource "google_compute_firewall" "firewall_ingress" {
   }
 
   source_ranges = [var.common_cidr_block]
-  target_tags   = [var.firewall_name]
+  target_tags   = var.target_tags
 }
 
 resource "google_compute_firewall" "firewall_egress" {
@@ -41,5 +41,5 @@ resource "google_compute_firewall" "firewall_egress" {
   }
 
   destination_ranges = [var.common_cidr_block]
-  target_tags        = [var.firewall_name]
+  target_tags        = var.target_tags
 }

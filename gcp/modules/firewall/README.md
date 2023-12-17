@@ -22,4 +22,5 @@
 | <a name="input_common_cidr_block"></a> [common\_cidr\_block](#input\_common\_cidr\_block) | Firewall - common CIDR block | `string` | n/a | yes |
 | <a name="input_firewall_name"></a> [firewall\_name](#input\_firewall\_name) | Firewall - name | `string` | n/a | yes |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | VPC - network name | `string` | n/a | yes |
+| <a name="input_target_tags"></a> [target\_tags](#input\_target\_tags) | Firewall - target tags | `list(string)` | n/a | yes |
 <!-- END_TF_DOCS -->

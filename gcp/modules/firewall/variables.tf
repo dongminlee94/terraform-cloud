@@ -12,3 +12,8 @@ variable "common_cidr_block" {
   description = "Firewall - common CIDR block"
   type        = string
 }
+
+variable "target_tags" {
+  description = "Firewall - target tags"
+  type        = list(string)
+}

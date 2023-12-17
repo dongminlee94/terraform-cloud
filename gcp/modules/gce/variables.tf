@@ -48,6 +48,11 @@ variable "gce_user_name" {
   type        = string
 }
 
+variable "gce_tags" {
+  description = "GCE - tags"
+  type        = list(string)
+}
+
 variable "gce_public_key" {
   description = "GCE - ssh public key"
   type        = string

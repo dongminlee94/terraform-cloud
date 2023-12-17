@@ -28,6 +28,7 @@
 | <a name="input_gce_public_key"></a> [gce\_public\_key](#input\_gce\_public\_key) | GCE - ssh public key | `string` | n/a | yes |
 | <a name="input_gce_service_scopes"></a> [gce\_service\_scopes](#input\_gce\_service\_scopes) | GCE - service scopes | `list(string)` | n/a | yes |
 | <a name="input_gce_size"></a> [gce\_size](#input\_gce\_size) | GCE - disk volume size | `number` | n/a | yes |
+| <a name="input_gce_tags"></a> [gce\_tags](#input\_gce\_tags) | GCE - tags | `list(string)` | n/a | yes |
 | <a name="input_gce_user_name"></a> [gce\_user\_name](#input\_gce\_user\_name) | GCE - user name | `string` | n/a | yes |
 | <a name="input_gce_zone"></a> [gce\_zone](#input\_gce\_zone) | GCE - zone | `string` | n/a | yes |
 | <a name="input_rp_days_in_cycle"></a> [rp\_days\_in\_cycle](#input\_rp\_days\_in\_cycle) | Resource policy - schedule interval | `number` | n/a | yes |
