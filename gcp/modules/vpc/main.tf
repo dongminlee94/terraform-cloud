@@ -11,8 +11,8 @@ resource "google_compute_subnetwork" "subnetwork" {
   dynamic "secondary_ip_range" {
     for_each = var.subnetwork_secondary_ip_ranges
     content {
-      range_name    = var.secondary_ip_range.value.range_name
-      ip_cidr_range = var.secondary_ip_range.value.ip_cidr_range
+      range_name    = var.subnetwork_secondary_ip_ranges.value.range_name
+      ip_cidr_range = var.subnetwork_secondary_ip_ranges.value.ip_cidr_range
     }
   }
 }
