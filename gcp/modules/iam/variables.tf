@@ -1,5 +1,5 @@
 variable "account_id" {
-  description = "Service Account - id"
+  description = "Service Account - account id"
   type        = string
 }
 

@@ -24,7 +24,7 @@ variable "public_key" {
 }
 
 variable "eip_name" {
-  description = "EC2 - Elastic IP name"
+  description = "EC2 - elastic IP name"
   type        = string
 }
 

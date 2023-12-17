@@ -4,7 +4,7 @@ variable "network_name" {
 }
 
 variable "network_auto_create_subnetworks" {
-  description = "VPC - Whether to automatically create a subnetwork or not"
+  description = "VPC - whether to automatically create a subnetwork or not"
   type        = bool
 }
 
@@ -18,12 +18,10 @@ variable "subnetwork_ip_cidr_range" {
   type        = string
 }
 
-variable "subnetwork_pods_ip_cidr_range" {
-  description = "Subnet - Pods IP CIDR range"
-  type        = string
-}
-
-variable "subnetwork_services_ip_cidr_range" {
-  description = "Subnet - Services IP CIDR range"
-  type        = string
+variable "subnetwork_secondary_ip_ranges" {
+  description = "Subnet - secondary ip ranges"
+  type = list(object({
+    range_name    = string
+    ip_cidr_range = string
+  }))
 }

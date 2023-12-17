@@ -11,8 +11,8 @@ module "eks" {
   eks_cluster_name               = "eks_cluster"
   eks_node_group_name            = "eks_node_group"
   eks_node_group_desired_size    = 1
-  eks_node_group_max_size        = 3
   eks_node_group_min_size        = 1
+  eks_node_group_max_size        = 3
   eks_node_group_max_unavailable = 1
 
   eks_node_group_ami            = "AL2_x86_64"

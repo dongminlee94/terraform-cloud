@@ -1,24 +1,16 @@
-data "google_compute_subnetwork" "subnetwork" {
-  name = var.subnetwork_name
+resource "google_compute_address" "gce_address" {
+  name = var.gce_address_name
 }
 
-data "google_service_account" "service_account" {
-  account_id = var.sa_account_id
-}
-
-resource "google_compute_address" "compute_address" {
-  name = var.compute_address_name
-}
-
-resource "google_compute_instance" "compute_instance" {
-  name         = var.compute_instance_name
-  machine_type = var.compute_machine_type
-  zone         = var.compute_zone
+resource "google_compute_instance" "gce_instance" {
+  name         = var.gce_instance_name
+  machine_type = var.gce_machine_type
+  zone         = var.gce_zone
 
   boot_disk {
     initialize_params {
-      image = var.compute_image
-      size  = var.compute_size
+      image = var.gce_image
+      size  = var.gce_size
     }
   }
 
@@ -26,23 +18,23 @@ resource "google_compute_instance" "compute_instance" {
     subnetwork = data.google_compute_subnetwork.subnetwork.id
 
     access_config {
-      nat_ip = google_compute_address.compute_address.address
+      nat_ip = google_compute_address.gce_address.address
     }
   }
 
   service_account {
-    email  = data.google_service_account.service_account.email
-    scopes = var.compute_service_scopes
+    email  = data.google_service_account.sa.email
+    scopes = var.gce_service_scopes
   }
 
-  tags = var.compute_tags
+  tags = [var.gce_instance_name]
 
   metadata = {
-    ssh-keys = "${var.compute_user_name}:${base64decode(var.compute_public_key)}"
+    ssh-keys = "${var.gce_user_name}:${base64decode(var.gce_public_key)}"
   }
 }
 
-resource "google_compute_resource_policy" "compute_resource_policy" {
+resource "google_compute_resource_policy" "gce_resource_policy" {
   name = var.rp_name
 
   snapshot_schedule_policy {

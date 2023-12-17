@@ -4,7 +4,7 @@ variable "network_name" {
 }
 
 variable "firewall_name" {
-  description = "Firewall - ssh name"
+  description = "Firewall - name"
   type        = string
 }
 

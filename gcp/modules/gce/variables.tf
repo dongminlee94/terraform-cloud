@@ -1,60 +1,55 @@
 variable "subnetwork_name" {
-  description = "VPC subnetwork name"
+  description = "Subnet - name"
   type        = string
 }
 
 variable "sa_account_id" {
-  description = "Service Account account id"
+  description = "Service Account - account id"
   type        = string
 }
 
-variable "compute_service_scopes" {
-  description = "Service scopes"
-  type        = list(string)
-}
-
-variable "compute_address_name" {
-  description = "NAT IP compute address name"
+variable "gce_address_name" {
+  description = "GCE - NAT IP address name"
   type        = string
 }
 
-variable "compute_instance_name" {
-  description = "VM instance name"
+variable "gce_instance_name" {
+  description = "GCE - name"
   type        = string
 }
 
-variable "compute_machine_type" {
-  description = "VM instance machine type"
+variable "gce_machine_type" {
+  description = "GCE - machine type"
   type        = string
 }
 
-variable "compute_zone" {
-  description = "VM instance zone"
+variable "gce_zone" {
+  description = "GCE - zone"
   type        = string
 }
 
-variable "compute_image" {
-  description = "VM instance image"
+variable "gce_image" {
+  description = "GCE - image"
   type        = string
 }
 
-variable "compute_size" {
-  description = "VM isntance disk volume size"
+variable "gce_size" {
+  description = "GCE - disk volume size"
   type        = number
 }
 
-variable "compute_tags" {
-  description = "VM instance tags"
+variable "gce_service_scopes" {
+  description = "GCE - service scopes"
   type        = list(string)
 }
 
-variable "compute_user_name" {
-  description = "VM instance user name"
+variable "gce_user_name" {
+  description = "GCE - user name"
   type        = string
 }
 
-variable "compute_public_key" {
-  description = "VM instance ssh public key"
+variable "gce_public_key" {
+  description = "GCE - ssh public key"
   type        = string
 }
 
