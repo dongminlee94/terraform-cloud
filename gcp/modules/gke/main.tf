@@ -8,11 +8,6 @@ resource "google_container_cluster" "gke_cluster" {
   initial_node_count       = var.gke_initial_node_count
   deletion_protection      = var.gke_deletion_protection
 
-  ip_allocation_policy {
-    cluster_secondary_range_name  = var.gke_cluster_secondary_range_name
-    services_secondary_range_name = var.gke_services_secondary_range_name
-  }
-
   network_policy {
     enabled  = var.gke_network_policy_enabled
     provider = var.gke_network_policy_provider

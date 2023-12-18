@@ -33,16 +33,6 @@ variable "gke_deletion_protection" {
   type        = bool
 }
 
-variable "gke_cluster_secondary_range_name" {
-  description = "GKE cluster - cluster secondary range name"
-  type        = string
-}
-
-variable "gke_services_secondary_range_name" {
-  description = "GKE cluster - services secondary range name"
-  type        = string
-}
-
 variable "gke_network_policy_enabled" {
   description = "GKE cluster - network policy enabled"
   type        = bool

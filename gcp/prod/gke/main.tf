@@ -5,14 +5,12 @@ module "gke" {
   network_name    = "network"
   subnetwork_name = "subnetwork"
 
-  gke_cluster_name                  = "gke-cluster"
-  gke_remove_default_node_pool      = true
-  gke_initial_node_count            = 1
-  gke_deletion_protection           = false
-  gke_cluster_secondary_range_name  = "gke-pods"
-  gke_services_secondary_range_name = "gke-services"
-  gke_network_policy_enabled        = true
-  gke_network_policy_provider       = "CALICO"
+  gke_cluster_name             = "gke-cluster"
+  gke_remove_default_node_pool = true
+  gke_initial_node_count       = 1
+  gke_deletion_protection      = false
+  gke_network_policy_enabled   = true
+  gke_network_policy_provider  = "CALICO"
 
   gke_node_pool_name = "gke-node-pool"
   gke_machine_type   = "e2-medium"

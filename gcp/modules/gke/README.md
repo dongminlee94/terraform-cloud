@@ -24,7 +24,6 @@
 | <a name="input_gke_auto_repair"></a> [gke\_auto\_repair](#input\_gke\_auto\_repair) | GKE node pool - auto repair | `bool` | n/a | yes |
 | <a name="input_gke_auto_upgrade"></a> [gke\_auto\_upgrade](#input\_gke\_auto\_upgrade) | GKE node pool - auto upgrade | `bool` | n/a | yes |
 | <a name="input_gke_cluster_name"></a> [gke\_cluster\_name](#input\_gke\_cluster\_name) | GKE cluster - cluster name | `string` | n/a | yes |
-| <a name="input_gke_cluster_secondary_range_name"></a> [gke\_cluster\_secondary\_range\_name](#input\_gke\_cluster\_secondary\_range\_name) | GKE cluster - cluster secondary range name | `string` | n/a | yes |
 | <a name="input_gke_deletion_protection"></a> [gke\_deletion\_protection](#input\_gke\_deletion\_protection) | GKE cluster - whether to deletion protection | `bool` | n/a | yes |
 | <a name="input_gke_initial_node_count"></a> [gke\_initial\_node\_count](#input\_gke\_initial\_node\_count) | GKE cluster - initial node count | `number` | n/a | yes |
 | <a name="input_gke_machine_type"></a> [gke\_machine\_type](#input\_gke\_machine\_type) | GKE node pool - machine type | `string` | n/a | yes |
@@ -35,7 +34,6 @@
 | <a name="input_gke_node_count"></a> [gke\_node\_count](#input\_gke\_node\_count) | GKE node pool - node count | `number` | n/a | yes |
 | <a name="input_gke_node_pool_name"></a> [gke\_node\_pool\_name](#input\_gke\_node\_pool\_name) | GKE node pool - node pool name | `string` | n/a | yes |
 | <a name="input_gke_remove_default_node_pool"></a> [gke\_remove\_default\_node\_pool](#input\_gke\_remove\_default\_node\_pool) | GKE cluster - whether to remove default node pool | `bool` | n/a | yes |
-| <a name="input_gke_services_secondary_range_name"></a> [gke\_services\_secondary\_range\_name](#input\_gke\_services\_secondary\_range\_name) | GKE cluster - services secondary range name | `string` | n/a | yes |
 | <a name="input_gke_tags"></a> [gke\_tags](#input\_gke\_tags) | GKE node pool - tags | `list(string)` | n/a | yes |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | VPC - network name | `string` | n/a | yes |
 | <a name="input_sa_account_id"></a> [sa\_account\_id](#input\_sa\_account\_id) | Service Account - account id | `string` | n/a | yes |

@@ -22,5 +22,4 @@
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | VPC - network name | `string` | n/a | yes |
 | <a name="input_subnetwork_ip_cidr_range"></a> [subnetwork\_ip\_cidr\_range](#input\_subnetwork\_ip\_cidr\_range) | Subnet - IP CIDR range | `string` | n/a | yes |
 | <a name="input_subnetwork_name"></a> [subnetwork\_name](#input\_subnetwork\_name) | Subnet - subnetwork name | `string` | n/a | yes |
-| <a name="input_subnetwork_secondary_ip_ranges"></a> [subnetwork\_secondary\_ip\_ranges](#input\_subnetwork\_secondary\_ip\_ranges) | Subnet - secondary ip ranges | <pre>list(object({<br>    range_name    = string<br>    ip_cidr_range = string<br>  }))</pre> | n/a | yes |
 <!-- END_TF_DOCS -->
