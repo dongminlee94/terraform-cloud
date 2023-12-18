@@ -5,6 +5,7 @@ resource "google_container_cluster" "gke_cluster" {
   subnetwork = data.google_compute_subnetwork.subnetwork.self_link
 
   remove_default_node_pool = var.gke_remove_default_node_pool
+  initial_node_count       = var.gke_initial_node_count
   deletion_protection      = var.gke_deletion_protection
 
   ip_allocation_policy {

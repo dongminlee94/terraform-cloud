@@ -23,6 +23,11 @@ variable "gke_remove_default_node_pool" {
   type        = bool
 }
 
+variable "gke_initial_node_count" {
+  description = "GKE cluster - initial node count"
+  type        = number
+}
+
 variable "gke_deletion_protection" {
   description = "GKE cluster - whether to deletion protection"
   type        = bool

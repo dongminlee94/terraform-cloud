@@ -26,6 +26,7 @@
 | <a name="input_gke_cluster_name"></a> [gke\_cluster\_name](#input\_gke\_cluster\_name) | GKE cluster - cluster name | `string` | n/a | yes |
 | <a name="input_gke_cluster_secondary_range_name"></a> [gke\_cluster\_secondary\_range\_name](#input\_gke\_cluster\_secondary\_range\_name) | GKE cluster - cluster secondary range name | `string` | n/a | yes |
 | <a name="input_gke_deletion_protection"></a> [gke\_deletion\_protection](#input\_gke\_deletion\_protection) | GKE cluster - whether to deletion protection | `bool` | n/a | yes |
+| <a name="input_gke_initial_node_count"></a> [gke\_initial\_node\_count](#input\_gke\_initial\_node\_count) | GKE cluster - initial node count | `number` | n/a | yes |
 | <a name="input_gke_machine_type"></a> [gke\_machine\_type](#input\_gke\_machine\_type) | GKE node pool - machine type | `string` | n/a | yes |
 | <a name="input_gke_max_node_count"></a> [gke\_max\_node\_count](#input\_gke\_max\_node\_count) | GKE node pool - maximum node count | `number` | n/a | yes |
 | <a name="input_gke_min_node_count"></a> [gke\_min\_node\_count](#input\_gke\_min\_node\_count) | GKE node pool - minimum node count | `number` | n/a | yes |

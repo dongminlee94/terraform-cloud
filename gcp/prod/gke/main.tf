@@ -7,6 +7,7 @@ module "gke" {
 
   gke_cluster_name                  = "gke-cluster"
   gke_remove_default_node_pool      = true
+  gke_initial_node_count            = 1
   gke_deletion_protection           = false
   gke_cluster_secondary_range_name  = "gke-pods"
   gke_services_secondary_range_name = "gke-services"
