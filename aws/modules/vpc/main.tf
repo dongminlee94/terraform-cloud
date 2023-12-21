@@ -23,8 +23,7 @@ resource "aws_subnet" "public_subnet" {
   availability_zone = var.common_subnet_availability_zones[count.index]
 
   tags = {
-    Name                     = "public-subnet-${count.index}"
-    "kubernetes.io/role/elb" = "1"
+    Name = "public-subnet-${count.index}"
   }
 }
 
