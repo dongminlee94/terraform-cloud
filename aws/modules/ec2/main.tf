@@ -26,7 +26,7 @@ resource "aws_instance" "ec2_instance" {
   }
 
   key_name             = aws_key_pair.ec2_key_pair.key_name
-  iam_instance_profile = data.aws_iam_instance_profile.ec2_instance_profile.name
+  iam_instance_profile = data.aws_iam_instance_profile.ec2_profile.name
 
   monitoring                           = var.ec2_monitoring
   disable_api_termination              = var.ec2_dat

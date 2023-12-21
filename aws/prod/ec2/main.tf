@@ -1,10 +1,10 @@
 module "ec2" {
   source = "../../modules/ec2"
 
-  instance_profile_name = "ec2_instance_profile"
-  subnet_name           = "public-subnet-0"
-  sg_name               = "sg"
-  eip_name              = "eip"
+  profile_name = "ec2_profile"
+  subnet_name  = "public-subnet-0"
+  sg_name      = "sg"
+  eip_name     = "eip"
 
   ec2_ami           = "ami-0ed99df77a82560e6"
   ec2_instance_type = "t2.medium"

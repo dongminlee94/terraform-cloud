@@ -1,4 +1,4 @@
-variable "instance_profile_name" {
+variable "profile_name" {
   description = "IAM - instance profile name"
   type        = string
 }
