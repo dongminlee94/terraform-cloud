@@ -7,17 +7,16 @@ resource "aws_eip" "ec2_eip" {
 }
 
 resource "aws_key_pair" "ec2_key_pair" {
-  key_name   = var.key_name
-  public_key = base64decode(var.public_key)
+  key_name   = var.ec2_key_name
+  public_key = base64decode(var.ec2_public_key)
 }
 
 resource "aws_instance" "ec2_instance" {
+  subnet_id              = data.aws_subnet.subnet.id
+  vpc_security_group_ids = [data.aws_security_group.sg.id]
+
   ami           = var.ec2_ami
   instance_type = var.ec2_instance_type
-
-  subnet_id = data.aws_subnet.subnet.id
-
-  key_name = aws_key_pair.ec2_key_pair.key_name
 
   root_block_device {
     volume_size = var.ec2_volume_size
@@ -26,13 +25,12 @@ resource "aws_instance" "ec2_instance" {
     }
   }
 
+  key_name             = aws_key_pair.ec2_key_pair.key_name
+  iam_instance_profile = data.aws_iam_instance_profile.ec2_instance_profile.name
+
   monitoring                           = var.ec2_monitoring
   disable_api_termination              = var.ec2_dat
   instance_initiated_shutdown_behavior = var.ec2_instance_isb
-
-  iam_instance_profile = data.aws_iam_instance_profile.ec2_instance_profile.name
-
-  vpc_security_group_ids = [data.aws_security_group.sg.id]
 
   tags = {
     Name = var.ec2_instance_name

@@ -40,12 +40,12 @@
 | <a name="input_ec2_instance_isb"></a> [ec2\_instance\_isb](#input\_ec2\_instance\_isb) | EC2 - defines the behavior when an OS-level shutdown is performed within the EC2 instance | `string` | n/a | yes |
 | <a name="input_ec2_instance_name"></a> [ec2\_instance\_name](#input\_ec2\_instance\_name) | EC2 - VM instance name | `string` | n/a | yes |
 | <a name="input_ec2_instance_type"></a> [ec2\_instance\_type](#input\_ec2\_instance\_type) | EC2 - VM instance type | `string` | n/a | yes |
+| <a name="input_ec2_key_name"></a> [ec2\_key\_name](#input\_ec2\_key\_name) | EC2 - key name | `string` | n/a | yes |
 | <a name="input_ec2_monitoring"></a> [ec2\_monitoring](#input\_ec2\_monitoring) | EC2 - monitoring details activation/deactivation | `bool` | n/a | yes |
+| <a name="input_ec2_public_key"></a> [ec2\_public\_key](#input\_ec2\_public\_key) | EC2 - public key | `string` | n/a | yes |
 | <a name="input_ec2_volume_size"></a> [ec2\_volume\_size](#input\_ec2\_volume\_size) | EC2 - VM instance volume size | `number` | n/a | yes |
 | <a name="input_eip_name"></a> [eip\_name](#input\_eip\_name) | EC2 - elastic IP name | `string` | n/a | yes |
 | <a name="input_instance_profile_name"></a> [instance\_profile\_name](#input\_instance\_profile\_name) | IAM - instance profile name | `string` | n/a | yes |
-| <a name="input_key_name"></a> [key\_name](#input\_key\_name) | EC2 - key name | `string` | n/a | yes |
-| <a name="input_public_key"></a> [public\_key](#input\_public\_key) | EC2 - public key | `string` | n/a | yes |
 | <a name="input_sg_name"></a> [sg\_name](#input\_sg\_name) | Security Group - name | `string` | n/a | yes |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | Subnet - name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

@@ -13,23 +13,8 @@ variable "sg_name" {
   type        = string
 }
 
-variable "key_name" {
-  description = "EC2 - key name"
-  type        = string
-}
-
-variable "public_key" {
-  description = "EC2 - public key"
-  type        = string
-}
-
 variable "eip_name" {
   description = "EC2 - elastic IP name"
-  type        = string
-}
-
-variable "ec2_instance_name" {
-  description = "EC2 - VM instance name"
   type        = string
 }
 
@@ -46,6 +31,21 @@ variable "ec2_instance_type" {
 variable "ec2_volume_size" {
   description = "EC2 - VM instance volume size"
   type        = number
+}
+
+variable "ec2_instance_name" {
+  description = "EC2 - VM instance name"
+  type        = string
+}
+
+variable "ec2_key_name" {
+  description = "EC2 - key name"
+  type        = string
+}
+
+variable "ec2_public_key" {
+  description = "EC2 - public key"
+  type        = string
 }
 
 variable "ec2_monitoring" {
