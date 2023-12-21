@@ -8,11 +8,6 @@ variable "eks_nodes_role_name" {
   type        = string
 }
 
-variable "public_subnet_names" {
-  description = "Subnet - public subnet names"
-  type        = list(string)
-}
-
 variable "private_subnet_names" {
   description = "Subnet - private subnet names"
   type        = list(string)
@@ -28,8 +23,43 @@ variable "eks_cluster_name" {
   type        = string
 }
 
+variable "eks_cluster_endpoint_public_access" {
+  description = "EKS Cluster - endpoint public access"
+  type        = bool
+}
+
+variable "eks_cluster_endpoint_private_access" {
+  description = "EKS Cluster - endpoint private access"
+  type        = bool
+}
+
 variable "eks_node_group_name" {
   description = "EKS Node Group - name"
+  type        = string
+}
+
+variable "eks_node_group_ami" {
+  description = "EKS Node Group - AMI"
+  type        = string
+}
+
+variable "eks_node_group_instance_types" {
+  description = "EKS Node Group - instance type"
+  type        = list(string)
+}
+
+variable "eks_node_group_disk_size" {
+  description = "EKS Node Group - disk size"
+  type        = string
+}
+
+variable "eks_node_group_key_name" {
+  description = "EKS Node Group - key name"
+  type        = string
+}
+
+variable "eks_node_group_public_key" {
+  description = "EKS Node Group - public key"
   type        = string
 }
 
@@ -51,19 +81,4 @@ variable "eks_node_group_min_size" {
 variable "eks_node_group_max_unavailable" {
   description = "EKS Node Group - max unavailable"
   type        = number
-}
-
-variable "eks_node_group_ami" {
-  description = "EKS Node Group - AMI"
-  type        = string
-}
-
-variable "eks_node_group_instance_types" {
-  description = "EKS Node Group - instance type"
-  type        = list(string)
-}
-
-variable "eks_node_group_disk_size" {
-  description = "EKS Node Group - disk size"
-  type        = string
 }
