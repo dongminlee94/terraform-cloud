@@ -23,67 +23,135 @@ This command initializes your setup by installing the necessary dependencies to 
 
 ### 1. AWS CLI
 
-The AWS CLI is a command-line tool necessary for managing Amazon Web Services. It is essential for managing AWS resources and setting up credentials.
+The AWS CLI is an indispensable command-line tool for managing Amazon Web Services, allowing you to control AWS resources and configure access credentials efficiently.
 
 **Installation**:
 
-To install the AWS CLI, follow the instructions in the [official AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+Follow the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) for step-by-step instructions to install the AWS CLI.
 
 **Credential Configuration**:
 
-1. Log in to the AWS Management Console and navigate to the IAM service.
-2. Use an existing service account or create a new one if necessary. Ensure the account has the proper permissions.
-3. In the user details page, go to the `Security credentials` tab and select `Create access key`.
-4. Save the generated `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in a secure location.
-5. Run `aws configure` in the command line and enter the retrieved Access Key ID and Secret Access Key.
-6. Set your default region and output format.
+1. Sign in to the AWS Management Console and go to the IAM service.
+2. Select an existing service account or create a new one, verifying it has the correct permissions.
+3. Navigate to `Security credentials` in the user details page and choose `Create access key`.
+4. Securely store the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+5. Execute `aws configure` in your terminal and input your Access Key ID and Secret Access Key.
+6. Specify your default region and preferred output format.
 
-### 2. GCP CLI
+### 2. GCP CLI (gcloud)
 
-The GCP CLI is a command-line tool necessary for managing Google Cloud Platform. This tool is crucial for managing GCP resources and setting up credentials.
+The GCP CLI is an essential tool for managing Google Cloud Platform, streamlining the management of resources and credential setup.
 
 **Installation**:
 
-To install the GCP CLI, follow the instructions in the [official Google Cloud documentation](https://cloud.google.com/sdk/docs/install).
+Install the GCP CLI by following the guidelines provided in the [Google Cloud documentation](https://cloud.google.com/sdk/docs/install).
 
 **Credential Configuration**:
 
-1. Log in to the Google Cloud Console and navigate to the IAM & Admin section, then select `Service accounts`.
-2. Use an existing service account and make sure it has the appropriate roles.
-3. In the `Keys` tab, click `Create new key` and choose JSON format to generate the key.
-4. Use the generated JSON file as `GOOGLE_CREDENTIALS`.
-5. Run `gcloud auth login` in the command line to authenticate, and set your project with `gcloud config set project [YOUR_PROJECT_ID]`.
+1. Access the Google Cloud Console and proceed to the IAM & Admin section to select  `Service accounts`.
+2. Confirm that your existing service account has the necessary roles or set up a new one.
+3. In the `Keys` tab, hit `Create new key`, opting for the JSON format to generate your key.
+4. Treat the resulting JSON file as your `GOOGLE_CREDENTIALS`.
+5. Authenticate via `gcloud auth login` in your terminal and configure your project with `gcloud config set project [YOUR_PROJECT_ID]`.
 
-### 3. Terraform Cloud
+### 3. Kubernetes CLI (kubectl)
 
-Terraform Cloud is a cloud-based infrastructure management service that securely manages state files and facilitates collaboration and automation. It enhances security, collaboration, automation, and audit logging compared to local state file management.
+The Kubernetes CLI, known as `kubectl`, is a powerful tool that lets you deploy and manage applications on Kubernetes. It provides the necessary command-line interface to run commands against Kubernetes clusters.
+
+**Installation**:
+
+You can install `kubectl` on macOS using the following command:
+
+```bash
+$ brew install kubectl
+```
+
+This will allow you to interact directly with your Kubernetes clusters, managing the deployment, inspection, and debugging of your containerized applications.
+
+### 4. Terraform Cloud
+
+Terraform Cloud provides a secure, collaborative, cloud-based environment for managing state files and automating infrastructure tasks, greatly enhancing the capabilities over local setups.
 
 <p align="center"><img src="img/terraform_cloud_settings_variable_sets.png" width="800"></p>
 
-In Terraform Cloud, you create variable sets using `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS, and `GOOGLE_CREDENTIALS` for GCP within `Settings - Variable sets`.
+Set up variable sets in Terraform Cloud for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS, and `GOOGLE_CREDENTIALS` for GCP, under `Settings - Variable sets`.
 
 <p align="center"><img src="img/terraform_cloud_projects_and_workspaces.png" width="800"></p>
 
-As shown in the image above, create projects and workspaces tailored to each cloud and infrastructure component. For more detailed information on how to use Terraform Cloud, refer to the [official Terraform Cloud documentation](https://developer.hashicorp.com/terraform/cloud-docs).
+Effectively manage and categorize your projects and workspaces to align with each cloud service and infrastructure component. Visit the [Terraform Cloud documentation](https://developer.hashicorp.com/terraform/cloud-docs) for comprehensive guidance on configuration and usage.
 
 ## Infrastructure
 
 ### 1. AWS
 
+Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). For each resource, proceed to the respective workspace in Terraform Cloud and initiate a 'New run' to carry out `terraform plan` and `terraform apply`.
+
 **EC2**
 
-TBD
+The aim is to deploy an EC2 VM instance and establish an SSH connection to it. Implement the EC2 instance using the same process in Terraform Cloud. Your personal public key must be included in the code for access. Amend your public key at [this file path](https://github.com/dongminlee94/terraform-with-cloud/blob/main/aws/prod/ec2/main.tf#L15) and remember to encode it in base64.
+
+Encode your public key on macOS with:
+
+```bash
+$ base64 < ~/.ssh/id_rsa.pub
+```
+
+Post-creation, pinpoint the public IP from the AWS console. Then, secure an SSH connection using the command:
+
+```bash
+$ ssh -i ~/.ssh/id_rsa ec2-user@your_public_ip
+```
 
 **EKS**
 
-TBD
+The endpoint for EKS is the creation of an EKS cluster, generating a kubeconfig, and the execution of `kubectl` commands. Configure your EKS cluster and obtain the kubeconfig via:
+
+```bash
+$ aws eks update-kubeconfig --region <region-code> --name <cluster-name>
+```
+
+Validate your cluster's functionality with the following:
+
+```bash
+$ kubectl get node
+$ kubectl get pod
+$ kubectl get svc
+```
 
 ### 2. GCP
 
+Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. In Terraform Cloud, each step should be planned and applied through a new run in the relevant workspace.
+
 **GCE**
 
-TBD
+Your objective with GCE is to bring up a VM instance and connect through SSH. The creation process via Terraform Cloud requires a plan and apply execution. Your personal public key needs to be inserted into the code. You can do this at [this file path](https://github.com/dongminlee94/terraform-with-cloud/blob/main/gcp/prod/gce/main.tf#L16), making sure to use base64 encoding.
+
+To base64 encode your public key on macOS:
+
+```bash
+$ base64 < ~/.ssh/id_rsa.pub
+```
+
+Following the instance setup, identify the public IP from the GCP console and proceed to SSH login:
+
+```bash
+$ ssh -i ~/.ssh/id_rsa ubuntu@your_public_ip
+```
 
 **GKE**
 
-TBD
+For GKE, the objective is the establishment of a GKE cluster, followed by kubeconfig acquisition and `kubectl` command testing. Upon GKE cluster creation, pull the kubeconfig using:
+
+```bash
+$ gcloud container clusters get-credentials [CLUSTER_NAME] --region [REGION] --project [PROJECT_ID]
+```
+
+Ensure everything is running as expected:
+
+```bash
+$ kubectl get node
+$ kubectl get pod
+$ kubectl get svc
+```
+
+In each section, replace the placeholders (denoted by angle brackets <> and square brackets []) with your actual configuration details to correctly execute the commands.
