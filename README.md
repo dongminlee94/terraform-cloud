@@ -7,7 +7,7 @@
 [![Linting: tflint](https://img.shields.io/badge/linting-tflint-red)](https://github.com/terraform-linters/tflint)
 [![Documentation: terraform-docs](https://img.shields.io/badge/documentation-terraform--docs-blue)](https://github.com/terraform-docs/terraform-docs)
 
-<p align="center"><img src="img/terraform_diagram.png" width="800"></p>
+<p align="center"><img src="img/terraform_overview.png" width="800"></p>
 
 Welcome to the repository designed for hands-on experience with Terraform across cloud platforms such as AWS and GCP.
 
@@ -71,6 +71,8 @@ $ brew install kubectl
 This will allow you to interact directly with your Kubernetes clusters, managing the deployment, inspection, and debugging of your containerized applications.
 
 ### 4. Terraform Cloud
+
+<p align="center"><img src="img/terraform_cloud_overview.png" width="800"></p>
 
 Terraform Cloud provides a secure, collaborative, cloud-based environment for managing state files and automating infrastructure tasks, greatly enhancing the capabilities over local setups.
 
