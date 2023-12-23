@@ -7,6 +7,8 @@
 [![Linting: tflint](https://img.shields.io/badge/linting-tflint-red)](https://github.com/terraform-linters/tflint)
 [![Documentation: terraform-docs](https://img.shields.io/badge/documentation-terraform--docs-blue)](https://github.com/terraform-docs/terraform-docs)
 
+<p align="center"><img src="img/terraform_diagram.png" width="800"></p>
+
 Welcome to the repository designed for hands-on experience with Terraform across cloud platforms such as AWS and GCP.
 
 ## Installation
