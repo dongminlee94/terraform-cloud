@@ -88,7 +88,7 @@ Effectively manage and categorize your projects and workspaces to align with eac
 
 ### 1. AWS
 
-Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **It's essential to customize the `sg_my_ip` variable in your Security Group configuration to allow access only from your personal IP address for security purposes. You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf).** For each resource, proceed to the respective workspace in Terraform Cloud and initiate a 'New run' to carry out `terraform plan` and `terraform apply`.
+Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **It's essential to customize the `sg_my_ip` variable in your Security Group configuration to allow access only from your personal IP address for security purposes. You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf#L6).** For each resource, proceed to the respective workspace in Terraform Cloud and initiate a 'New run' to carry out `terraform plan` and `terraform apply`.
 
 **EC2**
 
@@ -124,7 +124,7 @@ $ kubectl get svc
 
 ### 2. GCP
 
-Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. To ensure your setup is secure, adjust the firewall_my_ip variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf). In Terraform Cloud, each step should be planned and applied through a new run in the relevant workspace.
+Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. To ensure your setup is secure, adjust the firewall_my_ip variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7). In Terraform Cloud, each step should be planned and applied through a new run in the relevant workspace.
 
 **GCE**
 
