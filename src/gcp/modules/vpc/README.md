@@ -1,18 +1,23 @@
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 5.5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.80.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.5.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) | resource |
-| [google_compute_subnetwork.subnetwork](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork) | resource |
+| [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/compute_network) | resource |
+| [google_compute_subnetwork.subnetwork](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/compute_subnetwork) | resource |
 
 ## Inputs
 

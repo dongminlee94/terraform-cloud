@@ -1,19 +1,24 @@
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 5.5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.8.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.5.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_compute_firewall.firewall_egress](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | resource |
-| [google_compute_firewall.firewall_ingress](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | resource |
-| [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
+| [google_compute_firewall.firewall_egress](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/compute_firewall) | resource |
+| [google_compute_firewall.firewall_ingress](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/compute_firewall) | resource |
+| [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/data-sources/compute_network) | data source |
 
 ## Inputs
 

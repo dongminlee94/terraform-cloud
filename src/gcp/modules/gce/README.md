@@ -1,21 +1,26 @@
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 5.5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.7.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.5.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_compute_address.gce_address](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address) | resource |
-| [google_compute_instance.gce_instance](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance) | resource |
-| [google_compute_resource_policy.gce_resource_policy](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_resource_policy) | resource |
-| [google_compute_subnetwork.subnetwork](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_subnetwork) | data source |
-| [google_service_account.sa](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/service_account) | data source |
+| [google_compute_address.gce_address](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/compute_address) | resource |
+| [google_compute_instance.gce_instance](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/compute_instance) | resource |
+| [google_compute_resource_policy.gce_resource_policy](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/compute_resource_policy) | resource |
+| [google_compute_subnetwork.subnetwork](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/data-sources/compute_subnetwork) | data source |
+| [google_service_account.sa](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/data-sources/service_account) | data source |
 
 ## Inputs
 

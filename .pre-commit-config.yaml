@@ -23,9 +23,9 @@ repos:
     args:
     - --args=-recursive
   - id: terraform_validate
-  # - id: terraform_tflint
-  #   args:
-  #   - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
+  - id: terraform_tflint
+    args:
+    - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
   - id: terraform_docs
     args:
     - --args=--config=.terraform-docs.yaml
