@@ -11,6 +11,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 5.20.0 |
+| <a name="provider_http"></a> [http](#provider\_http) | 3.4.1 |
 
 ## Resources
 
@@ -20,6 +21,7 @@
 | [aws_security_group_rule.egress_sg_rule](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.ingress_sg_rule](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/security_group_rule) | resource |
 | [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/vpc) | data source |
+| [http_http.my_ip](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
 ## Inputs
 
