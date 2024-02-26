@@ -27,6 +27,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_sg_my_ip"></a> [sg\_my\_ip](#input\_sg\_my\_ip) | Security Group - my ip | `string` | n/a | yes |
 | <a name="input_sg_name"></a> [sg\_name](#input\_sg\_name) | Security Group - name | `string` | n/a | yes |
 | <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | VPC - name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

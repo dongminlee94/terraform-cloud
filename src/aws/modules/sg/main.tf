@@ -15,7 +15,7 @@ resource "aws_security_group_rule" "ingress_sg_rule" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = ["${chomp(data.http.my_ip.response_body)}/32"]
+  cidr_blocks       = ["${var.sg_my_ip}/32"]
 }
 
 resource "aws_security_group_rule" "egress_sg_rule" {
