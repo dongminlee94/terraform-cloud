@@ -124,7 +124,7 @@ $ kubectl get svc
 
 ### 2. GCP
 
-Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. To ensure your setup is secure, adjust the firewall_my_ip variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7). In Terraform Cloud, each step should be planned and applied through a new run in the relevant workspace.
+Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. **To ensure your setup is secure, adjust the firewall_my_ip variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** In Terraform Cloud, each step should be planned and applied through a new run in the relevant workspace.
 
 **GCE**
 
