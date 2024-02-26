@@ -1,20 +1,25 @@
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.20.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.24.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.20.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [aws_security_group.sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_security_group_rule.egress_sg_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.ingress_sg_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
+| [aws_security_group.sg](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/security_group) | resource |
+| [aws_security_group_rule.egress_sg_rule](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/security_group_rule) | resource |
+| [aws_security_group_rule.ingress_sg_rule](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/security_group_rule) | resource |
+| [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/vpc) | data source |
 
 ## Inputs
 

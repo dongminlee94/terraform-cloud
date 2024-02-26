@@ -1,24 +1,29 @@
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.20.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.19.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.20.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [aws_dlm_lifecycle_policy.ebs_snapshot_backup](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dlm_lifecycle_policy) | resource |
-| [aws_eip.ec2_eip](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
-| [aws_instance.ec2_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
-| [aws_key_pair.ec2_key_pair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
-| [aws_iam_instance_profile.ec2_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_instance_profile) | data source |
-| [aws_iam_role.ec2_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_role) | data source |
-| [aws_security_group.sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/security_group) | data source |
-| [aws_subnet.subnet](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet) | data source |
+| [aws_dlm_lifecycle_policy.ebs_snapshot_backup](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/dlm_lifecycle_policy) | resource |
+| [aws_eip.ec2_eip](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/eip) | resource |
+| [aws_instance.ec2_instance](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/instance) | resource |
+| [aws_key_pair.ec2_key_pair](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/key_pair) | resource |
+| [aws_iam_instance_profile.ec2_profile](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/iam_instance_profile) | data source |
+| [aws_iam_role.ec2_role](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/iam_role) | data source |
+| [aws_security_group.sg](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/security_group) | data source |
+| [aws_subnet.subnet](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/subnet) | data source |
 
 ## Inputs
 
