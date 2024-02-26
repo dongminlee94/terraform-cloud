@@ -3,7 +3,7 @@ module "gke" {
 
   sa_account_id   = "gke-sa"
   network_name    = "network"
-  subnetwork_name = "subnetwork"
+  subnetwork_name = "private-subnetwork"
 
   gke_cluster_name             = "gke-cluster"
   gke_remove_default_node_pool = true

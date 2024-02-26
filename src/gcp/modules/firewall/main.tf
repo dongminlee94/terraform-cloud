@@ -17,8 +17,7 @@ resource "google_compute_firewall" "firewall_ingress" {
     ports    = ["0-65535"]
   }
 
-  source_ranges = [var.common_cidr_block]
-  target_tags   = var.target_tags
+  source_ranges = ["${var.firewall_my_ip}/32"]
 }
 
 resource "google_compute_firewall" "firewall_egress" {
@@ -40,6 +39,5 @@ resource "google_compute_firewall" "firewall_egress" {
     ports    = ["0-65535"]
   }
 
-  destination_ranges = [var.common_cidr_block]
-  target_tags        = var.target_tags
+  destination_ranges = ["0.0.0.0/0"]
 }

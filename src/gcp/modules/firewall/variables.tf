@@ -8,12 +8,7 @@ variable "firewall_name" {
   type        = string
 }
 
-variable "common_cidr_block" {
-  description = "Firewall - common CIDR block"
+variable "firewall_my_ip" {
+  description = "Firewall - my ip"
   type        = string
-}
-
-variable "target_tags" {
-  description = "Firewall - target tags"
-  type        = list(string)
 }

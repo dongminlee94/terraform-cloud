@@ -2,7 +2,7 @@ module "gce" {
   source = "../../modules/gce"
 
   sa_account_id   = "gce-sa"
-  subnetwork_name = "subnetwork"
+  subnetwork_name = "public-subnetwork"
 
   gce_address_name   = "gce-address"
   gce_instance_name  = "gce-instance"
