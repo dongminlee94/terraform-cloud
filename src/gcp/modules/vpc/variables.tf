@@ -13,7 +13,22 @@ variable "subnetwork_name" {
   type        = string
 }
 
-variable "subnetwork_ip_cidr_range" {
-  description = "Subnet - IP CIDR range"
+variable "public_subnetwork_ip_cidr_range" {
+  description = "Subnet - public subnetwork IP CIDR range"
+  type        = string
+}
+
+variable "private_subnetwork_ip_cidr_range" {
+  description = "Subnet - private subnetwork IP CIDR range"
+  type        = string
+}
+
+variable "nat_ip_allocate_option" {
+  description = "NAT - How external IPs should be allocated for this NAT"
+  type        = string
+}
+
+variable "source_subnetwork_ip_ranges_to_nat" {
+  description = "NAT - How NAT should be configured per Subnetwork"
   type        = string
 }
