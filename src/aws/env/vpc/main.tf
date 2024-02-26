@@ -11,10 +11,10 @@ module "vpc" {
   common_cidr_block                = "0.0.0.0/0"
   common_subnet_availability_zones = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
 
-  eip_name         = "nat_eip"
-  nat_gateway_name = "nat_gateway"
+  eip_name         = "nat-eip"
+  nat_gateway_name = "nat-gateway"
   igw_name         = "igw"
 
-  public_rt_name  = "public_rt"
-  private_rt_name = "private_rt"
+  public_rt_name  = "public-rt"
+  private_rt_name = "private-rt"
 }

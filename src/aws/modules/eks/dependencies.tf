@@ -14,10 +14,3 @@ data "aws_subnet" "private_subnet" {
     values = [var.private_subnet_names[count.index]]
   }
 }
-
-data "aws_security_group" "sg" {
-  filter {
-    name   = "tag:Name"
-    values = [var.sg_name]
-  }
-}

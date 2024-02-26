@@ -13,13 +13,13 @@ variable "private_subnet_names" {
   type        = list(string)
 }
 
-variable "sg_name" {
-  description = "Security Group - name"
+variable "eks_name" {
+  description = "EKS Cluster - name"
   type        = string
 }
 
-variable "eks_cluster_name" {
-  description = "EKS Cluster - name"
+variable "eks_cluster_version" {
+  description = "EKS Cluster - version"
   type        = string
 }
 
@@ -31,11 +31,6 @@ variable "eks_cluster_endpoint_public_access" {
 variable "eks_cluster_endpoint_private_access" {
   description = "EKS Cluster - endpoint private access"
   type        = bool
-}
-
-variable "eks_node_group_name" {
-  description = "EKS Node Group - name"
-  type        = string
 }
 
 variable "eks_node_group_ami" {
@@ -50,16 +45,6 @@ variable "eks_node_group_instance_types" {
 
 variable "eks_node_group_disk_size" {
   description = "EKS Node Group - disk size"
-  type        = string
-}
-
-variable "eks_node_group_key_name" {
-  description = "EKS Node Group - key name"
-  type        = string
-}
-
-variable "eks_node_group_public_key" {
-  description = "EKS Node Group - public key"
   type        = string
 }
 
