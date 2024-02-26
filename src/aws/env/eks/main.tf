@@ -11,7 +11,7 @@ module "eks" {
   eks_cluster_endpoint_private_access = true
 
   eks_node_group_ami            = "AL2_x86_64"
-  eks_node_group_instance_types = ["t2.medium"]
+  eks_node_group_instance_types = ["m6a.xlarge"]
   eks_node_group_disk_size      = 50
 
   eks_node_group_desired_size    = 1
