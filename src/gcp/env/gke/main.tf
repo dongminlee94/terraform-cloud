@@ -11,7 +11,7 @@ module "gke" {
   gke_deletion_protection      = false
 
   gke_node_pool_name = "gke-node-pool"
-  gke_machine_type   = "e2-medium"
+  gke_machine_type   = "e2-standard-4"
   gke_tags           = ["gcp"]
   gke_node_count     = 1
   gke_min_node_count = 1
