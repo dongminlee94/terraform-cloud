@@ -33,16 +33,6 @@ variable "gke_deletion_protection" {
   type        = bool
 }
 
-variable "gke_network_policy_enabled" {
-  description = "GKE cluster - network policy enabled"
-  type        = bool
-}
-
-variable "gke_network_policy_provider" {
-  description = "GKE cluster - network policy provider"
-  type        = string
-}
-
 variable "gke_node_pool_name" {
   description = "GKE node pool - node pool name"
   type        = string

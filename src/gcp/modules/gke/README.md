@@ -34,8 +34,6 @@
 | <a name="input_gke_machine_type"></a> [gke\_machine\_type](#input\_gke\_machine\_type) | GKE node pool - machine type | `string` | n/a | yes |
 | <a name="input_gke_max_node_count"></a> [gke\_max\_node\_count](#input\_gke\_max\_node\_count) | GKE node pool - maximum node count | `number` | n/a | yes |
 | <a name="input_gke_min_node_count"></a> [gke\_min\_node\_count](#input\_gke\_min\_node\_count) | GKE node pool - minimum node count | `number` | n/a | yes |
-| <a name="input_gke_network_policy_enabled"></a> [gke\_network\_policy\_enabled](#input\_gke\_network\_policy\_enabled) | GKE cluster - network policy enabled | `bool` | n/a | yes |
-| <a name="input_gke_network_policy_provider"></a> [gke\_network\_policy\_provider](#input\_gke\_network\_policy\_provider) | GKE cluster - network policy provider | `string` | n/a | yes |
 | <a name="input_gke_node_count"></a> [gke\_node\_count](#input\_gke\_node\_count) | GKE node pool - node count | `number` | n/a | yes |
 | <a name="input_gke_node_pool_name"></a> [gke\_node\_pool\_name](#input\_gke\_node\_pool\_name) | GKE node pool - node pool name | `string` | n/a | yes |
 | <a name="input_gke_remove_default_node_pool"></a> [gke\_remove\_default\_node\_pool](#input\_gke\_remove\_default\_node\_pool) | GKE cluster - whether to remove default node pool | `bool` | n/a | yes |

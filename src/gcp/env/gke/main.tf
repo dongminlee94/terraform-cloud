@@ -9,8 +9,6 @@ module "gke" {
   gke_remove_default_node_pool = true
   gke_initial_node_count       = 1
   gke_deletion_protection      = false
-  gke_network_policy_enabled   = true
-  gke_network_policy_provider  = "CALICO"
 
   gke_node_pool_name = "gke-node-pool"
   gke_machine_type   = "e2-medium"
