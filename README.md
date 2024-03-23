@@ -74,6 +74,14 @@ This will allow you to interact directly with your Kubernetes clusters, managing
 
 ### 1. AWS
 
+Before you begin setting up your AWS resources, it's important to configure your provider settings to match your desired AWS region. In the `providers.tf` file located within each directory under `src/aws/env`, you'll find the provider configuration. Update the region attribute to your preferred AWS region. For example:
+
+```hcl
+provider "aws" {
+  region = "ap-northeast-1" # Change this to your desired region
+}
+```
+
 Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **For security, ensure only your IP can access the resources by setting the `sg_my_ip` variable in your Security Group configuration.** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). **You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf#L6).** Once you've set your IP configuration, follow these steps:
 
 ```bash
@@ -143,7 +151,16 @@ $ kubectl get svc
 
 ### 2. GCP
 
-Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP.** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). **This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** Once you've set your IP configuration, follow these steps:
+You must configure both your desired project ID and region before proceeding with the setup for GCP. Within each `providers.tf` file located under `src/gcp/env`, you'll need to update the provider configuration to reflect your GCP project and region preferences. Ensure to replace both the project and region values with your actual project ID and desired region:
+
+```hcl
+provider "google" {
+  project = "nth-infusion-392203" # Replace this with your actual project ID
+  region  = "asia-northeast1"     # Change this to your desired region
+}
+```
+
+Adopting the AWS strategy for GCP, start with setting up IAM, and then move on to configuring VPC and Firewall rules. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP.** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). **This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** Once you've set your IP configuration, follow these steps:
 
 ```bash
 # IAM
