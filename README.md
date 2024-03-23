@@ -25,7 +25,7 @@ This command initializes your setup by installing the necessary dependencies to 
 
 ### 1. AWS CLI
 
-The AWS CLI is an indispensable command-line tool for managing Amazon Web Services, allowing you to control AWS resources and configure access credentials efficiently.
+The AWS CLI is a crucial tool for managing Amazon Web Services, simplifying the control over AWS resources and the setup of access credentials.
 
 **Installation**:
 
@@ -42,7 +42,7 @@ Follow the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/
 
 ### 2. GCP CLI (gcloud)
 
-The GCP CLI is an essential tool for managing Google Cloud Platform, streamlining the management of resources and credential setup.
+The GCP CLI is an essential tool for managing Google Cloud Platform, making it easier to handle resources and set up credentials.
 
 **Installation**:
 
@@ -70,43 +70,62 @@ $ brew install kubectl
 
 This will allow you to interact directly with your Kubernetes clusters, managing the deployment, inspection, and debugging of your containerized applications.
 
-### 4. Terraform Cloud
-
-<p align="center"><img src="img/terraform_cloud_overview.png" width="800"></p>
-
-Terraform Cloud provides a secure, collaborative, cloud-based environment for managing state files and automating infrastructure tasks, greatly enhancing the capabilities over local setups.
-
-<p align="center"><img src="img/terraform_cloud_settings_variable_sets.png" width="800"></p>
-
-Set up variable sets in Terraform Cloud for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS, and `GOOGLE_CREDENTIALS` for GCP, under `Settings - Variable sets`.
-
-<p align="center"><img src="img/terraform_cloud_projects_and_workspaces.png" width="800"></p>
-
-Effectively manage and categorize your projects and workspaces to align with each cloud service and infrastructure component. Visit the [Terraform Cloud documentation](https://developer.hashicorp.com/terraform/cloud-docs) for comprehensive guidance on configuration and usage.
-
 ## Infrastructure
 
 ### 1. AWS
 
-Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **It's essential to customize the `sg_my_ip` variable in your Security Group configuration to allow access only from your personal IP address for security purposes. You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf#L6).** For each resource, proceed to the respective workspace in Terraform Cloud and initiate a 'New run' to carry out `terraform plan` and `terraform apply`.
+Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **For security, ensure only your IP can access the resources by setting the `sg_my_ip` variable in your Security Group configuration.** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). **You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf#L6).** Once you've set your IP configuration, follow these steps:
+
+```bash
+# IAM
+$ cd src/aws/env/iam
+$ terraform plan
+$ terraform apply
+
+# VPC
+$ cd src/aws/env/vpc
+$ terraform plan
+$ terraform apply
+
+# SG
+$ cd src/aws/env/sg
+$ terraform plan
+$ terraform apply
+```
 
 **EC2**
 
-The aim is to deploy an EC2 VM instance and establish an SSH connection to it. Implement the EC2 instance using the same process in Terraform Cloud. Your personal public key must be included in the code for access. Amend your public key at [this file path](src/aws/env/ec2/main.tf#L15) and remember to encode it in base64.
-
-Encode your public key on macOS with:
+The aim is to deploy an EC2 VM instance and establish an SSH connection to it. Your personal public key must be included in the code for access and should be encoded in base64 format for security. Ensure your public key is encoded and then update it at the [file path](src/aws/env/ec2/main.tf#L15).
 
 ```bash
 $ base64 < ~/.ssh/id_rsa.pub
 ```
 
-Post-creation, pinpoint the public IP from the AWS console. Then, secure an SSH connection using the command:
+After setting your public key, you're ready to create the EC2 VM instance. Navigate to the EC2 directory and begin the deployment with the following commands:
 
 ```bash
-$ ssh -i ~/.ssh/id_rsa ec2-user@your_public_ip
+$ cd src/aws/env/ec2
+$ terraform plan
+$ terraform apply
+```
+
+After the setup, locate your public IP from the AWS console and connect via SSH with this command:
+
+```bash
+$ ssh -i ~/.ssh/id_rsa ec2-user@<public-ip>
 ```
 
 **EKS**
+
+To begin, you'll create an EKS cluster, which involves setting it up, generating a kubeconfig for access, and then verifying the setup with kubectl commands to ensure everything is functioning correctly. This process allows you to manage and interact with your cluster effectively.
+
+Execute the following commands:
+
+```bash
+$ cd src/aws/env/eks
+$ terraform plan
+$ terraform apply
+```
 
 The endpoint for EKS is the creation of an EKS cluster, generating a kubeconfig, and the execution of `kubectl` commands. Configure your EKS cluster and obtain the kubeconfig via:
 
@@ -124,25 +143,58 @@ $ kubectl get svc
 
 ### 2. GCP
 
-Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. **To ensure your setup is secure, adjust the firewall_my_ip variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** In Terraform Cloud, each step should be planned and applied through a new run in the relevant workspace.
+Mirror the AWS approach for GCP: begin with IAM, followed by VPC and Firewall configurations. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP.** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). **This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** Once you've set your IP configuration, follow these steps:
+
+```bash
+# IAM
+$ cd src/gcp/env/iam
+$ terraform plan
+$ terraform apply
+
+# VPC
+$ cd src/gcp/env/vpc
+$ terraform plan
+$ terraform apply
+
+# Firewall
+$ cd src/gcp/env/firewall
+$ terraform plan
+$ terraform apply
+```
 
 **GCE**
 
-Your objective with GCE is to bring up a VM instance and connect through SSH. The creation process via Terraform Cloud requires a plan and apply execution. Your personal public key needs to be inserted into the code. You can do this at [this file path](src/gcp/env/gce/main.tf#L16), making sure to use base64 encoding.
-
-To base64 encode your public key on macOS:
+Your goal with GCE is to launch a VM instance and establish an SSH connection. Insert your personal public key into the code for access, ensuring it's in base64 format for enhanced security. You can do this at the [file path](src/gcp/env/gce/main.tf#L16), making sure to encode your public key in base64 format before updating.
 
 ```bash
 $ base64 < ~/.ssh/id_rsa.pub
 ```
 
+After updating your public key in the code, you're set to launch a VM instance on GCE. Simply head to the GCE directory to start the deployment process:
+
+```bash
+$ cd src/gcp/env/gce
+$ terraform plan
+$ terraform apply
+```
+
 Following the instance setup, identify the public IP from the GCP console and proceed to SSH login:
 
 ```bash
-$ ssh -i ~/.ssh/id_rsa ubuntu@your_public_ip
+$ ssh -i ~/.ssh/id_rsa ubuntu@<public-ip>
 ```
 
 **GKE**
+
+Before proceeding, your task is to set up a GKE cluster, obtain the necessary kubeconfig for access, and then test your connection with kubectl commands to ensure the cluster is properly configured and operational.
+
+Follow these steps with the commands below:
+
+```bash
+$ cd src/gcp/env/gke
+$ terraform plan
+$ terraform apply
+```
 
 For GKE, the objective is the establishment of a GKE cluster, followed by kubeconfig acquisition and `kubectl` command testing. Upon GKE cluster creation, pull the kubeconfig using:
 
