@@ -82,7 +82,7 @@ provider "aws" {
 }
 ```
 
-Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **For security, ensure only your IP can access the resources by setting the `sg_my_ip` variable in your Security Group configuration.** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). **You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf#L6).** Once you've set your IP configuration, follow these steps:
+Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **For security, ensure only your IP can access the resources by setting the `sg_my_ip` variable in your Security Group configuration. You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf#L6).** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). Once you've set your IP configuration, follow these steps:
 
 ```bash
 # IAM
@@ -160,7 +160,7 @@ provider "google" {
 }
 ```
 
-Adopting the AWS strategy for GCP, start with setting up IAM, and then move on to configuring VPC and Firewall rules. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP.** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). **This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** Once you've set your IP configuration, follow these steps:
+Adopting the AWS strategy for GCP, start with setting up IAM, and then move on to configuring VPC and Firewall rules. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** To obtain your personal IP address, please refer to [findIP](https://www.findip.kr/). Once you've set your IP configuration, follow these steps:
 
 ```bash
 # IAM
