@@ -25,7 +25,7 @@ This command initializes your setup by installing the necessary dependencies to 
 
 ### 1. AWS CLI
 
-The AWS CLI is a crucial tool for managing Amazon Web Services, simplifying the control over AWS resources and the setup of access credentials.
+The AWS CLI is a fundamental tool for managing Amazon Web Services, simplifying the control over AWS resources and the setup of access credentials.
 
 **Installation**:
 
@@ -36,9 +36,17 @@ Follow the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/
 1. Sign in to the AWS Management Console and go to the IAM service.
 2. Select an existing service account or create a new one, verifying it has the correct permissions.
 3. Navigate to `Security credentials` in the user details page and choose `Create access key`.
-4. Securely store the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
-5. Execute `aws configure` in your terminal and input your Access Key ID and Secret Access Key.
-6. Specify your default region and preferred output format.
+4. Securely store the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in a temporary file.
+5. Execute the following commands in order.
+
+```bash
+# set your credentials, region, and output format
+$ aws configure
+AWS Access Key ID [None]: <AWS_ACCESS_KEY_ID>
+AWS Secret Access Key [None]: <AWS_SECRET_ACCESS_KEY>
+Default region name [None]: ap-northeast-1
+Default output format [None]: json
+```
 
 ### 2. GCP CLI (gcloud)
 
@@ -53,8 +61,30 @@ Install the GCP CLI by following the guidelines provided in the [Google Cloud do
 1. Access the Google Cloud Console and proceed to the IAM & Admin section to select  `Service accounts`.
 2. Confirm that your existing service account has the necessary roles or set up a new one.
 3. In the `Keys` tab, hit `Create new key`, opting for the JSON format to generate your key.
-4. Treat the resulting JSON file as your `GOOGLE_CREDENTIALS`.
-5. Authenticate via `gcloud auth login` in your terminal and configure your project with `gcloud config set project [YOUR_PROJECT_ID]`.
+4. Securely store the generated key in a temporary file.
+5. Execute the following commands in order.
+
+```bash
+# authorize gcloud to access the Cloud Platform with Google user credentials
+$ gcloud auth login
+
+# set a project property
+$ gcloud config set project <YOUR_PROJECT_ID>
+
+# test gcloud command
+$ gcloud compute instances list
+
+# create .gcloud directory
+$ mkdir -p .gcloud
+
+# copy & paste the stored key
+$ vi .gcloud/sa.json
+
+# add environment variables to `.zshrc` or `.bashrc`
+$ echo 'export GOOGLE_CLOUD_PROJECT="<YOUR_PROJECT_ID>"' >> ~/.zshrc
+$ echo 'export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.gcloud/sa.json"' >> ~/.zshrc
+$ source ~/.zshrc
+```
 
 ### 3. Kubernetes CLI (kubectl)
 
@@ -216,7 +246,7 @@ $ terraform apply
 For GKE, the objective is the establishment of a GKE cluster, followed by kubeconfig acquisition and `kubectl` command testing. Upon GKE cluster creation, pull the kubeconfig using:
 
 ```bash
-$ gcloud container clusters get-credentials [CLUSTER_NAME] --region [REGION] --project [PROJECT_ID]
+$ gcloud container clusters get-credentials <CLUSTER_NAME> --region <REGION> --project <PROJECT_ID>
 ```
 
 Ensure everything is running as expected:
@@ -227,4 +257,4 @@ $ kubectl get pod
 $ kubectl get svc
 ```
 
-In each section, replace the placeholders (denoted by angle brackets <> and square brackets []) with your actual configuration details to correctly execute the commands.
+In each section, replace the placeholders (denoted by angle brackets <>) with your actual configuration details to correctly execute the commands.
