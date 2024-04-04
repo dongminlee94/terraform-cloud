@@ -185,7 +185,7 @@ You must configure your desired region before proceeding with the setup for GCP.
 
 ```hcl
 provider "google" {
-  region  = "asia-northeast1"     # Change this to your desired region
+  region = "asia-northeast1" # Change this to your desired region
 }
 ```
 
