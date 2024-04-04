@@ -44,7 +44,7 @@ Follow the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/
 $ aws configure
 AWS Access Key ID [None]: <AWS_ACCESS_KEY_ID>
 AWS Secret Access Key [None]: <AWS_SECRET_ACCESS_KEY>
-Default region name [None]: ap-northeast-1
+Default region name [None]: ap-northeast-1 # Change this to your desired region
 Default output format [None]: json
 ```
 
@@ -181,11 +181,10 @@ $ kubectl get svc
 
 ### 2. GCP
 
-You must configure both your desired project ID and region before proceeding with the setup for GCP. Within each `providers.tf` file located under `src/gcp/env`, you'll need to update the provider configuration to reflect your GCP project and region preferences. Ensure to replace both the project and region values with your actual project ID and desired region:
+You must configure your desired region before proceeding with the setup for GCP. Within each `providers.tf` file located under `src/gcp/env`, you'll need to update the provider configuration to reflect your region preferences. Ensure to replace the region value with your actual desired region:
 
 ```hcl
 provider "google" {
-  project = "nth-infusion-392203" # Replace this with your actual project ID
   region  = "asia-northeast1"     # Change this to your desired region
 }
 ```
