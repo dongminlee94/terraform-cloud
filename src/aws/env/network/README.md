@@ -10,5 +10,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_vpc"></a> [vpc](#module\_vpc) | ../../modules/vpc | n/a |
+| <a name="module_private_subnet"></a> [private\_subnet](#module\_private\_subnet) | ../../modules/network/subnet | n/a |
+| <a name="module_public_subnet"></a> [public\_subnet](#module\_public\_subnet) | ../../modules/network/subnet | n/a |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | ../../modules/network/vpc | n/a |
 <!-- END_TF_DOCS -->
