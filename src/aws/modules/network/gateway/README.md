@@ -32,4 +32,11 @@
 | <a name="input_nat_enable"></a> [nat\_enable](#input\_nat\_enable) | NAT Gateway - enable/disable | `bool` | n/a | yes |
 | <a name="input_nat_name"></a> [nat\_name](#input\_nat\_name) | NAT Gateway - name | `string` | n/a | yes |
 | <a name="input_nat_subnet_id"></a> [nat\_subnet\_id](#input\_nat\_subnet\_id) | NAT Gateway - subnet id | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_igw_id"></a> [igw\_id](#output\_igw\_id) | n/a |
+| <a name="output_nat_id"></a> [nat\_id](#output\_nat\_id) | n/a |
 <!-- END_TF_DOCS -->

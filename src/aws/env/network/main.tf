@@ -38,6 +38,24 @@ module "public_gateway" {
   nat_subnet_id = ""
 }
 
+module "public_route_table" {
+  source = "../../modules/network/route_table"
+
+  rt_enable = true
+  rt_name   = "public-rt"
+  rt_vpc_id = module.vpc.vpc_id
+
+  route_enable                 = true
+  route_is_public              = true
+  route_destination_cidr_block = "0.0.0.0/0"
+  route_igw_id                 = module.public_gateway.igw_id
+  route_nat_id                 = ""
+
+  rta_enable             = true
+  rta_subnet_cidr_blocks = module.public_subnet.subnet_cidr_blocks
+  rta_subnet_ids         = module.public_subnet.subnet_ids
+}
+
 ###################################################################################################
 # Private Network
 ###################################################################################################
@@ -67,10 +85,23 @@ module "private_gateway" {
 
   nat_enable    = true
   nat_name      = "nat"
-  nat_subnet_id = module.private_subnet.subnet_id
+  nat_subnet_id = module.private_subnet.subnet_ids[0]
 }
 
-# common_cidr_block                = "0.0.0.0/0"
+module "private_route_table" {
+  source = "../../modules/network/route_table"
 
-# public_rt_name  = "public-rt"
-# private_rt_name = "private-rt"
+  rt_enable = true
+  rt_name   = "private-rt"
+  rt_vpc_id = module.vpc.vpc_id
+
+  route_enable                 = true
+  route_is_public              = false
+  route_destination_cidr_block = "0.0.0.0/0"
+  route_igw_id                 = ""
+  route_nat_id                 = module.private_gateway.nat_id
+
+  rta_enable             = true
+  rta_subnet_cidr_blocks = module.private_subnet.subnet_cidr_blocks
+  rta_subnet_ids         = module.private_subnet.subnet_ids
+}

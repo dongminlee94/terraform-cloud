@@ -33,5 +33,6 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_subnet_id"></a> [subnet\_id](#output\_subnet\_id) | n/a |
+| <a name="output_subnet_cidr_blocks"></a> [subnet\_cidr\_blocks](#output\_subnet\_cidr\_blocks) | n/a |
+| <a name="output_subnet_ids"></a> [subnet\_ids](#output\_subnet\_ids) | n/a |
 <!-- END_TF_DOCS -->
