@@ -10,5 +10,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_sg"></a> [sg](#module\_sg) | ../../modules/sg | n/a |
+| <a name="module_sg"></a> [sg](#module\_sg) | ../../modules/security/sg | n/a |
 <!-- END_TF_DOCS -->

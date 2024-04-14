@@ -1,5 +1,5 @@
 module "sg" {
-  source = "../../modules/sg"
+  source = "../../modules/security/sg"
 
   vpc_name = "vpc"
   sg_name  = "sg"
