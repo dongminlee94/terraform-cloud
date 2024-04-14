@@ -1,6 +1,3 @@
-###################################################################################################
-# Subnet
-###################################################################################################
 resource "aws_subnet" "subnet" {
   count = var.subnet_enable ? length(var.subnet_cidr_blocks) : 0
 
@@ -15,34 +12,6 @@ resource "aws_subnet" "subnet" {
     var.subnet_additional_tags
   )
 }
-
-# ###################################################################################################
-# # Gateway
-# ###################################################################################################
-# resource "aws_internet_gateway" "igw" {
-#   vpc_id = aws_vpc.vpc.id
-
-#   tags = {
-#     Name = var.igw_name
-#   }
-# }
-
-# resource "aws_eip" "nat_eip" {
-#   domain = "vpc"
-
-#   tags = {
-#     Name = var.eip_name
-#   }
-# }
-
-# resource "aws_nat_gateway" "nat_gateway" {
-#   allocation_id = aws_eip.nat_eip.id
-#   subnet_id     = aws_subnet.public_subnet[0].id
-
-#   tags = {
-#     Name = var.nat_gateway_name
-#   }
-# }
 
 # ###################################################################################################
 # # Route

@@ -10,7 +10,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_private_gateway"></a> [private\_gateway](#module\_private\_gateway) | ../../modules/network/gateway | n/a |
 | <a name="module_private_subnet"></a> [private\_subnet](#module\_private\_subnet) | ../../modules/network/subnet | n/a |
+| <a name="module_public_gateway"></a> [public\_gateway](#module\_public\_gateway) | ../../modules/network/gateway | n/a |
 | <a name="module_public_subnet"></a> [public\_subnet](#module\_public\_subnet) | ../../modules/network/subnet | n/a |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | ../../modules/network/vpc | n/a |
 <!-- END_TF_DOCS -->

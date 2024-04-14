@@ -28,4 +28,10 @@
 | <a name="input_subnet_enable"></a> [subnet\_enable](#input\_subnet\_enable) | Subnet - enable/disable | `bool` | n/a | yes |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | Subnet - name | `string` | n/a | yes |
 | <a name="input_subnet_vpc_id"></a> [subnet\_vpc\_id](#input\_subnet\_vpc\_id) | Subnet - VPC id | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_subnet_id"></a> [subnet\_id](#output\_subnet\_id) | n/a |
 <!-- END_TF_DOCS -->
