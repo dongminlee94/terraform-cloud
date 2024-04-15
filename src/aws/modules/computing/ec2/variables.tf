@@ -1,8 +1,3 @@
-variable "profile_name" {
-  description = "IAM - instance profile name"
-  type        = string
-}
-
 variable "subnet_name" {
   description = "Subnet - name"
   type        = string
@@ -13,9 +8,24 @@ variable "sg_name" {
   type        = string
 }
 
-variable "eip_name" {
-  description = "EC2 - elastic IP name"
+variable "key_pair_enable" {
+  description = "Key Pair - enable/disable"
+  type        = bool
+}
+
+variable "key_pair_name" {
+  description = "Key Pair - name"
   type        = string
+}
+
+variable "key_pair_public_key" {
+  description = "Key Pair - public key"
+  type        = string
+}
+
+variable "ec2_enable" {
+  description = "EC2 - enable/disable"
+  type        = bool
 }
 
 variable "ec2_ami" {
@@ -38,13 +48,8 @@ variable "ec2_instance_name" {
   type        = string
 }
 
-variable "ec2_key_name" {
-  description = "EC2 - key name"
-  type        = string
-}
-
-variable "ec2_public_key" {
-  description = "EC2 - public key"
+variable "ec2_iam_profile_name" {
+  description = "EC2 - IAM profile name"
   type        = string
 }
 
@@ -63,13 +68,18 @@ variable "ec2_instance_isb" {
   type        = string
 }
 
+variable "dlm_enable" {
+  description = "Data Lifecycle Manager - enable/disable"
+  type        = bool
+}
+
 variable "dlm_description" {
   description = "Data Lifecycle Manager - description"
   type        = string
 }
 
-variable "dlm_ec2_role_name" {
-  description = "Data Lifecycle Manager - EC2 IAM role name"
+variable "dlm_ec2_role_arn" {
+  description = "Data Lifecycle Manager - EC2 IAM role arn"
   type        = string
 }
 

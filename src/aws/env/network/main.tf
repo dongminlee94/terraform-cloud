@@ -77,7 +77,7 @@ module "private_eip" {
   eip_enable       = true
   eip_use_instance = false
   eip_instance_id  = ""
-  eip_name         = "eip"
+  eip_name         = "nat-eip"
 }
 
 module "private_gateway" {
@@ -88,7 +88,7 @@ module "private_gateway" {
   igw_vpc_id = ""
 
   nat_enable    = true
-  nat_name      = "nat"
+  nat_name      = "nat-gateway"
   nat_eip_id    = module.private_eip.eip_id
   nat_subnet_id = module.private_subnet.subnet_ids[0]
 }

@@ -8,8 +8,8 @@ variable "role_name" {
   type        = string
 }
 
-variable "role_pd_service_identifiers" {
-  description = "Role Policy Document - identifiers for service type"
+variable "policy_document_service_identifiers" {
+  description = "Policy Document - identifiers for service type"
   type        = list(string)
 }
 
