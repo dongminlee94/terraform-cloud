@@ -8,18 +8,10 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-resource "aws_eip" "eip" {
-  count = var.eip_enable ? 1 : 0
-
-  tags = {
-    Name = var.eip_name
-  }
-}
-
 resource "aws_nat_gateway" "nat" {
   count = var.nat_enable ? 1 : 0
 
-  allocation_id = aws_eip.eip[count.index].id
+  allocation_id = var.nat_eip_id
   subnet_id     = var.nat_subnet_id
 
   tags = {

@@ -30,11 +30,9 @@ module "public_gateway" {
   igw_name   = "igw"
   igw_vpc_id = module.vpc.vpc_id
 
-  eip_enable = false
-  eip_name   = ""
-
   nat_enable    = false
   nat_name      = ""
+  nat_eip_id    = ""
   nat_subnet_id = ""
 }
 
@@ -73,6 +71,15 @@ module "private_subnet" {
   }
 }
 
+module "private_eip" {
+  source = "../../modules/network/eip"
+
+  eip_enable       = true
+  eip_use_instance = false
+  eip_instance_id  = ""
+  eip_name         = "eip"
+}
+
 module "private_gateway" {
   source = "../../modules/network/gateway"
 
@@ -80,11 +87,9 @@ module "private_gateway" {
   igw_name   = ""
   igw_vpc_id = ""
 
-  eip_enable = true
-  eip_name   = "eip"
-
   nat_enable    = true
   nat_name      = "nat"
+  nat_eip_id    = module.private_eip.eip_id
   nat_subnet_id = module.private_subnet.subnet_ids[0]
 }
 

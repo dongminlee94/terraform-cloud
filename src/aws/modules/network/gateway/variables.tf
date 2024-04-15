@@ -9,17 +9,7 @@ variable "igw_name" {
 }
 
 variable "igw_vpc_id" {
-  description = "Internet Gateway - VPC id"
-  type        = string
-}
-
-variable "eip_enable" {
-  description = "Elastic IP - enable/disable"
-  type        = bool
-}
-
-variable "eip_name" {
-  description = "Elastic IP - name"
+  description = "Internet Gateway - VPC ID"
   type        = string
 }
 
@@ -33,7 +23,12 @@ variable "nat_name" {
   type        = string
 }
 
+variable "nat_eip_id" {
+  description = "NAT Gateway - Elastic IP"
+  type        = string
+}
+
 variable "nat_subnet_id" {
-  description = "NAT Gateway - subnet id"
+  description = "NAT Gateway - subnet ID"
   type        = string
 }

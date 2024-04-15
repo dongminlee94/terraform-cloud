@@ -19,7 +19,7 @@ variable "eip_name" {
 }
 
 variable "ec2_ami" {
-  description = "EC2 - AMI id"
+  description = "EC2 - AMI ID"
   type        = string
 }
 

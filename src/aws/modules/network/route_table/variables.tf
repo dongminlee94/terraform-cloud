@@ -9,7 +9,7 @@ variable "rt_name" {
 }
 
 variable "rt_vpc_id" {
-  description = "Route Table - VPC id"
+  description = "Route Table - VPC ID"
   type        = string
 }
 
@@ -29,12 +29,12 @@ variable "route_destination_cidr_block" {
 }
 
 variable "route_igw_id" {
-  description = "Route - internet gateway id"
+  description = "Route - internet gateway ID"
   type        = string
 }
 
 variable "route_nat_id" {
-  description = "Route - nat gateway id"
+  description = "Route - nat gateway ID"
   type        = string
 }
 

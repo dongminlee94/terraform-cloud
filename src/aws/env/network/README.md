@@ -10,6 +10,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_private_eip"></a> [private\_eip](#module\_private\_eip) | ../../modules/network/eip | n/a |
 | <a name="module_private_gateway"></a> [private\_gateway](#module\_private\_gateway) | ../../modules/network/gateway | n/a |
 | <a name="module_private_route_table"></a> [private\_route\_table](#module\_private\_route\_table) | ../../modules/network/route_table | n/a |
 | <a name="module_private_subnet"></a> [private\_subnet](#module\_private\_subnet) | ../../modules/network/subnet | n/a |

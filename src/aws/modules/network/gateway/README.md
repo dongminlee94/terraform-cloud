@@ -16,7 +16,6 @@
 
 | Name | Type |
 |------|------|
-| [aws_eip.eip](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/eip) | resource |
 | [aws_internet_gateway.igw](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/internet_gateway) | resource |
 | [aws_nat_gateway.nat](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/nat_gateway) | resource |
 
@@ -24,14 +23,13 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_eip_enable"></a> [eip\_enable](#input\_eip\_enable) | Elastic IP - enable/disable | `bool` | n/a | yes |
-| <a name="input_eip_name"></a> [eip\_name](#input\_eip\_name) | Elastic IP - name | `string` | n/a | yes |
 | <a name="input_igw_enable"></a> [igw\_enable](#input\_igw\_enable) | Internet Gateway - enable/disable | `bool` | n/a | yes |
 | <a name="input_igw_name"></a> [igw\_name](#input\_igw\_name) | Internet Gateway - name | `string` | n/a | yes |
-| <a name="input_igw_vpc_id"></a> [igw\_vpc\_id](#input\_igw\_vpc\_id) | Internet Gateway - VPC id | `string` | n/a | yes |
+| <a name="input_igw_vpc_id"></a> [igw\_vpc\_id](#input\_igw\_vpc\_id) | Internet Gateway - VPC ID | `string` | n/a | yes |
+| <a name="input_nat_eip_id"></a> [nat\_eip\_id](#input\_nat\_eip\_id) | NAT Gateway - Elastic IP | `string` | n/a | yes |
 | <a name="input_nat_enable"></a> [nat\_enable](#input\_nat\_enable) | NAT Gateway - enable/disable | `bool` | n/a | yes |
 | <a name="input_nat_name"></a> [nat\_name](#input\_nat\_name) | NAT Gateway - name | `string` | n/a | yes |
-| <a name="input_nat_subnet_id"></a> [nat\_subnet\_id](#input\_nat\_subnet\_id) | NAT Gateway - subnet id | `string` | n/a | yes |
+| <a name="input_nat_subnet_id"></a> [nat\_subnet\_id](#input\_nat\_subnet\_id) | NAT Gateway - subnet ID | `string` | n/a | yes |
 
 ## Outputs
 

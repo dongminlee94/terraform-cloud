@@ -27,7 +27,7 @@
 | <a name="input_subnet_cidr_blocks"></a> [subnet\_cidr\_blocks](#input\_subnet\_cidr\_blocks) | Subnet - CIDR blocks | `list(string)` | n/a | yes |
 | <a name="input_subnet_enable"></a> [subnet\_enable](#input\_subnet\_enable) | Subnet - enable/disable | `bool` | n/a | yes |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | Subnet - name | `string` | n/a | yes |
-| <a name="input_subnet_vpc_id"></a> [subnet\_vpc\_id](#input\_subnet\_vpc\_id) | Subnet - VPC id | `string` | n/a | yes |
+| <a name="input_subnet_vpc_id"></a> [subnet\_vpc\_id](#input\_subnet\_vpc\_id) | Subnet - VPC ID | `string` | n/a | yes |
 
 ## Outputs
 
