@@ -1,36 +1,26 @@
-variable "eks_service_role_name" {
-  description = "IAM - EKS service role name"
-  type        = string
-}
-
-variable "eks_nodes_role_name" {
-  description = "IAM - EKS nodes role name"
-  type        = string
-}
-
-variable "private_subnet_names" {
-  description = "Subnet - private subnet names"
+variable "subnet_names" {
+  description = "Subnet - subnet names"
   type        = list(string)
 }
 
-variable "eks_name" {
-  description = "EKS Cluster - name"
+variable "eks_node_group_cluster_name" {
+  description = "EKS Node Group - cluster name"
   type        = string
 }
 
-variable "eks_cluster_version" {
-  description = "EKS Cluster - version"
+variable "eks_node_group_enable" {
+  description = "EKS Node Group - enable/disable"
+  type        = bool
+}
+
+variable "eks_node_group_name" {
+  description = "EKS Node Group - name"
   type        = string
 }
 
-variable "eks_cluster_endpoint_public_access" {
-  description = "EKS Cluster - endpoint public access"
-  type        = bool
-}
-
-variable "eks_cluster_endpoint_private_access" {
-  description = "EKS Cluster - endpoint private access"
-  type        = bool
+variable "eks_node_role_arn" {
+  description = "EKS Node Group - node role arn"
+  type        = string
 }
 
 variable "eks_node_group_ami" {
