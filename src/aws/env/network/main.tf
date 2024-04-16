@@ -90,7 +90,7 @@ module "private_gateway" {
   nat_enable    = true
   nat_name      = "nat-gateway"
   nat_eip_id    = module.private_eip.eip_id
-  nat_subnet_id = module.private_subnet.subnet_ids[0]
+  nat_subnet_id = module.public_subnet.subnet_ids[0]
 }
 
 module "private_route_table" {

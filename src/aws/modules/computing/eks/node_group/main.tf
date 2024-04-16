@@ -1,11 +1,11 @@
 resource "aws_eks_node_group" "eks_node_group" {
   count = var.eks_node_group_enable ? 1 : 0
 
-  cluster_name = var.eks_node_group_cluster_name
-
   node_group_name = var.eks_node_group_name
   node_role_arn   = var.eks_node_role_arn
-  subnet_ids      = [for subnet in data.aws_subnet.subnet : subnet.id]
+
+  cluster_name = var.eks_cluster_name
+  subnet_ids   = [for subnet in data.aws_subnet.subnet : subnet.id]
 
   ami_type       = var.eks_node_group_ami
   instance_types = var.eks_node_group_instance_types

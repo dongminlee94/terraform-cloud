@@ -1,4 +1,4 @@
-variable "subnet_names" {
+variable "eks_subnet_names" {
   description = "Subnet - subnet names"
   type        = list(string)
 }

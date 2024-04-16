@@ -29,5 +29,11 @@
 | <a name="input_eks_cluster_name"></a> [eks\_cluster\_name](#input\_eks\_cluster\_name) | EKS Cluster - name | `string` | n/a | yes |
 | <a name="input_eks_cluster_version"></a> [eks\_cluster\_version](#input\_eks\_cluster\_version) | EKS Cluster - version | `string` | n/a | yes |
 | <a name="input_eks_service_role_arn"></a> [eks\_service\_role\_arn](#input\_eks\_service\_role\_arn) | EKS Cluster - service role arn | `string` | n/a | yes |
-| <a name="input_subnet_names"></a> [subnet\_names](#input\_subnet\_names) | Subnet - subnet names | `list(string)` | n/a | yes |
+| <a name="input_eks_subnet_names"></a> [eks\_subnet\_names](#input\_eks\_subnet\_names) | Subnet - subnet names | `list(string)` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_eks_cluster_name"></a> [eks\_cluster\_name](#output\_eks\_cluster\_name) | n/a |
 <!-- END_TF_DOCS -->

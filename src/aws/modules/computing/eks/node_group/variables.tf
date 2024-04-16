@@ -1,9 +1,9 @@
-variable "subnet_names" {
+variable "eks_subnet_names" {
   description = "Subnet - subnet names"
   type        = list(string)
 }
 
-variable "eks_node_group_cluster_name" {
+variable "eks_cluster_name" {
   description = "EKS Node Group - cluster name"
   type        = string
 }

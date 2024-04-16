@@ -1,3 +1,3 @@
-output "eks_node_group_id" {
-  value = aws_eks_node_group.eks_node_group[0].id
+output "eks_node_group_name" {
+  value = var.eks_node_group_enable ? aws_eks_node_group.eks_node_group[0].node_group_name : ""
 }

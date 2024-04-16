@@ -11,3 +11,6 @@ check:
 
 tfinit:
 	sh tfinit.sh
+
+kubeconfig:
+	aws eks update-kubeconfig --name eks-cluster --region ap-northeast-1
