@@ -62,8 +62,8 @@ module "eks_node_group" {
   eks_node_group_instance_types = ["m6a.xlarge"]
   eks_node_group_disk_size      = 50
 
-  eks_node_group_desired_size    = 1
-  eks_node_group_min_size        = 1
+  eks_node_group_desired_size    = 0
+  eks_node_group_min_size        = 0
   eks_node_group_max_size        = 5
   eks_node_group_max_unavailable = 1
 }
