@@ -44,7 +44,7 @@ Follow the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/
 $ aws configure
 AWS Access Key ID [None]: <AWS_ACCESS_KEY_ID>
 AWS Secret Access Key [None]: <AWS_SECRET_ACCESS_KEY>
-Default region name [None]: ap-northeast-1 # Change this to your desired region
+Default region name [None]: ap-northeast-1
 Default output format [None]: json
 ```
 
@@ -104,36 +104,25 @@ This will allow you to interact directly with your Kubernetes clusters, managing
 
 ### 1. AWS
 
-Before you begin setting up your AWS resources, it's important to configure your provider settings to match your desired AWS region. In the `providers.tf` file located within each directory under `src/aws/env`, you'll find the provider configuration. Update the region attribute to your preferred AWS region. For example:
-
-```hcl
-provider "aws" {
-  region = "ap-northeast-1" # Change this to your desired region
-}
-```
-
-Set up a range of AWS resources, starting with IAM roles, VPC for networking, and Security Groups (SG). **For security, ensure only your IP can access the resources by setting the `sg_my_ip` variable in your Security Group configuration. You can modify this by referring to the [AWS Security Group configuration](src/aws/env/sg/main.tf#L6).** To obtain your personal IP address, please refer to [whatismyipaddress](https://whatismyipaddress.com/). Once you've set your IP configuration, follow these steps:
+Set up a range of AWS resources, starting with network and security. **For security, ensure only your IP can access the resources by setting the `sg_my_ip` variable in your Security Group configuration. You can modify this by referring to the [AWS Security Group configuration](src/aws/env/security/main.tf#L10).** To obtain your personal IP address, please refer to [whatismyipaddress](https://whatismyipaddress.com/). Once you've set your IP configuration, follow these steps:
 
 ```bash
-# IAM
-$ cd src/aws/env/iam
+# Network
+$ cd src/aws/env/network
+$ terraform init
 $ terraform plan
 $ terraform apply
 
-# VPC
-$ cd src/aws/env/vpc
-$ terraform plan
-$ terraform apply
-
-# SG
-$ cd src/aws/env/sg
+# Security
+$ cd src/aws/env/security
+$ terraform init
 $ terraform plan
 $ terraform apply
 ```
 
 **EC2**
 
-The aim is to deploy an EC2 VM instance and establish an SSH connection to it. Your personal public key must be included in the code for access and should be encoded in base64 format for security. Ensure your public key is encoded and then update it at the [file path](src/aws/env/ec2/main.tf#L15).
+The aim is to deploy an EC2 VM instance and establish an SSH connection to it. Your personal public key must be included in the code for access and should be encoded in base64 format for security. Ensure your public key is encoded and then update it at the [file path](src/aws/env/server/main.tf#L24).
 
 ```bash
 $ base64 < ~/.ssh/id_rsa.pub
@@ -142,7 +131,8 @@ $ base64 < ~/.ssh/id_rsa.pub
 After setting your public key, you're ready to create the EC2 VM instance. Navigate to the EC2 directory and begin the deployment with the following commands:
 
 ```bash
-$ cd src/aws/env/ec2
+$ cd src/aws/env/server
+$ terraform init
 $ terraform plan
 $ terraform apply
 ```
@@ -160,7 +150,8 @@ To begin, you'll create an EKS cluster, which involves setting it up, generating
 Execute the following commands:
 
 ```bash
-$ cd src/aws/env/eks
+$ cd src/aws/env/cluster
+$ terraform init
 $ terraform plan
 $ terraform apply
 ```
@@ -168,7 +159,7 @@ $ terraform apply
 The endpoint for EKS is the creation of an EKS cluster, generating a kubeconfig, and the execution of `kubectl` commands. Configure your EKS cluster and obtain the kubeconfig via:
 
 ```bash
-$ aws eks update-kubeconfig --region <region-code> --name <cluster-name>
+$ aws eks update-kubeconfig --name eks-cluster --region ap-northeast-1
 ```
 
 Validate your cluster's functionality with the following:
@@ -181,29 +172,24 @@ $ kubectl get svc
 
 ### 2. GCP
 
-You must configure your desired region before proceeding with the setup for GCP. Within each `providers.tf` file located under `src/gcp/env`, you'll need to update the provider configuration to reflect your region preferences. Ensure to replace the region value with your actual desired region:
-
-```hcl
-provider "google" {
-  region = "asia-northeast1" # Change this to your desired region
-}
-```
-
 Adopting the AWS strategy for GCP, start with setting up IAM, and then move on to configuring VPC and Firewall rules. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** To obtain your personal IP address, please refer to [whatismyipaddress](https://whatismyipaddress.com/). Once you've set your IP configuration, follow these steps:
 
 ```bash
 # IAM
 $ cd src/gcp/env/iam
+$ terraform init
 $ terraform plan
 $ terraform apply
 
 # VPC
 $ cd src/gcp/env/vpc
+$ terraform init
 $ terraform plan
 $ terraform apply
 
 # Firewall
 $ cd src/gcp/env/firewall
+$ terraform init
 $ terraform plan
 $ terraform apply
 ```
@@ -220,6 +206,7 @@ After updating your public key in the code, you're set to launch a VM instance o
 
 ```bash
 $ cd src/gcp/env/gce
+$ terraform init
 $ terraform plan
 $ terraform apply
 ```
@@ -238,6 +225,7 @@ Follow these steps with the commands below:
 
 ```bash
 $ cd src/gcp/env/gke
+$ terraform init
 $ terraform plan
 $ terraform apply
 ```
@@ -245,7 +233,7 @@ $ terraform apply
 For GKE, the objective is the establishment of a GKE cluster, followed by kubeconfig acquisition and `kubectl` command testing. Upon GKE cluster creation, pull the kubeconfig using:
 
 ```bash
-$ gcloud container clusters get-credentials <CLUSTER_NAME> --region <REGION> --project <PROJECT_ID>
+$ gcloud container clusters get-credentials <CLUSTER_NAME> --project <PROJECT_ID> --region asia-northeast1
 ```
 
 Ensure everything is running as expected:
