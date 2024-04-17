@@ -1,6 +1,8 @@
 resource "google_compute_firewall" "firewall_ingress" {
+  count = var.firewall_ingress_enable ? 1 : 0
+
   name      = "${var.firewall_name}-ingress"
-  network   = data.google_compute_network.network.self_link
+  network   = var.network_name
   direction = "INGRESS"
 
   allow {
@@ -21,8 +23,10 @@ resource "google_compute_firewall" "firewall_ingress" {
 }
 
 resource "google_compute_firewall" "firewall_egress" {
+  count = var.firewall_egress_enable ? 1 : 0
+
   name      = "${var.firewall_name}-egress"
-  network   = data.google_compute_network.network.self_link
+  network   = var.network_name
   direction = "EGRESS"
 
   allow {
