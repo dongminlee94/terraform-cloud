@@ -10,5 +10,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_gce"></a> [gce](#module\_gce) | ../../modules/gce | n/a |
+| <a name="module_router"></a> [router](#module\_router) | ../../modules/network/router | n/a |
+| <a name="module_subnet"></a> [subnet](#module\_subnet) | ../../modules/network/subnet | n/a |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | ../../modules/network/vpc | n/a |
 <!-- END_TF_DOCS -->
