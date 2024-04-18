@@ -4,7 +4,7 @@ variable "eks_subnet_names" {
 }
 
 variable "eks_cluster_name" {
-  description = "EKS Node Group - cluster name"
+  description = "EKS Cluster - name"
   type        = string
 }
 

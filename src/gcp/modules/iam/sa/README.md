@@ -16,13 +16,18 @@
 
 | Name | Type |
 |------|------|
-| [google_service_account.gce_sa](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/service_account) | resource |
-| [google_service_account.gke_sa](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/service_account) | resource |
+| [google_service_account.sa](https://registry.terraform.io/providers/hashicorp/google/5.5.0/docs/resources/service_account) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | Service Account - account id | `string` | n/a | yes |
-| <a name="input_display_name"></a> [display\_name](#input\_display\_name) | Service Account - display name | `string` | n/a | yes |
+| <a name="input_sa_enable"></a> [sa\_enable](#input\_sa\_enable) | Service Account - enable/disable | `bool` | n/a | yes |
+| <a name="input_sa_name"></a> [sa\_name](#input\_sa\_name) | Service Account - name | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_service_account_email"></a> [service\_account\_email](#output\_service\_account\_email) | n/a |
 <!-- END_TF_DOCS -->

@@ -1,16 +1,20 @@
 resource "google_compute_address" "gce_address" {
+  count = var.gce_address_enable ? 1 : 0
+
   name = var.gce_address_name
 }
 
 resource "google_compute_instance" "gce_instance" {
+  count = var.gce_instance_enable ? 1 : 0
+
   name         = var.gce_instance_name
   machine_type = var.gce_machine_type
   zone         = var.gce_zone
 
   boot_disk {
     initialize_params {
-      image = var.gce_image
-      size  = var.gce_size
+      image = var.gce_boot_disk_image
+      size  = var.gce_boot_disk_size
     }
   }
 
@@ -18,12 +22,12 @@ resource "google_compute_instance" "gce_instance" {
     subnetwork = data.google_compute_subnetwork.subnetwork.id
 
     access_config {
-      nat_ip = google_compute_address.gce_address.address
+      nat_ip = google_compute_address.gce_address[0].address
     }
   }
 
   service_account {
-    email  = data.google_service_account.sa.email
+    email  = var.gce_sa_email
     scopes = var.gce_service_scopes
   }
 
@@ -35,6 +39,8 @@ resource "google_compute_instance" "gce_instance" {
 }
 
 resource "google_compute_resource_policy" "gce_resource_policy" {
+  count = var.rp_enable ? 1 : 0
+
   name = var.rp_name
 
   snapshot_schedule_policy {
@@ -46,8 +52,7 @@ resource "google_compute_resource_policy" "gce_resource_policy" {
     }
 
     retention_policy {
-      max_retention_days    = var.rp_max_retention_days
-      on_source_disk_delete = "KEEP_AUTO_SNAPSHOTS"
+      max_retention_days = var.rp_max_retention_days
     }
 
     snapshot_properties {

@@ -3,14 +3,19 @@ variable "subnetwork_name" {
   type        = string
 }
 
-variable "sa_account_id" {
-  description = "Service Account - account id"
-  type        = string
+variable "gce_address_enable" {
+  description = "GCE - address enable/disable"
+  type        = bool
 }
 
 variable "gce_address_name" {
   description = "GCE - NAT IP address name"
   type        = string
+}
+
+variable "gce_instance_enable" {
+  description = "GCE - instance enable/disable"
+  type        = bool
 }
 
 variable "gce_instance_name" {
@@ -28,14 +33,19 @@ variable "gce_zone" {
   type        = string
 }
 
-variable "gce_image" {
-  description = "GCE - image"
+variable "gce_boot_disk_image" {
+  description = "GCE - boot disk image"
   type        = string
 }
 
-variable "gce_size" {
-  description = "GCE - disk volume size"
+variable "gce_boot_disk_size" {
+  description = "GCE - boot disk size"
   type        = number
+}
+
+variable "gce_sa_email" {
+  description = "GCE - service account email"
+  type        = string
 }
 
 variable "gce_service_scopes" {
@@ -48,14 +58,19 @@ variable "gce_user_name" {
   type        = string
 }
 
+variable "gce_public_key" {
+  description = "GCE - ssh public key"
+  type        = string
+}
+
 variable "gce_tags" {
   description = "GCE - tags"
   type        = list(string)
 }
 
-variable "gce_public_key" {
-  description = "GCE - ssh public key"
-  type        = string
+variable "rp_enable" {
+  description = "Resource policy - enable/disable"
+  type        = bool
 }
 
 variable "rp_name" {
