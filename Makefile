@@ -12,5 +12,8 @@ check:
 tfinit:
 	sh tfinit.sh
 
-kubeconfig:
+aws-kubeconfig:
 	aws eks update-kubeconfig --name eks-cluster --region ap-northeast-1
+
+gcp-kubeconfig:
+	gcloud container clusters get-credentials gke-cluster --region asia-northeast1

@@ -24,5 +24,5 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_eks_asg_tag_enable"></a> [eks\_asg\_tag\_enable](#input\_eks\_asg\_tag\_enable) | EKS Autoscaling Group Tag - enable/disable | `bool` | n/a | yes |
-| <a name="input_eks_node_group_name"></a> [eks\_node\_group\_name](#input\_eks\_node\_group\_name) | EKS Autoscaling Group Tag - node group name | `string` | n/a | yes |
+| <a name="input_eks_node_group_name"></a> [eks\_node\_group\_name](#input\_eks\_node\_group\_name) | EKS Node Group - name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

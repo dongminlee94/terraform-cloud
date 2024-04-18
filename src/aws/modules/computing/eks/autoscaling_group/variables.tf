@@ -4,6 +4,6 @@ variable "eks_asg_tag_enable" {
 }
 
 variable "eks_node_group_name" {
-  description = "EKS Autoscaling Group Tag - node group name"
+  description = "EKS Node Group - name"
   type        = string
 }
