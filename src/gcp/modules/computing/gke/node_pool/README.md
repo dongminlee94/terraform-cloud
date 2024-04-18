@@ -25,6 +25,7 @@
 | <a name="input_gke_cluster_name"></a> [gke\_cluster\_name](#input\_gke\_cluster\_name) | GKE Cluster - name | `string` | n/a | yes |
 | <a name="input_gke_node_pool_auto_repair"></a> [gke\_node\_pool\_auto\_repair](#input\_gke\_node\_pool\_auto\_repair) | GKE Node Pool - auto repair | `bool` | n/a | yes |
 | <a name="input_gke_node_pool_auto_upgrade"></a> [gke\_node\_pool\_auto\_upgrade](#input\_gke\_node\_pool\_auto\_upgrade) | GKE Node Pool - auto upgrade | `bool` | n/a | yes |
+| <a name="input_gke_node_pool_enable"></a> [gke\_node\_pool\_enable](#input\_gke\_node\_pool\_enable) | GKE Node Pool - enable/disable | `bool` | n/a | yes |
 | <a name="input_gke_node_pool_machine_type"></a> [gke\_node\_pool\_machine\_type](#input\_gke\_node\_pool\_machine\_type) | GKE Node Pool - machine type | `string` | n/a | yes |
 | <a name="input_gke_node_pool_max_node_count"></a> [gke\_node\_pool\_max\_node\_count](#input\_gke\_node\_pool\_max\_node\_count) | GKE Node Pool - maximum node count | `number` | n/a | yes |
 | <a name="input_gke_node_pool_min_node_count"></a> [gke\_node\_pool\_min\_node\_count](#input\_gke\_node\_pool\_min\_node\_count) | GKE Node Pool - minimum node count | `number` | n/a | yes |

@@ -8,8 +8,18 @@ variable "subnetwork_name" {
   type        = string
 }
 
+variable "gke_cluster_enable" {
+  description = "GKE Cluster - enable/disable"
+  type        = bool
+}
+
 variable "gke_cluster_name" {
   description = "GKE Cluster - cluster name"
+  type        = string
+}
+
+variable "gke_cluster_min_master_version" {
+  description = "GKE Cluster - min master version"
   type        = string
 }
 

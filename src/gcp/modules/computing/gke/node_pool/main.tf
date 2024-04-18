@@ -1,4 +1,6 @@
 resource "google_container_node_pool" "node_pool" {
+  count = var.gke_node_pool_enable ? 1 : 0
+
   name    = var.gke_node_pool_name
   cluster = var.gke_cluster_name
 

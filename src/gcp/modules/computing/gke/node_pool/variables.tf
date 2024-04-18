@@ -1,3 +1,8 @@
+variable "gke_node_pool_enable" {
+  description = "GKE Node Pool - enable/disable"
+  type        = bool
+}
+
 variable "gke_node_pool_name" {
   description = "GKE Node Pool - node pool name"
   type        = string

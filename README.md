@@ -40,7 +40,7 @@ Follow the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/
 5. Execute the following commands in order.
 
 ```bash
-# set your credentials, region, and output format
+# Set your credentials, region, and output format
 $ aws configure
 AWS Access Key ID [None]: <AWS_ACCESS_KEY_ID>
 AWS Secret Access Key [None]: <AWS_SECRET_ACCESS_KEY>
@@ -65,22 +65,22 @@ Install the GCP CLI by following the guidelines provided in the [Google Cloud do
 5. Execute the following commands in order.
 
 ```bash
-# authorize gcloud to access the Cloud Platform with Google user credentials
+# Authorize gcloud to access the Cloud Platform with Google user credentials
 $ gcloud auth login
 
-# set a project property
+# Set a project property
 $ gcloud config set project <YOUR_PROJECT_ID>
 
-# test gcloud command
+# Test gcloud command
 $ gcloud compute instances list
 
-# create .gcloud directory
+# Create .gcloud directory
 $ mkdir -p .gcloud
 
-# copy & paste the stored key
+# Copy & paste the stored key
 $ vi .gcloud/sa.json
 
-# add environment variables to `.zshrc` or `.bashrc`
+# Add environment variables to `.zshrc` or `.bashrc`
 $ echo 'export GOOGLE_CLOUD_PROJECT="<YOUR_PROJECT_ID>"' >> ~/.zshrc
 $ echo 'export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.gcloud/sa.json"' >> ~/.zshrc
 $ source ~/.zshrc
@@ -172,23 +172,17 @@ $ kubectl get svc
 
 ### 2. GCP
 
-Adopting the AWS strategy for GCP, start with setting up IAM, and then move on to configuring VPC and Firewall rules. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/firewall/main.tf#L7).** To obtain your personal IP address, please refer to [whatismyipaddress](https://whatismyipaddress.com/). Once you've set your IP configuration, follow these steps:
+Similar to setting up AWS resources, GCP also starts with network and security. **To ensure your setup is secure, adjust the `firewall_my_ip` variable in your Firewall rules to permit connections only from your personal IP. This can be done by visiting the [GCP Firewall configuration](src/gcp/env/security/main.tf#L10).** To obtain your personal IP address, please refer to [whatismyipaddress](https://whatismyipaddress.com/). Once you've set your IP configuration, follow these steps:
 
 ```bash
-# IAM
-$ cd src/gcp/env/iam
+# Network
+$ cd src/gcp/env/network
 $ terraform init
 $ terraform plan
 $ terraform apply
 
-# VPC
-$ cd src/gcp/env/vpc
-$ terraform init
-$ terraform plan
-$ terraform apply
-
-# Firewall
-$ cd src/gcp/env/firewall
+# Security
+$ cd src/gcp/env/security
 $ terraform init
 $ terraform plan
 $ terraform apply
@@ -196,7 +190,7 @@ $ terraform apply
 
 **GCE**
 
-Your goal with GCE is to launch a VM instance and establish an SSH connection. Insert your personal public key into the code for access, ensuring it's in base64 format for enhanced security. You can do this at the [file path](src/gcp/env/gce/main.tf#L16), making sure to encode your public key in base64 format before updating.
+Your goal with GCE is to launch a VM instance and establish an SSH connection. Insert your personal public key into the code for access, ensuring it's in base64 format for enhanced security. You can do this at the [file path](src/gcp/env/server/main.tf#L28), making sure to encode your public key in base64 format before updating.
 
 ```bash
 $ base64 < ~/.ssh/id_rsa.pub
@@ -205,7 +199,7 @@ $ base64 < ~/.ssh/id_rsa.pub
 After updating your public key in the code, you're set to launch a VM instance on GCE. Simply head to the GCE directory to start the deployment process:
 
 ```bash
-$ cd src/gcp/env/gce
+$ cd src/gcp/env/server
 $ terraform init
 $ terraform plan
 $ terraform apply
@@ -224,7 +218,7 @@ Before proceeding, your task is to set up a GKE cluster, obtain the necessary ku
 Follow these steps with the commands below:
 
 ```bash
-$ cd src/gcp/env/gke
+$ cd src/gcp/env/cluster
 $ terraform init
 $ terraform plan
 $ terraform apply
@@ -233,7 +227,10 @@ $ terraform apply
 For GKE, the objective is the establishment of a GKE cluster, followed by kubeconfig acquisition and `kubectl` command testing. Upon GKE cluster creation, pull the kubeconfig using:
 
 ```bash
-$ gcloud container clusters get-credentials <CLUSTER_NAME> --project <PROJECT_ID> --region asia-northeast1
+# install gke-gcloud-auth-plugin
+$ gcloud components install gke-gcloud-auth-plugin
+
+$ gcloud container clusters get-credentials <CLUSTER_NAME> --region asia-northeast1
 ```
 
 Ensure everything is running as expected:

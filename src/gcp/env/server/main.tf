@@ -27,7 +27,7 @@ module "gce" {
   gce_user_name  = "ubuntu"
   gce_public_key = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtvMEhtUWVOd3NyUWFJbnFBL2pVb05VUFZGQ0hZMDIzQU1yTnhNdTlzQnogZG9uZ21pbmxlZUBEb25nbWludWktTWFjQm9va0Fpci5sb2NhbAo="
 
-  gce_tags = ["gcp"]
+  gce_tags = ["gce"]
 
   rp_enable             = true
   rp_name               = "rp"

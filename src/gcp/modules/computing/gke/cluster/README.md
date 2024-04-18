@@ -25,9 +25,17 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_gke_cluster_deletion_protection"></a> [gke\_cluster\_deletion\_protection](#input\_gke\_cluster\_deletion\_protection) | GKE Cluster - whether to deletion protection | `bool` | n/a | yes |
+| <a name="input_gke_cluster_enable"></a> [gke\_cluster\_enable](#input\_gke\_cluster\_enable) | GKE Cluster - enable/disable | `bool` | n/a | yes |
 | <a name="input_gke_cluster_initial_node_count"></a> [gke\_cluster\_initial\_node\_count](#input\_gke\_cluster\_initial\_node\_count) | GKE Cluster - initial node count | `number` | n/a | yes |
+| <a name="input_gke_cluster_min_master_version"></a> [gke\_cluster\_min\_master\_version](#input\_gke\_cluster\_min\_master\_version) | GKE Cluster - min master version | `string` | n/a | yes |
 | <a name="input_gke_cluster_name"></a> [gke\_cluster\_name](#input\_gke\_cluster\_name) | GKE Cluster - cluster name | `string` | n/a | yes |
 | <a name="input_gke_cluster_remove_default_node_pool"></a> [gke\_cluster\_remove\_default\_node\_pool](#input\_gke\_cluster\_remove\_default\_node\_pool) | GKE Cluster - whether to remove default node pool | `bool` | n/a | yes |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | VPC - network name | `string` | n/a | yes |
 | <a name="input_subnetwork_name"></a> [subnetwork\_name](#input\_subnetwork\_name) | Subnet - name | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_gke_cluster_name"></a> [gke\_cluster\_name](#output\_gke\_cluster\_name) | n/a |
 <!-- END_TF_DOCS -->

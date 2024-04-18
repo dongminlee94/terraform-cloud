@@ -1,5 +1,8 @@
 resource "google_container_cluster" "cluster" {
-  name = var.gke_cluster_name
+  count = var.gke_cluster_enable ? 1 : 0
+
+  name               = var.gke_cluster_name
+  min_master_version = var.gke_cluster_min_master_version
 
   network    = data.google_compute_network.network.self_link
   subnetwork = data.google_compute_subnetwork.subnetwork.self_link
