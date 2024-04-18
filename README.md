@@ -230,7 +230,7 @@ For GKE, the objective is the establishment of a GKE cluster, followed by kubeco
 # install gke-gcloud-auth-plugin
 $ gcloud components install gke-gcloud-auth-plugin
 
-$ gcloud container clusters get-credentials <CLUSTER_NAME> --region asia-northeast1
+$ gcloud container clusters get-credentials gke-cluster --region asia-northeast1
 ```
 
 Ensure everything is running as expected:
