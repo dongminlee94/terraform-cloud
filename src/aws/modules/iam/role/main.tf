@@ -5,11 +5,11 @@ resource "aws_iam_role" "role" {
   assume_role_policy = data.aws_iam_policy_document.policy_document_service.json
 }
 
-resource "aws_iam_role_policy_attachment" "role_pa" {
-  count = var.role_pa_enable ? length(var.role_pa_policy_arns) : 0
+resource "aws_iam_role_policy_attachment" "role_policy_attachment" {
+  count = var.role_policy_attachment_enable ? length(var.role_policy_attachment_policy_arns) : 0
 
   role       = aws_iam_role.role[0].name
-  policy_arn = var.role_pa_policy_arns[count.index]
+  policy_arn = var.role_policy_attachment_policy_arns[count.index]
 }
 
 resource "aws_iam_instance_profile" "instance_profile" {

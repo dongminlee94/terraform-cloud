@@ -13,12 +13,12 @@ variable "policy_document_service_identifiers" {
   type        = list(string)
 }
 
-variable "role_pa_enable" {
+variable "role_policy_attachment_enable" {
   description = "Role Policy Attachment - enable/disable"
   type        = bool
 }
 
-variable "role_pa_policy_arns" {
+variable "role_policy_attachment_policy_arns" {
   description = "Role Policy Attachment - policy arns"
   type        = list(string)
 }

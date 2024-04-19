@@ -6,8 +6,8 @@ module "iam_role" {
 
   policy_document_service_identifiers = ["ec2.amazonaws.com"]
 
-  role_pa_enable      = false
-  role_pa_policy_arns = []
+  role_policy_attachment_enable      = false
+  role_policy_attachment_policy_arns = []
 
   instance_profile_enable = true
   instance_profile_name   = "ec2-profile"
