@@ -6,8 +6,8 @@ module "iam_service_role" {
 
   policy_document_service_identifiers = ["eks.amazonaws.com"]
 
-  role_pa_enable = true
-  role_pa_policy_arns = [
+  role_policy_attachment_enable = true
+  role_policy_attachment_policy_arns = [
     "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
     "arn:aws:iam::aws:policy/AmazonEKSServicePolicy",
   ]
@@ -24,8 +24,8 @@ module "iam_nodes_role" {
 
   policy_document_service_identifiers = ["ec2.amazonaws.com"]
 
-  role_pa_enable = true
-  role_pa_policy_arns = [
+  role_policy_attachment_enable = true
+  role_policy_attachment_policy_arns = [
     "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
     "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
     "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
