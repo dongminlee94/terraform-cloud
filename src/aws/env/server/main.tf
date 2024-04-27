@@ -16,7 +16,6 @@ module "iam_role" {
 module "ec2" {
   source = "../../modules/computing/ec2"
 
-
   key_pair_enable     = true
   key_pair_name       = "key-pair"
   key_pair_public_key = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtvMEhtUWVOd3NyUWFJbnFBL2pVb05VUFZGQ0hZMDIzQU1yTnhNdTlzQnogZG9uZ21pbmxlZUBEb25nbWludWktTWFjQm9va0Fpci5sb2NhbAo="

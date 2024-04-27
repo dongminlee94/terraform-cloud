@@ -122,7 +122,7 @@ $ terraform apply
 
 **EC2**
 
-The aim is to deploy an EC2 VM instance and establish an SSH connection to it. Your personal public key must be included in the code for access and should be encoded in base64 format for security. Ensure your public key is encoded and then update it at the [file path](src/aws/env/server/main.tf#L24).
+The aim is to deploy an EC2 VM instance and establish an SSH connection to it. Your personal public key must be included in the code for access and should be encoded in base64 format for security. Ensure your public key is encoded and then update it at the [file path](src/aws/env/server/main.tf#L21).
 
 ```bash
 $ base64 < ~/.ssh/id_rsa.pub
