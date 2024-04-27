@@ -16,13 +16,14 @@
 
 | Name | Type |
 |------|------|
-| [aws_autoscaling_group_tag.eks_asg_tag](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/autoscaling_group_tag) | resource |
-| [aws_autoscaling_groups.eks_asgs](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/autoscaling_groups) | data source |
+| [aws_autoscaling_group_tag.autoscaling_group_tag](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/autoscaling_group_tag) | resource |
+| [aws_eks_node_group.node_group](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/eks_node_group) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_eks_asg_tag_enable"></a> [eks\_asg\_tag\_enable](#input\_eks\_asg\_tag\_enable) | EKS Autoscaling Group Tag - enable/disable | `bool` | n/a | yes |
-| <a name="input_eks_node_group_name"></a> [eks\_node\_group\_name](#input\_eks\_node\_group\_name) | EKS Node Group - name | `string` | n/a | yes |
+| <a name="input_autoscaling_group_tag_enable"></a> [autoscaling\_group\_tag\_enable](#input\_autoscaling\_group\_tag\_enable) | Autoscaling Group Tag - enable/disable | `bool` | n/a | yes |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster - name | `string` | n/a | yes |
+| <a name="input_node_group_name"></a> [node\_group\_name](#input\_node\_group\_name) | Node Group - name | `string` | n/a | yes |
 <!-- END_TF_DOCS -->

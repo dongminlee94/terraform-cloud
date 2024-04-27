@@ -1,34 +1,34 @@
-variable "eks_subnet_names" {
+variable "subnet_names" {
   description = "Subnet - subnet names"
   type        = list(string)
 }
 
-variable "eks_cluster_enable" {
-  description = "EKS Cluster - enable/disable"
+variable "cluster_enable" {
+  description = "Cluster - enable/disable"
   type        = bool
 }
 
-variable "eks_cluster_name" {
-  description = "EKS Cluster - name"
+variable "cluster_name" {
+  description = "Cluster - name"
   type        = string
 }
 
-variable "eks_service_role_arn" {
-  description = "EKS Cluster - service role arn"
+variable "service_role_arn" {
+  description = "Cluster - service role arn"
   type        = string
 }
 
-variable "eks_cluster_version" {
-  description = "EKS Cluster - version"
+variable "cluster_version" {
+  description = "Cluster - version"
   type        = string
 }
 
-variable "eks_cluster_endpoint_public_access" {
-  description = "EKS Cluster - endpoint public access"
+variable "cluster_endpoint_public_access" {
+  description = "Cluster - endpoint public access"
   type        = bool
 }
 
-variable "eks_cluster_endpoint_private_access" {
-  description = "EKS Cluster - endpoint private access"
+variable "cluster_endpoint_private_access" {
+  description = "Cluster - endpoint private access"
   type        = bool
 }

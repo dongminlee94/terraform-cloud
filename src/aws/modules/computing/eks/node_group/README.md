@@ -16,25 +16,25 @@
 
 | Name | Type |
 |------|------|
-| [aws_eks_node_group.eks_node_group](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/eks_node_group) | resource |
+| [aws_eks_node_group.node_group](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/resources/eks_node_group) | resource |
 | [aws_subnet.subnet](https://registry.terraform.io/providers/hashicorp/aws/5.20.0/docs/data-sources/subnet) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_eks_cluster_name"></a> [eks\_cluster\_name](#input\_eks\_cluster\_name) | EKS Cluster - name | `string` | n/a | yes |
-| <a name="input_eks_node_group_ami"></a> [eks\_node\_group\_ami](#input\_eks\_node\_group\_ami) | EKS Node Group - AMI | `string` | n/a | yes |
-| <a name="input_eks_node_group_desired_size"></a> [eks\_node\_group\_desired\_size](#input\_eks\_node\_group\_desired\_size) | EKS Node Group - desired size | `number` | n/a | yes |
-| <a name="input_eks_node_group_disk_size"></a> [eks\_node\_group\_disk\_size](#input\_eks\_node\_group\_disk\_size) | EKS Node Group - disk size | `string` | n/a | yes |
-| <a name="input_eks_node_group_enable"></a> [eks\_node\_group\_enable](#input\_eks\_node\_group\_enable) | EKS Node Group - enable/disable | `bool` | n/a | yes |
-| <a name="input_eks_node_group_instance_types"></a> [eks\_node\_group\_instance\_types](#input\_eks\_node\_group\_instance\_types) | EKS Node Group - instance type | `list(string)` | n/a | yes |
-| <a name="input_eks_node_group_max_size"></a> [eks\_node\_group\_max\_size](#input\_eks\_node\_group\_max\_size) | EKS Node Group - max size | `number` | n/a | yes |
-| <a name="input_eks_node_group_max_unavailable"></a> [eks\_node\_group\_max\_unavailable](#input\_eks\_node\_group\_max\_unavailable) | EKS Node Group - max unavailable | `number` | n/a | yes |
-| <a name="input_eks_node_group_min_size"></a> [eks\_node\_group\_min\_size](#input\_eks\_node\_group\_min\_size) | EKS Node Group - min size | `number` | n/a | yes |
-| <a name="input_eks_node_group_name"></a> [eks\_node\_group\_name](#input\_eks\_node\_group\_name) | EKS Node Group - name | `string` | n/a | yes |
-| <a name="input_eks_node_role_arn"></a> [eks\_node\_role\_arn](#input\_eks\_node\_role\_arn) | EKS Node Group - node role arn | `string` | n/a | yes |
-| <a name="input_eks_subnet_names"></a> [eks\_subnet\_names](#input\_eks\_subnet\_names) | Subnet - subnet names | `list(string)` | n/a | yes |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster - name | `string` | n/a | yes |
+| <a name="input_node_group_ami"></a> [node\_group\_ami](#input\_node\_group\_ami) | Node Group - AMI | `string` | n/a | yes |
+| <a name="input_node_group_desired_size"></a> [node\_group\_desired\_size](#input\_node\_group\_desired\_size) | Node Group - desired size | `number` | n/a | yes |
+| <a name="input_node_group_disk_size"></a> [node\_group\_disk\_size](#input\_node\_group\_disk\_size) | Node Group - disk size | `string` | n/a | yes |
+| <a name="input_node_group_enable"></a> [node\_group\_enable](#input\_node\_group\_enable) | Node Group - enable/disable | `bool` | n/a | yes |
+| <a name="input_node_group_instance_types"></a> [node\_group\_instance\_types](#input\_node\_group\_instance\_types) | Node Group - instance type | `list(string)` | n/a | yes |
+| <a name="input_node_group_max_size"></a> [node\_group\_max\_size](#input\_node\_group\_max\_size) | Node Group - max size | `number` | n/a | yes |
+| <a name="input_node_group_max_unavailable"></a> [node\_group\_max\_unavailable](#input\_node\_group\_max\_unavailable) | Node Group - max unavailable | `number` | n/a | yes |
+| <a name="input_node_group_min_size"></a> [node\_group\_min\_size](#input\_node\_group\_min\_size) | Node Group - min size | `number` | n/a | yes |
+| <a name="input_node_group_name"></a> [node\_group\_name](#input\_node\_group\_name) | Node Group - name | `string` | n/a | yes |
+| <a name="input_node_role_arn"></a> [node\_role\_arn](#input\_node\_role\_arn) | Node Group - node role arn | `string` | n/a | yes |
+| <a name="input_subnet_names"></a> [subnet\_names](#input\_subnet\_names) | Subnet - subnet names | `list(string)` | n/a | yes |
 
 ## Outputs
 

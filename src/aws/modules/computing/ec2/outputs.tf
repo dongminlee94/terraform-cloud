@@ -1,3 +1,3 @@
 output "instance_id" {
-  value = var.ec2_enable ? aws_instance.ec2_instance[0].id : ""
+  value = var.instance_enable ? aws_instance.instance[0].id : ""
 }

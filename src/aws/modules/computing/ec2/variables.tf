@@ -1,12 +1,6 @@
-variable "subnet_name" {
-  description = "Subnet - name"
-  type        = string
-}
-
-variable "sg_name" {
-  description = "Security Group - name"
-  type        = string
-}
+#################################################
+# Key Pair
+#################################################
 
 variable "key_pair_enable" {
   description = "Key Pair - enable/disable"
@@ -23,50 +17,68 @@ variable "key_pair_public_key" {
   type        = string
 }
 
-variable "ec2_enable" {
-  description = "EC2 - enable/disable"
+#################################################
+# Instance
+#################################################
+
+variable "instance_enable" {
+  description = "Instance - enable/disable"
   type        = bool
 }
 
-variable "ec2_ami" {
-  description = "EC2 - AMI ID"
+variable "instance_sg_name" {
+  description = "Security Group - name"
   type        = string
 }
 
-variable "ec2_instance_type" {
-  description = "EC2 - VM instance type"
+variable "instance_profile_name" {
+  description = "Instance - profile name"
   type        = string
 }
 
-variable "ec2_volume_size" {
-  description = "EC2 - VM instance volume size"
+variable "instance_type" {
+  description = "Instance - type"
+  type        = string
+}
+
+variable "instance_subnet_name" {
+  description = "Instance - subnet name"
+  type        = string
+}
+
+variable "instance_ami" {
+  description = "Instance - AMI id"
+  type        = string
+}
+
+variable "instance_monitoring" {
+  description = "Instance - monitoring details enable/disable"
+  type        = bool
+}
+
+variable "instance_disable_api_termination" {
+  description = "Instance - shutdown protection enable/disable"
+  type        = bool
+}
+
+variable "instance_initiated_shutdown_behavior" {
+  description = "Instance - shutdown protection enable/disable"
+  type        = string
+}
+
+variable "instance_volume_size" {
+  description = "Instance - volume size"
   type        = number
 }
 
-variable "ec2_instance_name" {
-  description = "EC2 - VM instance name"
+variable "instance_name" {
+  description = "Instance - name"
   type        = string
 }
 
-variable "ec2_iam_profile_name" {
-  description = "EC2 - IAM profile name"
-  type        = string
-}
-
-variable "ec2_monitoring" {
-  description = "EC2 - monitoring details activation/deactivation"
-  type        = bool
-}
-
-variable "ec2_dat" {
-  description = "EC2 - protection against accidental EC2 termination via AWS API calls"
-  type        = bool
-}
-
-variable "ec2_instance_isb" {
-  description = "EC2 - defines the behavior when an OS-level shutdown is performed within the EC2 instance"
-  type        = string
-}
+#################################################
+# Data Lifecycle Manager
+#################################################
 
 variable "dlm_enable" {
   description = "Data Lifecycle Manager - enable/disable"
@@ -78,8 +90,8 @@ variable "dlm_description" {
   type        = string
 }
 
-variable "dlm_ec2_role_arn" {
-  description = "Data Lifecycle Manager - EC2 IAM role arn"
+variable "dlm_role_arn" {
+  description = "Data Lifecycle Manager - role arn"
   type        = string
 }
 
@@ -116,14 +128,4 @@ variable "dlm_schedule_times" {
 variable "dlm_schedule_count" {
   description = "Data Lifecycle Manager - schedule count"
   type        = number
-}
-
-variable "dlm_schedule_tags_to_add" {
-  description = "Data Lifecycle Manager - schedule tags to add"
-  type        = string
-}
-
-variable "dlm_schedule_copy_tags" {
-  description = "Data Lifecycle Manager - schedule copy tags"
-  type        = bool
 }

@@ -5,39 +5,39 @@ resource "aws_key_pair" "key_pair" {
   public_key = base64decode(var.key_pair_public_key)
 }
 
-resource "aws_instance" "ec2_instance" {
-  count = var.ec2_enable ? 1 : 0
+resource "aws_instance" "instance" {
+  count = var.instance_enable ? 1 : 0
 
   subnet_id              = data.aws_subnet.subnet.id
-  vpc_security_group_ids = [data.aws_security_group.sg.id]
+  vpc_security_group_ids = [data.aws_security_group.security_group.id]
 
-  ami           = var.ec2_ami
-  instance_type = var.ec2_instance_type
+  ami           = var.instance_ami
+  instance_type = var.instance_type
 
   root_block_device {
-    volume_size = var.ec2_volume_size
+    volume_size = var.instance_volume_size
     tags = {
-      Name = var.ec2_instance_name
+      Name = var.instance_name
     }
   }
 
   key_name             = aws_key_pair.key_pair[0].key_name
-  iam_instance_profile = var.ec2_iam_profile_name
+  iam_instance_profile = var.instance_profile_name
 
-  monitoring                           = var.ec2_monitoring
-  disable_api_termination              = var.ec2_dat
-  instance_initiated_shutdown_behavior = var.ec2_instance_isb
+  monitoring                           = var.instance_monitoring
+  disable_api_termination              = var.instance_disable_api_termination
+  instance_initiated_shutdown_behavior = var.instance_initiated_shutdown_behavior
 
   tags = {
-    Name = var.ec2_instance_name
+    Name = var.instance_name
   }
 }
 
-resource "aws_dlm_lifecycle_policy" "ebs_snapshot_backup" {
+resource "aws_dlm_lifecycle_policy" "dlm" {
   count = var.dlm_enable ? 1 : 0
 
   description        = var.dlm_description
-  execution_role_arn = var.dlm_ec2_role_arn
+  execution_role_arn = var.dlm_role_arn
   state              = var.dlm_state
 
   policy_details {
@@ -55,16 +55,10 @@ resource "aws_dlm_lifecycle_policy" "ebs_snapshot_backup" {
       retain_rule {
         count = var.dlm_schedule_count
       }
-
-      tags_to_add = {
-        Purpose = var.dlm_schedule_tags_to_add
-      }
-
-      copy_tags = var.dlm_schedule_copy_tags
     }
 
     target_tags = {
-      Name = var.ec2_instance_name
+      Name = var.instance_name
     }
   }
 }

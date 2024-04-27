@@ -38,39 +38,42 @@ module "iam_nodes_role" {
 module "eks_cluster" {
   source = "../../modules/computing/eks/cluster"
 
-  eks_subnet_names = ["private-subnet-0", "private-subnet-1", "private-subnet-2"]
+  subnet_names = ["private-subnet-0", "private-subnet-1", "private-subnet-2"]
 
-  eks_cluster_enable                  = true
-  eks_cluster_name                    = "eks-cluster"
-  eks_service_role_arn                = module.iam_service_role.iam_role_arn
-  eks_cluster_version                 = "1.29"
-  eks_cluster_endpoint_public_access  = true
-  eks_cluster_endpoint_private_access = true
+  cluster_enable                  = true
+  cluster_name                    = "eks-cluster"
+  service_role_arn                = module.iam_service_role.iam_role_arn
+  cluster_version                 = "1.29"
+  cluster_endpoint_public_access  = true
+  cluster_endpoint_private_access = true
 }
 
 module "eks_node_group" {
   source = "../../modules/computing/eks/node_group"
 
-  eks_subnet_names = ["private-subnet-0", "private-subnet-1", "private-subnet-2"]
-  eks_cluster_name = module.eks_cluster.eks_cluster_name
+  subnet_names = ["private-subnet-0", "private-subnet-1", "private-subnet-2"]
+  cluster_name = module.eks_cluster.eks_cluster_name
 
-  eks_node_group_enable = true
-  eks_node_group_name   = "eks-node-group"
-  eks_node_role_arn     = module.iam_nodes_role.iam_role_arn
+  node_group_enable = true
+  node_group_name   = "eks-node-group"
+  node_role_arn     = module.iam_nodes_role.iam_role_arn
 
-  eks_node_group_ami            = "AL2_x86_64"
-  eks_node_group_instance_types = ["m6a.xlarge"]
-  eks_node_group_disk_size      = 50
+  node_group_ami            = "AL2_x86_64"
+  node_group_instance_types = ["m6a.xlarge"]
+  node_group_disk_size      = 50
 
-  eks_node_group_desired_size    = 0
-  eks_node_group_min_size        = 0
-  eks_node_group_max_size        = 5
-  eks_node_group_max_unavailable = 1
+  node_group_desired_size    = 0
+  node_group_min_size        = 0
+  node_group_max_size        = 5
+  node_group_max_unavailable = 1
 }
 
-module "eks_autoscaling_group" {
+module "autoscaling_group" {
   source = "../../modules/computing/eks/autoscaling_group"
 
-  eks_asg_tag_enable  = true
-  eks_node_group_name = module.eks_node_group.eks_node_group_name
+  autoscaling_group_tag_enable = true
+  cluster_name                 = module.eks_cluster.eks_cluster_name
+  node_group_name              = module.eks_node_group.eks_node_group_name
+
+  depends_on = [module.eks_node_group]
 }

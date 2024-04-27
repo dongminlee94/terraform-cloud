@@ -1,13 +1,10 @@
 data "aws_subnet" "subnet" {
   filter {
     name   = "tag:Name"
-    values = [var.subnet_name]
+    values = [var.instance_subnet_name]
   }
 }
 
-data "aws_security_group" "sg" {
-  filter {
-    name   = "tag:Name"
-    values = [var.sg_name]
-  }
+data "aws_security_group" "security_group" {
+  name = var.instance_sg_name
 }
