@@ -26,6 +26,11 @@ variable "instance_enable" {
   type        = bool
 }
 
+variable "instance_subnet_name" {
+  description = "Subnet - name"
+  type        = string
+}
+
 variable "instance_sg_name" {
   description = "Security Group - name"
   type        = string
@@ -36,19 +41,29 @@ variable "instance_profile_name" {
   type        = string
 }
 
+variable "instance_ami" {
+  description = "Instance - AMI id"
+  type        = string
+}
+
 variable "instance_type" {
   description = "Instance - type"
   type        = string
 }
 
-variable "instance_subnet_name" {
-  description = "Instance - subnet name"
-  type        = string
+variable "instance_volume_size" {
+  description = "Instance - volume size"
+  type        = number
 }
 
-variable "instance_ami" {
-  description = "Instance - AMI id"
-  type        = string
+variable "instance_ebs_optimized" {
+  description = "Instance - ebs optimized enable/disable"
+  type        = bool
+}
+
+variable "instance_user_data_enable" {
+  description = "Instance - user data enable/disable"
+  type        = bool
 }
 
 variable "instance_monitoring" {
@@ -64,11 +79,6 @@ variable "instance_disable_api_termination" {
 variable "instance_initiated_shutdown_behavior" {
   description = "Instance - shutdown protection enable/disable"
   type        = string
-}
-
-variable "instance_volume_size" {
-  description = "Instance - volume size"
-  type        = number
 }
 
 variable "instance_name" {

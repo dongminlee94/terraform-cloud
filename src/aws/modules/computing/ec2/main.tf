@@ -10,19 +10,20 @@ resource "aws_instance" "instance" {
 
   subnet_id              = data.aws_subnet.subnet.id
   vpc_security_group_ids = [data.aws_security_group.security_group.id]
+  iam_instance_profile   = var.instance_profile_name
 
+  key_name      = aws_key_pair.key_pair[0].key_name
   ami           = var.instance_ami
   instance_type = var.instance_type
 
   root_block_device {
     volume_size = var.instance_volume_size
-    tags = {
-      Name = var.instance_name
-    }
   }
 
-  key_name             = aws_key_pair.key_pair[0].key_name
-  iam_instance_profile = var.instance_profile_name
+  ebs_optimized = var.instance_ebs_optimized
+
+  user_data                   = var.instance_user_data_enable ? file("${path.module}/init.sh") : ""
+  user_data_replace_on_change = var.instance_user_data_enable
 
   monitoring                           = var.instance_monitoring
   disable_api_termination              = var.instance_disable_api_termination

@@ -38,14 +38,16 @@
 | <a name="input_dlm_state"></a> [dlm\_state](#input\_dlm\_state) | Data Lifecycle Manager - state | `string` | n/a | yes |
 | <a name="input_instance_ami"></a> [instance\_ami](#input\_instance\_ami) | Instance - AMI id | `string` | n/a | yes |
 | <a name="input_instance_disable_api_termination"></a> [instance\_disable\_api\_termination](#input\_instance\_disable\_api\_termination) | Instance - shutdown protection enable/disable | `bool` | n/a | yes |
+| <a name="input_instance_ebs_optimized"></a> [instance\_ebs\_optimized](#input\_instance\_ebs\_optimized) | Instance - ebs optimized enable/disable | `bool` | n/a | yes |
 | <a name="input_instance_enable"></a> [instance\_enable](#input\_instance\_enable) | Instance - enable/disable | `bool` | n/a | yes |
 | <a name="input_instance_initiated_shutdown_behavior"></a> [instance\_initiated\_shutdown\_behavior](#input\_instance\_initiated\_shutdown\_behavior) | Instance - shutdown protection enable/disable | `string` | n/a | yes |
 | <a name="input_instance_monitoring"></a> [instance\_monitoring](#input\_instance\_monitoring) | Instance - monitoring details enable/disable | `bool` | n/a | yes |
 | <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | Instance - name | `string` | n/a | yes |
 | <a name="input_instance_profile_name"></a> [instance\_profile\_name](#input\_instance\_profile\_name) | Instance - profile name | `string` | n/a | yes |
 | <a name="input_instance_sg_name"></a> [instance\_sg\_name](#input\_instance\_sg\_name) | Security Group - name | `string` | n/a | yes |
-| <a name="input_instance_subnet_name"></a> [instance\_subnet\_name](#input\_instance\_subnet\_name) | Instance - subnet name | `string` | n/a | yes |
+| <a name="input_instance_subnet_name"></a> [instance\_subnet\_name](#input\_instance\_subnet\_name) | Subnet - name | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Instance - type | `string` | n/a | yes |
+| <a name="input_instance_user_data_enable"></a> [instance\_user\_data\_enable](#input\_instance\_user\_data\_enable) | Instance - user data enable/disable | `bool` | n/a | yes |
 | <a name="input_instance_volume_size"></a> [instance\_volume\_size](#input\_instance\_volume\_size) | Instance - volume size | `number` | n/a | yes |
 | <a name="input_key_pair_enable"></a> [key\_pair\_enable](#input\_key\_pair\_enable) | Key Pair - enable/disable | `bool` | n/a | yes |
 | <a name="input_key_pair_name"></a> [key\_pair\_name](#input\_key\_pair\_name) | Key Pair - name | `string` | n/a | yes |

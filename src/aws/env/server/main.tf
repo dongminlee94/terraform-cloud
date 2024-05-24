@@ -21,22 +21,25 @@ module "ec2" {
   key_pair_public_key = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtvMEhtUWVOd3NyUWFJbnFBL2pVb05VUFZGQ0hZMDIzQU1yTnhNdTlzQnogZG9uZ21pbmxlZUBEb25nbWludWktTWFjQm9va0Fpci5sb2NhbAo="
 
   instance_enable       = true
+  instance_subnet_name  = "public-subnet-0"
   instance_sg_name      = "sg"
   instance_profile_name = module.iam_role.instance_profile_name
 
-  instance_type        = "t2.medium"
-  instance_subnet_name = "public-subnet-0"
+  instance_ami  = "ami-07d6bd9a28134d3b3" # Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type
+  instance_type = "t3.medium"
 
-  instance_ami                         = "ami-0ed99df77a82560e6"
+  instance_volume_size   = 50
+  instance_ebs_optimized = true
+
+  instance_user_data_enable = true
+
   instance_monitoring                  = true
   instance_disable_api_termination     = true
   instance_initiated_shutdown_behavior = "stop"
 
-  instance_volume_size = 50
-
   instance_name = "ec2-instance"
 
-  dlm_enable      = true
+  dlm_enable      = false
   dlm_description = "EBS backup of EC2 instance"
   dlm_role_arn    = module.iam_role.iam_role_arn
   dlm_state       = "ENABLED"
