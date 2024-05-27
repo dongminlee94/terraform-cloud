@@ -39,7 +39,7 @@ module "ec2" {
 
   instance_name = "ec2-instance"
 
-  dlm_enable      = false
+  dlm_enable      = true
   dlm_description = "EBS backup of EC2 instance"
   dlm_role_arn    = module.iam_role.iam_role_arn
   dlm_state       = "ENABLED"
